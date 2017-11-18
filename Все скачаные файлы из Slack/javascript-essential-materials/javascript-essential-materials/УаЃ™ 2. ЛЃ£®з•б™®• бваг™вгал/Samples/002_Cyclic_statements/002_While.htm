@@ -1,0 +1,32 @@
+﻿<!--
+
+    Циклическая конструкция - while.
+
+-->
+
+<html>
+<head>
+    <title>Циклическая конструкция - while</title>
+
+    <script type="text/javascript">
+
+        var counter = 0;
+
+        while (counter < 30000000) {
+            counter++;
+            document.write("<p>Counter " + counter);
+            if (counter == '10000') {
+                break;
+            }
+            document.write("Эта строка не выполнится.");
+        }
+
+
+        document.write("<p>Произведено " + counter + " итераций.");
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

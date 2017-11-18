@@ -1,0 +1,28 @@
+﻿<!--
+
+            Вложенные Функции.
+
+-->
+
+<html>
+<head>
+    <title>Вложенные функции</title>
+
+    <script type="text/javascript">
+
+        function outer() {
+            inner();
+            function inner() { 
+                document.write("<p style='background-color:lightblue;'>Inner Function");
+            }
+            inner(); 
+        }
+        outer();    
+        // inner(); 
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

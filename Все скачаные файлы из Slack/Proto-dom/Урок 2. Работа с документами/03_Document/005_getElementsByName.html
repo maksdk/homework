@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>getElementsByName</title>
+    <script type="text/javascript">
+        
+        window.onload = function () {
+
+            document.getElementById("answerButton").onclick = function () {
+
+                var radioButtons = document.getElementsByName("answer");
+                console.log(radioButtons);
+
+                var res = "";
+                for (var i = 0; i < radioButtons.length; i++) {
+                    res += radioButtons[i].value + " " + radioButtons[i].checked + "\r\n";
+                }
+                console.log(res)
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    Да<input type="radio" name="answer" value="Да" />
+    Нет<input type="radio" name="answer" value="Нет" />
+    Не знаю<input type="radio" name="answer" value="Не знаю" />
+
+    <input id="answerButton" type="button" value="Получить ответ" />
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!--
+
+    Циклическая конструкция - while.
+
+-->
+
+<html>
+<head>
+    <title>Циклическая конструкция - while</title>
+
+    <script type="text/javascript">
+    	var a , b , oper;
+         a = +prompt('ENter a ');
+         b = +prompt('ENter b ');
+         oper = propmt("Enter one of oper + - / *");
+
+
+         console.log(a, b);
+
+
+        while ( isNaN(a) || isNaN(b)) {
+        	alert('Wrong variable format. Need to be the number');
+        	 a = +prompt('Enter a ');
+        	 b = +prompt('Enter b ');
+        }
+        var result = a + b;
+        document.write('result = ', result);
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

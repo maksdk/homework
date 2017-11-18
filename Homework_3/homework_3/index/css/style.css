@@ -1,0 +1,809 @@
+.conteiner {
+	width: 940px;
+	margin: 0 auto;
+	padding-bottom: 70px;
+	/*outline: 1px solid red;*/
+}
+
+.title {
+	font:40px Arial, sans-serif;
+	color: #222222;
+	font-weight: bold;
+	padding-top: 115px;
+	padding-bottom: 8px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.subtitle {
+	font:16px;
+	text-align: center;
+	color: #777777;
+	margin-bottom: 75px;
+}
+
+.clear {
+	clear: both;
+}
+
+
+
+
+
+
+/*...................................................................
+						
+							HOME
+ 
+...................................................................*/
+.home {
+	width: 1400px;
+	height: 700px;
+
+	margin: 0 auto;
+
+	background-image: url(../images/Background-Image.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: #222222;
+
+	text-align: center;
+	color: #ffffff;
+}
+
+
+
+/*HEADER*/
+.header {
+	padding-top: 48px;
+
+}
+
+.logo-header a {
+	width: 79px;
+	height: 28px;
+	display: block;
+	cursor: pointer;
+	background-image: url(../images/logo-header.png);
+	float: left;
+}
+
+.menu-header ul {
+	margin: 0;
+	padding: 0;
+}
+
+.menu-header ul li {
+	float: right;
+	margin-right: 43px;
+	list-style-type: none;
+}
+
+.header:after{
+	clear:both;
+	content:"";
+	display: table;
+	/*После того как мы применили  float: left для колонок, то контейнер в
+	котором они находяться (.conteiner) неможет их коректно обернуть.
+	здесь делаем сбро оптекания. 
+	clear:both; - очистить слева и справа.
+	content:""; - без этого псевдоэлемент не отобразиться на странице.
+	display: table; - для коректного отображения в старых и новых браузерах.*/
+}
+
+.menu-header ul li:first-child {
+	margin-right: 0;
+}
+
+.menu-header ul li a {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+	color: #ffffff;
+	font: 14px Arial, sans-serif;
+	text-transform: uppercase;
+	padding-top: 7px;
+}
+
+.menu-header ul li a:hover {
+	color:#2ac6c6;
+}
+
+
+/*Приветствие*/
+.welcom {
+	font: 40px Arial, sans-serif;
+	text-transform: capitalize;
+	margin-bottom: 29px;
+	margin-top: 199px;
+}
+
+.hello {
+	font: 75px Arial, sans-serif;
+	text-transform: uppercase;
+	margin-bottom: 45px;
+}
+
+
+
+/*Button-header*/
+
+.button-header a {
+	display: block;
+	cursor: pointer;
+	width: 240px;
+	height: 65px;
+	background-image: url(../images/Button-header.png);
+
+	font: bold 24px Arial, sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #ffffff;
+	line-height: 65px;
+	margin: 0 auto;
+}
+
+			
+
+/*...................................................................
+						
+							Services 
+ 
+...................................................................*/
+.services {
+	width: 1400px;
+	margin: 0 auto;
+	background-color: #FFF;
+	/*outline: 1px solid blue;*/
+}
+
+
+.services-column {
+	width: 290px;
+	margin-right: 35px;
+	margin-bottom: 20px;
+	float: left;
+	text-align: center;
+
+	/*outline: 1px solid red;*/
+}
+
+.services-column:last-child { 
+	margin-right: 0px;
+	 /*Это псевдокласс. Использывал для того чтобы у	
+	последней колонки 
+	не было margin-right: 35px;. Т.к. колонки не влазили
+	в контейнер*/		
+}
+
+.services-row:after{
+	clear:both;
+	content:"";
+	display: table;
+	/*После того как мы применили  float: left для колонок, то контейнер в
+	котором они находяться (.conteiner) неможет их коректно обернуть.
+	здесь делаем сбро оптекания. 
+	clear:both; - очистить слева и справа.
+	content:""; - без этого псевдоэлемент не отобразиться на странице.
+	display: table; - для коректного отображения в старых и новых браузерах.*/
+}
+
+
+
+.services-column-icon {
+	margin-bottom: 17px;
+}
+
+.services-column-title {
+	font: 18px Arial, sans-serif;
+	font-weight: bold;
+	color: #222222;
+
+}
+
+.services-column-description {
+ 	font:18px Times New Roman;
+ 	color: #777777;
+ 	line-height: 1.4; 
+}
+
+.services-column-description p {
+ 	margin-top: 11px;
+}
+
+.services-column-title a {
+	text-decoration: none;
+	color: #222222;
+	cursor: pointer;
+}
+
+.services-column-title a:hover {
+	color: #59c5e8;
+	/*псевдокласс для смены цвета при навидении мышью*/
+}
+
+
+
+
+/*...................................................................
+						
+							Portfolio 
+
+...................................................................*/
+.portfolio {
+	width: 1400px;
+	margin: 0 auto;
+	background-color: #f7f7f7;
+	/*outline: 1px solid red;*/
+}
+
+.portfolio-title {
+	font:40px Arial, sans-serif;
+	color: #222222;
+	font-weight: bold;
+	padding-top: 115px;
+	padding-bottom: 8px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.portfolio-subtitle {
+	font:16px Times New Roman;
+	text-align: center;
+	color: #777777;
+	margin-bottom: 75px;
+}
+
+.portfolio-item {
+	width: 290px;
+	margin-right: 35px;
+	margin-bottom: 50px;
+	padding-bottom: 10px;
+	float: left;
+	text-align: center;
+	background-color: #ffffff;
+	/*outline: 1px solid blue;*/
+}
+
+.portfolio-row1, .portfolio-row2:after{
+	clear:both;
+	content:"";
+	display: table;
+	/*После того как мы применили  float: left для колонок, то контейнер в
+	котором они находяться (.conteiner) неможет их коректно обернуть.
+	здесь делаем сбро оптекания. 
+	clear:both; - очистить слева и справа.
+	content:""; - без этого псевдоэлемент не отобразиться на странице.
+	display: table; - для коректного отображения в старых и новых браузерах.*/
+}
+
+.portfolio-item:last-child { 
+	margin-right: 0px;
+	 /*Это псевдокласс. Использывал для того чтобы у	
+	последней колонки 
+	не было margin-right: 35px;. Т.к. колонки не влазили
+	в контейнер*/		
+}
+
+.portfolio-item-title {
+	font: 18px Arial, sans-serif;
+	font-weight: bold;
+	color: #222222;
+	margin-top: 24px;
+    margin-bottom: 3px;
+}
+
+.portfolio-item-description p {
+	font:14px Times New Roman;
+ 	color: #777777;
+ 	margin-top:0;
+ 	
+}
+
+.portfolio-item-title a {
+	text-decoration: none;
+	color: #222222;
+	cursor: pointer;
+}
+
+.portfolio-item-title a:hover {
+	color: #59c5e8;
+	/*псевдокласс для смены цвета при навидении мышью*/
+}
+
+
+
+/*...................................................................
+						
+							about-us 
+
+...................................................................*/
+.about-us {
+	width: 1400px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	/*outline: 1px solid blue;*/
+
+}
+
+.vertical-line {
+	width: 2px;
+	height: 92px;
+	margin: 0 auto;
+}
+
+
+
+
+/*..........Первая строка...........
+..................................*/
+
+.row1 {
+				
+	height: 183px;
+	/*outline: 1px solid blue;*/
+}
+
+.row1-text {
+	width: 338px;
+	float: left;
+	text-align: right;
+	/*outline: 1px solid blue;*/
+}
+
+.row1-text h3 {
+	font: 18px Arial, sans-serif;
+	font-weight: bold;
+	color: #222222;
+}
+
+.row1-text h3 span {
+	text-transform: uppercase;
+}
+
+.row1-text p {
+	font:16px Times New Roman;
+	color: #777777;
+}
+
+.row1-img img {
+	padding-top: 1px;
+	padding-left: 40px;
+	/*outline: 1px solid blue;*/
+}
+	
+
+
+/*..........Вторая строка...........
+..................................*/
+
+.row2 {
+	height: 183px;
+	/*outline: 1px solid blue;*/
+ }
+
+.row2-text {
+	width: 338px;
+	float: right;
+	text-align: left;
+}
+
+.row2-text h3 {
+	font: 18px Arial, sans-serif;
+	font-weight: bold;
+	color: #222222;
+}
+.row2-text h3 span {
+	text-transform: uppercase;
+}
+
+.row2-text p {
+	font:16px Times New Roman;
+	color: #777777;
+}
+
+.row2-img img {
+	float: right;
+	padding-top: 1px;
+	padding-right : 40px;
+	/*outline: 1px solid blue;*/
+}
+
+
+
+
+/*..........Третья строка...........
+..................................*/
+
+.row3 {
+				
+	height: 183px;
+	/*outline: 1px solid blue;*/
+}
+
+.row3-text {
+	width: 338px;
+	float: left;
+	text-align: right;
+	/*outline: 1px solid blue;*/
+}
+
+.row3-text h3 {
+	font: 18px Arial, sans-serif;
+	font-weight: bold;
+	color: #222222;
+}
+
+.row1-text h3 span {
+	text-transform: uppercase;
+}
+
+.row3-text p {
+	font:16px Times New Roman;
+	color: #777777;
+}
+
+.row3-img img {
+	padding-top: 1px;
+	padding-left: 40px;
+}
+
+
+/*..........Четвертая строка...........
+.................................*/
+.row4 {
+	height: 183px;
+ }
+
+.row4-text {
+	width: 338px;
+	float: right;
+	text-align: left;
+}
+
+.row4-text h3 {
+	font: 18px Arial, sans-serif;
+	font-weight: bold;
+	color: #222222;
+}
+.row4-text h3 span {
+	text-transform: uppercase;
+}
+
+.row4-text p {
+	font:16px Times New Roman;
+	color: #777777;
+}
+
+.row4-img img {
+	float: right;
+	padding-right : 40px;
+}
+		
+
+/*..........Пятая строка...........
+.................................*/
+		
+.row5 {
+	width: 183px;
+	margin: 0 auto;
+}
+
+.row5-our-story a {
+	display: inline-block;
+	width: 169px;
+	height: 169px;
+	border: 7px solid #f1f1f1;
+	border-radius: 50%;
+	background-color: #fed136;
+	text-align: center;
+	text-decoration: none;
+	font: bold 18px/29px Arial, sans-serif;
+	color: #ffffff;
+	text-transform: uppercase;
+	margin-bottom: 50px;
+}
+
+.row5-our-story p {
+	padding-top: 17px;
+}
+
+
+/*...................................................................
+						
+							our amazing team
+
+...................................................................*/
+.our-amazing-team {
+	width: 1400px;
+	margin: 0 auto;
+	background-color: #f9f9f9;
+	/*outline: 1px solid yellow;*/
+}
+
+.team-row {
+	width: 750px;
+	margin: 0 auto;
+	/*outline: 1px solid blue;*/
+}
+
+
+.team-row:after{
+	clear:both;
+	content:"";
+	display: table;
+}
+
+
+.team {
+	width: 220px;
+	text-align: center;
+	float: left;
+	margin-right: 45px;
+}
+
+.team:last-child { 
+	margin-right: 0px;
+}
+
+.team-photo {
+	width: 206px;
+	height: 206px;
+	border: 7px solid #ffffff;
+	border-radius: 50%;
+	background-color: #222222;
+}
+
+.team-name h4 {
+	font: bold 16px Arial, sans-serif;
+	color: #222222;
+	margin-top: 18px;
+	margin-bottom: 6px;
+}
+
+.team-profession p {
+	font:  14px Arial, sans-serif;
+	color: #777777;
+	margin-top: 8px;
+}
+
+.social {
+	width: 140px;
+	margin: 0 auto;
+
+}
+
+.twitter-team  {
+	display: block;
+	width: 41px;
+	height: 41px;
+	background-image: url(../images/twitter-icon.png);
+	float: left;
+	margin-right: 8px;
+}
+
+.twitter-team:hover {
+	background-image: url(../images/twitter-icon-hover.png);
+}
+
+.facebook-team  {
+	display: block;
+	width: 41px;
+	height: 41px;
+	background-image: url(../images/facebook-icon.png);
+	float: left;
+	margin-right: 8px;
+}
+
+.facebook-team:hover {
+	background-image: url(../images/facebook-icon-hover.png);
+}
+
+.pinteres-team  {
+	display: block;
+	width: 41px;
+	height: 41px;
+	background-image: url(../images/pinteres-icon.png);
+	float: left;
+}
+
+.pinteres-team:hover {
+	background-image: url(../images/pinteres-icon-hover.png);
+}
+
+.google-team {
+	display: block;
+	width: 41px;
+	height: 41px;
+	background-image: url(../images/google-icon.png);
+	float: left;
+}
+
+.google-team:hover {
+	background-image: url(../images/google-icon-hover.png);
+}
+
+.social-ukumason {
+	width: 92px;
+	margin: 0 auto;
+}
+
+.team-description {
+	font:16px Times New Roman;
+	text-align: center;
+	color: #777777;
+	margin-bottom: 42px;
+	margin-top: 52px;
+}
+
+
+/*...................................................................
+						
+							logos
+
+...................................................................*/
+.logos {
+	width: 1400px;
+	background-color: #ffffff;
+	margin: 0 auto;
+}
+
+.logos-conteiner {
+	width: 710px;
+	margin: 0 auto;
+}
+
+.logos-conteiner div{
+	float: left;
+	margin-right: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.logos-conteiner:after{
+	clear:both;
+	content:"";
+	display: table;	
+}
+
+.logos-conteiner div:last-child { 
+	margin-right: 0px;			
+}
+
+
+/*...................................................................
+						
+							Contact
+
+...................................................................*/
+
+.contact {
+	width: 1400px;
+	margin: 0 auto;
+	background-image: url(../image/map.png);
+}
+
+.title-contact {
+	font:40px Arial, sans-serif;
+	color: #ffffff;
+	font-weight: bold;
+	padding-top: 115px;
+	padding-bottom: 8px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.input {
+	float: left;
+}
+
+.input input {
+	 width: 455px;
+	 height: 48px;
+	 border-radius: 4px;
+	 border-color: #222222;
+	 margin-bottom: 30px;
+	 margin-right: 15px;
+	 font: bold 14px Arial, sans-serif;
+	color: #cacaca;
+	text-transform: uppercase;
+}
+
+.input textarea {
+	width: 455px;
+	height: 199px;
+	border-radius: 4px;
+	border-color: #222222;
+	font: bold 14px Arial, sans-serif;
+	color: #cacaca;
+	text-transform: uppercase;
+	padding-top: 18px;
+}
+
+.button-contact input {
+	width: 240px;
+	height: 65px;
+	background-color: #fed136;
+	border-radius: 4px;
+	border-color: #222222;
+	border-color:transparent;
+	margin-left: 37%;
+	margin-bottom: 46px;
+	font: bold 24px Arial, sans-serif ;
+	text-transform: uppercase;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+/*...................................................................
+						
+							Footer
+
+...................................................................*/
+.footer{
+	width: 1400px;
+	background-color: #ffffff;
+	margin: 0 auto;
+
+}
+
+.conteiner-footer {
+	width: 940px;
+	margin: 0 auto;
+}
+
+.copyright p {
+	margin: 0;
+	font: 14px Arial, sans-serif;
+	margin-right: 130px;
+	margin-top: 35px;
+	left: 0;
+	float: left;
+}
+
+.social-footer {
+	line-height: 125px;
+}
+
+.social-footer a  {
+	display: block;
+	cursor: pointer;
+	width: 41px;
+	height: 40px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;		
+}
+
+a.twitter-footer {
+	background-image: url(../images/twitter-icon-footer.png);
+}
+a.twitter-footer:hover {
+	background-image: url(../images/twitter-icon-hover.png);
+}
+a.facebook-footer {
+	background-image: url(../images/facebook-icon-footer.png);
+}
+a.facebook-footer:hover {
+	background-image: url(../images/facebook-icon-hover.png);
+}
+a.pinteres-footer {
+	background-image: url(../images/pinteres-icon-footer.png);
+}
+a.pinteres-footer:hover {
+	background-image: url(../images/pinteres-icon-hover.png);
+}
+a.google-footer {
+	background-image: url(../images/google-icon-footer.png);
+	margin-right: 0;
+}
+a.google-footer:hover {
+	background-image: url(../images/google-icon-hover.png);
+}
+
+
+
+

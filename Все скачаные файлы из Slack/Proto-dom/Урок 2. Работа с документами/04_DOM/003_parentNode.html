@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Работа с узлами DOM - Свойства</title>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var e = document.getElementsByClassName("p");
+            console.log(e);
+            // parentNode - получить родительский узел для узла 'e'
+            e.parentNode.style.border = "1px solid red";
+            
+        }
+    </script>
+</head>
+<body>
+    <div>
+        Div
+        <p class="p">Paragraph</p>
+    </div>
+</body>
+</html>

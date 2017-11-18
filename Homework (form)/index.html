@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//массив где зраняться все обьекты
+		var list = [ ]; 
+		// var person = {
+		// 	name : "",
+		// 	surName : "",
+		// 	age : "",
+		// 	langs : ""
+		// };
+		var exit = false;
+
+		//Строку в масив
+		var str = "js css html";
+		var arr = str.split(" ");//разбили строку на масив
+		do {
+			var todo = +prompt ("Выберите действие: 1 - добавить человека; 2 - показать весь список");
+			switch (todo) {
+			case 1: {
+				addPerson();
+				break;
+			}
+			case 2: {
+				showPerson();
+				break;
+			}
+		}
+		
+
+		function addPerson() {
+			var person = {name:"", surName:"", age:"", langs:""};
+			person.name = prompt("Ваше имя: ");
+			person.surName = prompt("Ваша фамилия: ");
+			person.age = prompt("Ваш возраст: ");
+			person.langs = prompt("Какими языками владеете: ");
+
+			list.push(person);//добавляем данные в масив
+		}
+		//перерисовка решаеться при помощи конструкторов 
+		function showPerson() {
+			for (var index = 0; index < list.length; index++){
+				console.log(index);
+				for (property in list[index])
+					console.log("property" + property);
+				    console.log("list[index]" + list[index]);
+				    console.log("list[index]" + list[index][property]);
+			}
+			// console.log(i);
+		}
+		} while (exit)
+	</script>
+	
+</body>
+</html>

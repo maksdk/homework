@@ -1,0 +1,63 @@
+body {
+	font-size: 16px;
+	font-family:  Times New Roman, serif;
+	color: #777777;
+	line-height: 1.5;
+}
+
+.wrapper {
+	max-width: 1400px;
+	outline: 1px solid green;
+	height: 100px;
+}
+.conteiner {
+	padding-top: 40px;
+	max-width: 940px;
+	margin: 0 auto;
+	height: 90px;
+	outline: 1px solid yellow;
+	
+}
+/*.......................................
+................HOME.....................
+........................................*/
+.home {
+	background-image: url(../images/bg-home.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover; 
+	height: 700px;
+	outline: 1px solid blue;
+}	
+
+/*.......................................
+................HEADER.....................
+........................................*/
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	outline: 1px solid red;
+}
+
+.menu {
+	list-style-type: none;
+	display: flex;	
+}
+
+.menu-link {
+	font: 14px Arial, sans-serif;
+  	color: rgb( 255, 255, 255 );
+  	text-transform: uppercase;	
+}
+
+.menu-link:hover {
+	color: #4D6497;
+}
+
+.menu li {
+	margin-left: 40px;
+}
+
+

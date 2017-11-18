@@ -1,0 +1,36 @@
+﻿<!--
+
+            Тело функции - локальная область видимости.
+
+            ПРАВИЛО:     
+            Из одной локальной области видимости нельзя обращаться к переменным 
+            находящимся в другой локальной области видимости.
+
+-->
+
+<html>
+<head>
+    <title>Область видимости функции</title>
+
+    <script type="text/javascript">
+        var a = 2, b;
+
+        function A() {
+            console.log(window, window.a);
+            var a = "Локальная переменная - a";
+            console.log('A', a)
+        }
+
+        function B() {
+            console.log('b', a)
+        }
+
+        A();
+        B();
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

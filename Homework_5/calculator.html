@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS (calculator)</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var one, two, result, oper;
+		do {
+			one = +prompt("Введите число 1:");
+			two = +prompt("Введите число 2:");
+			oper = prompt ("Выбирите операцию: + - * / %");
+		}while ( isNaN(one) || isNaN(two) || oper !== "-");
+
+		function Sum(a,b) {
+			return one + two;
+		}
+
+		function Sub(a,b) {
+			return one - two;
+		}
+
+		function Div(a,b) {
+			return one * two;
+		}
+
+		function Mul(a,b) {
+			return one / two;
+		}
+
+		function Rem(a,b) {
+			return one % two;
+		}
+
+		switch (oper) {
+			case "+": 
+				{
+					result = Sum(one,two);
+					document.write (one + " + " + two + " = " + result);
+					break;
+				}
+			case "-":
+				{
+					result = Sub(one,two);
+					document.write (one + " - " + two + " = " + result);
+					break;
+				}
+			case "*":
+				{
+					result = Div(one,two);
+					document.write (one + " * " + two + " = " + result);
+					break;
+				}
+			case "/":
+				{
+					result = Mul(one,two);
+					document.write (one + " / " + two + " = " + result);
+					break;
+				}
+			case "%":
+				{
+					result = Rem(one,two);
+					document.write (one + " % " + two + " = " + result);
+					break;
+				}	
+			
+
+		}
+
+
+	</script>
+		
+		
+</body>
+</html>

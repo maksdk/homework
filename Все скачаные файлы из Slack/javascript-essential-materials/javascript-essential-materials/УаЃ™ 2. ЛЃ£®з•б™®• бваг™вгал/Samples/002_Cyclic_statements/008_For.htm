@@ -1,0 +1,35 @@
+﻿<!--
+
+        Циклическая конструкция - for (цикл со счетчиком).
+
+-->
+
+<html>
+<head>
+    <title>Циклическая конструкция for</title>
+
+    <script type="text/javascript">
+
+        // for ( Инициализация счетчика итераций; Условие; Изменение счетчика ) { Тело цикла }
+
+        for (var counter = 0; counter <= 1000; counter++ ) {
+            if (counter % 2 == 1) {
+                document.write("<p>Counter = " + counter);
+            }
+        }
+
+        // var counter = 0;
+        // while (counter < 3) {
+        //     document.write("<p>Counter = " + counter);
+        //     counter++;
+        // }
+
+        // counter - доступен за пределами цикла for.
+        document.write("<p>" + counter);
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>
