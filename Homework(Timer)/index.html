@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+	
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="timer">
+		<!-- Timer img -->
+		<div class="timer__clock">
+			<img id="clock__arrow" src="img/clock_arrow-2.png" alt="Секундомер"/>
+		</div>
+
+		<!-- Buttons -->
+		<div>
+			<p id="output" class="">00:00:00.00</p>
+			<input id="startStop" type="button" value="START/STOP" class="timer__button" />
+			<input id="lap" type="button" value="LAP" class="timer__button"/> 
+			<input id="reset" type="button" value="RESET" class="timer__button" />
+
+			<!-- Laps -->
+			<ol id="timer__lap">
+			</ol>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="js/main.js"></script>
+	
+</body>
+</html>
