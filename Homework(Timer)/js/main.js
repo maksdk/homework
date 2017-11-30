@@ -49,7 +49,7 @@ var deg = 1.5;//градусы
 				startDate = new Date();//время старта таймера
 				offOn = 1;
 				startStop.style.color = "#BE1C1C";
-				arrow = setInterval(arrowClock, 250);//пуск стрелки
+				arrow = setInterval(arrowClock, 249);//пуск стрелки
 				intervalHandler = setInterval (startTime, 10);//пуск таймера
 			} else {
 				clearInterval(arrow);//пауза стрелки
