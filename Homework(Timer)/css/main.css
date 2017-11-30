@@ -1,15 +1,139 @@
-.timer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.circle {
+	stroke-dasharray: 880;
+	stroke-dashoffset: 880;
+	animation: dash 1s linear;
+	animation-fill-mode: forwards;
+}
+@keyframes dash {
+  	from {
+    	stroke-dashoffset: 880;
+ 	}
+  	to {
+   		 stroke-dashoffset: 0;
+ 	}
+}
+
+.circleSmall {
+	stroke-dasharray: 20;
+	stroke-dashoffset: 20;
+	animation: dashS 1s linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes dashS{
+  	from {
+   		 stroke-dashoffset: 20;
+  	}
+  	to {
+   		 stroke-dashoffset: 0;
+  	}
+}
+
+.line {
+	stroke-dasharray:40;
+	stroke-dashoffset:40;
+	animation: dashL 2s linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes dashL{
+  	from {
+    	stroke-dashoffset: 40;
+  	}
+  	to {
+   		 stroke-dashoffset: 0;
+  	}
+}
+
+#arrow {
+	stroke-dashoffset:40;
+	animation: dashA 1s linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes dashA{
+  	from {
+   		 stroke-dashoffset: 115;
+  	}
+  	to {
+   		 stroke-dashoffset: 0;
+  	}
+}
+
+.rect {
+	stroke-dashoffset:40;
+	animation: dashR 1s linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes dashR{
+   	from {
+    	stroke-dashoffset: 40;
+  	}
+  	to {
+   		 stroke-dashoffset: 0;
+  	}
+}
+
+div{
+	width: 300px;
 	text-align: center;
-	font-size: 20px;
+	margin: 0 auto;
 }
-.timer__clock {
-	width: 332px;
-	height:332px;
-	background-image: url(../img/clock.gif);
+
+#output{
+	font-size: 24px;
+	border:2px solid #3E7174;
+	border-radius: 5px;
+	width: 120px;
+	text-align: center;
+	margin: 15px auto;
+	padding: 5px;
 }
+
 .timer__button {
+	position: relative;
+	text-align: center;
 	padding: 10px;
+	color: #2C882C;
+	font-weight: 700;
+	outline: none;
+	border: 2px solid rgba(110,121,128,.8);
+	border-top-color: rgba(0,0,0,.3);
+	border-radius: 5px;
+	background: #899DC5 linear-gradient(rgb(89,106,114));
+	box-shadow:
+	0 -1px rgba(10,21,28,.9) inset,
+	0 1px rgba(255,255,255,.5) inset;
+}
+
+.timer__button:last-of-type{
+	color: #BE1C1C;
+}
+.timer__button:nth-of-type(2){
+	color: #475965;
+}
+
+.timer__button:hover {
+    background: -webkit-linear-gradient(#d2dfea, #71828c);
+    background: -o-linear-gradient(#d2dfea, #71828c);
+    background: linear-gradient(#d2dfea, #71828c);
+}
+.timer__button:active {
+    background: linear-gradient(#bac6cf, #c5d3de 20%, #71828c);
+    box-shadow: 0 -1px rgba(255,255,255,.4) inset;
+}
+.timer__button:before {
+    content: "";
+    position: absolute;
+    top: -10px; right: -10px; bottom: -10px; left: -10px;
+    z-index: -1;
+    border-radius: 8px;
+    background: linear-gradient(rgba(200,200,200,.5), rgba(240,240,240,.5));
+}
+
+ol {
+	font-size: 24px;
+	border-radius: 5px;
+	text-align: left;
 }

@@ -3,32 +3,65 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Timer</title>
-	
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<div class="timer">
-		<!-- Timer img -->
-		<div class="timer__clock">
-			<img id="clock__arrow" src="img/clock_arrow-2.png" alt="Секундомер"/>
-		</div>
+	<div>
+		<!--==== ТАЙМЕР ====-->
+		<svg id="svg1" width="300" height="400">
+			<g stroke-linecap="round" stroke="#3E7174">
+				<g fill="none" stroke-width="8" stroke="#3E7174">
+					<circle class="circle" id="circle" stroke-width="20" cx="150" cy="250" r="140"/>
+					<circle class="circle" cx="150" cy="60" r="40"/>
+				</g>
 
-		<!-- Buttons -->
-		<div>
-			<p id="output" class="">00:00:00.00</p>
-			<input id="startStop" type="button" value="START/STOP" class="timer__button" />
-			<input id="lap" type="button" value="LAP" class="timer__button"/> 
-			<input id="reset" type="button" value="RESET" class="timer__button" />
+				<!-- Большие линии на циферблате -->
+				<g stroke-width="8">
+					<line class="line" x1="150" y1="112" x2="150" y2="142"></line>
+					<line class="line" x1="12" y1="250" x2="42" y2="250" ></line>
+					<line class="line" x1="150" y1="388" x2="150" y2="358"></line>
+					<line class="line" x1="288" y1="250" x2="258" y2="250"></line>
+				</g>
 
-			<!-- Laps -->
-			<ol id="timer__lap">
-			</ol>
-		</div>
-	</div>
+				<!-- Маленкие линии  на циферблате-->		
+				<g stroke-width="6">
+					<line class="line" x1="220" y1="128.7" x2="210" y2="146"></line>
+					<line class="line" x1="271.2" y1="180" x2="254" y2="190"></line>
+					<line class="line" x1="271.2" y1="320" x2="254" y2="310"></line>
+					<line class="line" x1="220" y1="371.2" x2="210" y2="354"></line>
+					<line class="line" x1="80" y1="371.2" x2="90" y2="354"></line>
+					<line class="line" x1="28.7" y1="320" x2="46" y2="310"></line>
+					<line class="line" x1="28.7" y1="180" x2="46" y2="190"></line>
+					<line class="line" x1="80" y1="128.7" x2="90" y2="146"></line>
+				</g>
 
-	<!-- Scripts -->
-	<script src="js/main.js"></script>
+				<!-- Кнопка и кольцо на секундомере -->
+				<g stroke-width="8" fill="#3E7174">
+					<rect class="rect"  width="40" height="20" x="130" y="65"  rx="8" ry="8" />
+					<rect class="rect" width="20" height="25" x="140" y="85" />
+				</g>
+						
+				<!-- Стрелка -->
+				<line id="arrow" x1="150" y1="250" x2="150" y2="110" stroke="#BE1C1C" stroke-width="3" stroke-dasharray="120" ></line>
+						
+				<!-- Центер циферблата (точка) -->
+				<circle class="circleSmall" cx="150" cy="250" r="2" fill="none" stroke-width="4" stroke-dasharray="10" />
+			</g>
+		</svg>
 	
+		<!--===== BUTTONS =====-->
+		<p id="output">00:00:00.00</p>
+		<input id="startStop" type="button" value="START/STOP" class="timer__button" />
+		<input id="lap" type="button" value="LAP" class="timer__button"/> 
+		<input id="reset" type="button" value="RESET" class="timer__button" />
+
+		<!--==== LAPS =====-->
+		<ol id="timer__lap">
+		</ol>
+	</div> 
+
+	<!--===== SCRIPT =====-->
+	<script src="js/main.js"></script>
 </body>
 </html>
