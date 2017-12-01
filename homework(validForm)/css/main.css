@@ -1,0 +1,58 @@
+h1{
+	font-size: 18px;
+	margin-left: 45px;
+}
+div{
+	position: relative;
+}
+form{
+	width: 300px;
+	margin: 0 auto;
+}
+label{
+	position: absolute;
+	left: 5px;
+	top: 8px;
+	font-size: 14px;
+	color: #A0A0A0;	
+}
+input{
+	width: 240px;
+	display: block;
+	margin-top: 40px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #DDDDDE;
+	background-color: #F9F9FA;
+	outline: none;
+	padding-left: 10px;
+}
+span{
+	position: absolute;
+	font-size: 12px;
+	color: red;
+	visibility: hidden;
+
+}
+p{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	display: inline;
+	color : green;
+	font-size :24px;
+	left : 255px;
+	top :-5px ;
+}
+
+#submit {
+	width: 170px;
+	background-color: #4EA066;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
+	margin-left: 35px;
+	border: 1px solid #4EA066;
+	cursor: pointer;
+}

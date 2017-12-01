@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">	
+<body>
+	<div id="div__form" class="form">
+		<form id="form">
+			<h1>Заполните форму</h1>
+		<div>
+			<label id="label1" for="name" >Имя</label>
+			<input 
+				id="name" 
+				type="text"
+				name="name" 
+				class="form__input" 
+				data-chars-allowed="абвгдеёжзийклмнопрстуфхцчэюяышщъ" 
+				data-message-id="nameError">
+			<span id="nameError">Вводите только буквы рус. алфавита</span>
+			<p id="ok"></p>
+		</div>
+		<div>
+			<label id="label1" for="email" >E-mail</label>
+			<input 
+				id="email" 
+				type="text" 
+				name="email" 
+				class="form__input"
+				data-chars-allowed="abcdefghijklimnopqrstuvwxyz@.-1234567890_" 
+				data-message-id="emailError"/>
+			<span id="emailError">Введите в формате: mail@mail.com</span>
+			<p id="ok"></p>
+		</div>
+		<div>
+			<label id="label1" for="tel" >Телефон</label>
+			<input 
+				id="tel" 
+				type="text" 
+				name="tel" 
+				class="form__input" 
+				data-chars-allowed="1234567890" 
+				data-message-id="telError" 
+				maxlength="10"
+				minlength="10">
+			<span id="telError">Вводите только цифры</span>
+			<p id="ok"></p>
+		</div>
+		<div>
+			<input id="submit" type="submit"  value="Отправить" name="submit" class="form__input"></input>
+		</div>
+		</div>
+		</form>
+	</div>
+
+	<script src="js/main.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC >
+<html>
+<head>
+    <title>dragElement</title>
+    <script type="text/javascript">
+        (function(){
+            window.addEventListener("load", init, false);
+
+            function init() {
+                var elem = document.getElementById("elem");
+                elem.addEventListener("mousedown", function (e) {
+                    drag(this, e);
+                })
+            }
+
+            function drag(elementToDrag, event) {
+                 
+           // координаты мыши в начале перетаскивания.
+                var startX = event.clientX,
+                    startY = event.clientY;
+
+
+                // начальные координаты элемента, который будет перемещаться.
+                var origX = elementToDrag.offsetLeft,
+                    origY = elementToDrag.offsetTop;
+                  
+
+                // разница между координатами мыши и координатами перетаскиваемого элемента.
+                var deltaX = startX - origX,
+                    deltaY = startY - origY;
+
+                // Регистрация событий mouseup и mousemove
+                document.addEventListener("mousemove", moveHandler, true);
+                document.addEventListener("mouseup", upHandler, true);
+              
+               function moveHandler(e) {
+                	var border = "3px solid blue";
+
+                	//левый верхний угол
+                	if((e.clientX <= deltaX) && (e.clientY <= deltaY)){
+                		elementToDrag.style.left = "0";
+                		elementToDrag.style.top = "0";
+                		leftBorder();
+                		topBorder();
+                	}
+                	//верхний правый угол
+                	else if((deltaX + 600 <= e.clientX) && (e.clientY <= deltaY)){
+                		elementToDrag.style.top = "0";
+                		elementToDrag.style.left = "600px";
+                		rightBorder();
+                		topBorder();
+                	}
+                	//нижний левый угол
+                	else if((deltaY + 500 <= e.clientY) && (e.clientX <= deltaX)){
+                		elementToDrag.style.top ="500px" ;
+                		elementToDrag.style.left = "0";
+                		leftBorder();
+                		bottomBorder();
+                	}
+                	//правый нижний угол
+                	else if ((deltaX + 600 <= e.clientX) && (deltaY + 500 <= e.clientY)){
+                		elementToDrag.style.left = "600px";
+                		elementToDrag.style.top = "500px";
+                		rightBorder();
+                		bottomBorder();
+                	}
+                	//левая сторона
+                	else if(e.clientX <= deltaX){
+                		elementToDrag.style.left = "0";
+                		elementToDrag.style.top = (e.clientY - deltaY) + "px";
+                		leftBorder();
+                		
+					} 
+					//верх
+					else if(e.clientY <= deltaY){
+                		elementToDrag.style.top = "0";
+                		elementToDrag.style.left = (e.clientX - deltaX) + "px";
+                		topBorder();
+                	}
+                	//правая сторона
+					else if (deltaX + 600 <= e.clientX){
+                		elementToDrag.style.left = "600px";
+                		elementToDrag.style.top = (e.clientY - deltaY) + "px";
+                		rightBorder();
+                	}
+                	//низ
+                	else if(deltaY + 500 <= e.clientY){
+                		elementToDrag.style.top = "500px";
+                		elementToDrag.style.left = (e.clientX - deltaX) + "px";
+                		bottomBorder();
+                	}
+                	//средина
+					else {
+                		elementToDrag.style.left = (e.clientX - deltaX) + "px";
+                   		elementToDrag.style.top = (e.clientY - deltaY) + "px";
+                   		elemBig.style.border = "none";
+                   	}
+                   	function leftBorder(){
+                   		elemBig.style.borderLeft = border;
+                   	}
+                   	function bottomBorder(){
+                   		elemBig.style.borderBottom = border;
+                   	}
+                   	function rightBorder(){
+                   		elemBig.style.borderRight = border;
+                   	}
+                   	function topBorder(){
+                   		elemBig.style.borderTop = border;
+                   	}
+
+                 }
+				function upHandler(e) {
+                 
+                    document.removeEventListener("mouseup", upHandler, true);
+                    document.removeEventListener("mousemove", moveHandler, true);
+                }
+            }
+        })()
+    </script>
+</head>
+<body>
+	<div id="elemBig" style="position: relative; left: 50px; top: 50px; height: 500px; width: 600px; background-color: red; padding: 25px; border:3px solid white">
+     <div id="elem" style="position: absolute; left: 100px; top: 100px; height: 50px; width: 50px; background-color: Green;">
+	    </div>
+    </div>
+</body>
+</html>
