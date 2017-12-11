@@ -1,0 +1,256 @@
+body {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	background-color: #1ABC9C;
+}
+input{
+	outline: none;
+}
+
+
+h2{
+	margin: 0;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+h3, h2{
+	
+	text-decoration: underline;
+}
+
+/*=====WRAPPER=====*/
+.wrapper {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 20px;
+	height: 100%;
+	width: 600px;
+
+}
+/*===== // WRAPPER=====*/
+
+/*=====BUTTONS=====*/
+.addPerson__button{
+	width: 110px;
+	font-size: 16px;
+	padding: 10px 10px;
+	margin-right: 22px;
+	background-color: #1ABC9C;
+	border-radius: 5px;
+	border: none;
+	color: #EFFAF8;
+	cursor: pointer;
+}
+.addPerson__button:hover, .addPerson__button__search:hover{
+	background-color: #169E83;
+}
+
+.addPerson__button:last-of-type{
+	margin-right: 0;
+}
+.addPerson__button--container{
+	padding-top: 35px;
+	padding-bottom: 20px;
+}
+
+.addPerson__button__search,
+.addPerson__button__delete{
+	padding: 7px;
+	background-color:#1ABC9C; 
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+
+}
+.addPerson__button__delete{
+	background-color: #D84A45;
+}
+
+.addPerson__button__delete:hover{
+	background-color: #A03633;
+}
+
+/*=====//BUTTONS=====*/
+
+
+/*===== СТАРТОВОЕ ОКНО "Select action" =====*/
+.addPerson__start{
+	padding: 30px 30px;
+	background-color: #EDEFF1;
+	border-radius: 5px;
+	text-align: center;
+}
+.addPerson__start p {
+	margin-bottom: 35px;
+	margin-top: 5px;
+	font-size: 28px;
+	font-weight: 700;
+	color: #888E8D;
+}
+/*===== //СТАРТОВОЕ ОКНО "Select action" =====*/
+
+
+/*===== ОКНО С ФОРМОЙ=====*/
+.addPerson__form {
+	display: none;
+	background-color: #EDEFF1;
+	border-radius: 5px;
+	padding: 20px;
+	
+}
+
+.addPerson__form__input{
+	position: relative;
+}
+
+.addPerson__form__input label{
+	position: absolute;
+    left: 41px;
+    top: 35px;
+    color: #A4ACAD;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.addPerson__form__input span{
+	position: absolute;
+    left: 38px;
+    bottom: -4px;
+    font-size: 14px;
+    color:red;
+}
+
+#inputName, #inputSurname, #inputAge, #inputSex, #inputLang{
+	width: 350px;
+	height: 35px;
+	margin-top: 25px;
+	margin-bottom: 16px;
+	padding-left: 35px;
+	border-radius: 5px;
+	border:2px solid #E2E4E6;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+
+#addPerson__form__added{
+	display: none;
+    padding-bottom: 17px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 2px solid #1ABC9C;
+    color: #010101;
+    font-size: 18px;
+}
+
+#addPerson__form__added span{
+	position: static;
+    display: block;
+    text-align: left;
+    text-transform: capitalize;
+    padding: 4px;
+}
+.username--bg--grey{
+	background-image: url(../img/icons/icon-username-grey.png);
+}
+.surname--bg--grey{
+	background-image: url(../img/icons/icon-username-grey.png);
+}
+.age--bg--grey{
+	background-image: url(../img/icons/icon-age-grey.png);
+}
+.sex--bg--grey{
+	background-image: url(../img/icons/icon-sex-grey.png);
+}
+.lang--bg--grey{
+	background-image: url(../img/icons/icon-lang-grey.png);
+}
+
+.username{
+	background-image: url(../img/icons/icon-username-green.png);
+}
+.surname{
+	background-image: url(../img/icons/icon-username-green.png);
+}
+.age{
+	background-image: url(../img/icons/icon-age-green.png);
+}
+.sex{
+	background-image: url(../img/icons/icon-sex-green.png);
+}
+.lang{
+	background-image: url(../img/icons/icon-lang-green.png);
+}
+/*===== //ОКНО С ФОРМОЙ=====*/
+
+
+
+/*====MAIN TABLE=====*/
+#addPerson__table{
+	display: none;
+	padding: 20px;
+    background-color: #EDEFF1;
+    border-radius: 5px;
+}
+.addPerson__tabel__search p {
+	color: red;
+	font-size: 16px;
+	margin: 0;
+}
+
+
+/*search*/
+#search{
+	width: 350px;
+	height: 35px;
+	margin-top: 25px;
+	margin-bottom: 16px;
+	padding-left: 35px;
+	border-radius: 5px;
+	border:2px solid #E2E4E6;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+#search{
+	background-image: url(../img/icons/icon-search-grey.png);
+}
+#search:focus{
+	border:2px solid #1ABC9C;
+}
+/*//search*/
+
+table{
+	font-size: 14px;
+	border-collapse: collapse;
+	text-align: center;
+	width: 500px;
+	word-break: break-all;
+	margin: 0 auto;
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+
+caption{
+	font-size: 18px;
+	margin-bottom: 10px;
+	padding: 5px;
+	font-weight: 600;
+}
+
+td, th{
+	border-style: solid;
+	border-width: 1px ;
+	border-color: #A4ACAD;
+	padding: 10px 5px;
+
+}
+th{
+	background: #5DCD9A;
+	color: white;
+}
+td{
+	width: 70px;
+	background: #fff;
+}

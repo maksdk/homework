@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add person</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="wrapper">
+		<!--=====СТАРТОВОЕ ОКНО "Select action"=====-->
+		<div class="addPerson__start" id="addPerson__start">
+			<p>Select action</p>
+			<input class="addPerson__button" type="submit" value="Add person"  name="submit">
+			<input class="addPerson__button" type="submit" value="Show all list" name="submit">
+		</div>
+		<!--=====// СТАРТОВОЕ ОКНО "Select action"=====-->
+		
+		<!--==== ОКНО С ФОРМОЙ====-->
+		<div class="addPerson__form" id="addPerson__form">
+
+			<!-- Form -->
+			<form id="form">
+				<h2 >Add person</h2>
+				<div class="addPerson__form__input">
+					<label for="inputName" class="labelName">Enter your name</label>
+					<input 
+						id="inputName" 
+						class=" username--bg--grey" 
+						type="text" 
+						name="username"
+						data-val="[A-Za-zА-Яа-яЁё]"
+						data-val-msg="Must contain only letters"
+		            	data-val-msg-id="userNameMsg"/>
+		            <span id="userNameMsg"></span>
+				</div>	
+				<div class="addPerson__form__input">
+					<label for="inputSurname" >Enter your surname</label>
+					<input 
+						id="inputSurname" 
+						class=" username--bg--grey" 
+						type="text" 
+						name="surname"
+						data-val="[a-zA-Zа-яА-ЯЁё]"
+						data-val-msg="Must contain only letters"
+		            	data-val-msg-id="userSurnameMsg"/ >
+		            <span id="userSurnameMsg"></span>
+				</div>	
+				<div class="addPerson__form__input">
+					<label for="inputAge" >Enter your age</label>
+					<input 
+						id="inputAge" 
+						class=" age--bg--grey" 
+						type="text" 
+						name="age"
+						maxlength="2"
+						data-val="[0-9]"
+	           			data-val-msg="Must contain only numbers"
+	            		data-val-msg-id="userAgeMsg"/ >
+		            <span id="userAgeMsg" ></span>
+				</div>
+				<div class="addPerson__form__input">
+					<label for="inputSex" >Enter your sex ( male or female )</label>
+					<input 
+						maxlength="6" 
+						id="inputSex" 
+						class=" sex--bg--grey" 
+						type="text" 
+						name="sex"
+						data-val="[(male)|(female)]"
+	           			data-val-msg="Must contain only: male or female"
+	            		data-val-msg-id="userSexMsg"/ >
+		            <span id="userSexMsg" ></span>
+				</div>
+				<div class="addPerson__form__input">
+					<label for="inputLang" >Enter your programming languages</label>
+					<input 
+						id="inputLang" 
+						class=" lang--bg--grey" 
+						type="text" 
+						name="lang"
+						data-val="[A-Za-z,-\s0-9]"
+	           			data-val-msg="Enter your programming languages"
+	            		data-val-msg-id="userLangMsg"/ >
+		            <span id="userLangMsg" ></span>
+				</div>	
+					<!-- buttons -->
+					<div class="addPerson__button--container">
+						<input class="addPerson__button" id="addIntoList" type="submit"  value="Add into list"  name="submit">
+						<input class="addPerson__button"  id="showAllList" type="submit"  value="Show all list"  name="submit">
+											
+						<input class="addPerson__button"  id="showAllList" type="submit" value="Exit" name="submit">
+					</div>
+					<!-- //buttons-->
+
+				<!--ДОБАВЛЕНЫЕ ДАННЫЕ -->
+				<div id="addPerson__form__added">
+					<h3>Your data added:</h3>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<!-- //ДОБАВЛЕНЫЕ ДАННЫЕ-->
+			</form>
+			<!-- //Form -->
+		</div>
+		<!--==== //ОКНО С ФОРМОЙ====-->
+		
+		<!--====MAIN TABLE ====-->
+		<div  class="addPerson__table" id="addPerson__table">
+			<div >
+				<h2>All data</h2>
+				
+				<!-- search -->
+				<input id="search" type="search"   name="search">
+				<input class="addPerson__button__search" id="searchButton" type="submit" value="Search"  name="searchButton">
+				<input class="addPerson__button__delete" id="delete" type="submit" value="Delete"  name="delete">
+				<!-- //search -->
+
+				<!-- результаты поиска -->
+				<div class="addPerson__tabel__search">
+					<table id="addPerson__tabel__search"></table>
+				</div>
+				<!-- //результаты поиска -->
+				
+				<!-- главная таблица -->
+				<table id="addPerson__table__main"></table>
+				<!-- //главная таблица -->
+
+			</div>	
+				<!-- buttons -->
+				<input class="addPerson__button"  type="submit" value="Add person"  name="submit">
+				<input class="addPerson__button"  type="submit" value="Exit" name="submit">
+				<!-- //buttons -->
+		</div>
+		<!--==== // MAIN TABLE ====-->
+	</div> <!-- //wrapper -->
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
