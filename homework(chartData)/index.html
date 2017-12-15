@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chart data</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div id="container"></div>
+		<div class="block__button">
+			<input class="button" type="submit" name="sortUp" value="Sort up">
+			<input class="button" type="submit" name="sortDown" value="Sort down">
+		</div>
+		<div class="block__button">
+			<form name="form">
+				<input
+					class="text"
+				 	type="text"
+				 	name="add"
+				 	data-val-msg="Поле может содержать только цифры"
+				 	data-val-msg-id="errorMsg"/ >
+			</form>
+			<input class="button" type="submit" name="addData" value="Add data">
+			<span id="errorMsg"></span>  
+		</div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
