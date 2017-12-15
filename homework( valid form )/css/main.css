@@ -1,0 +1,336 @@
+*{
+	box-sizing: border-box	
+}
+body{
+	background-color: #4E555F;
+	font-family: 'PT Sans', sans-serif;
+	color: #888686 ;
+}
+
+.wrapper{
+	width:350px;
+	margin: 0 auto;
+	padding: 30px;
+	background: #EDEFEE;
+}
+
+/*==========ФОРМА===========*/
+.form__block{
+	height: 80px;
+	position: relative;
+}
+
+/*Собщения об ошибках*/
+.form__block p{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    left: 10px;
+    top: 97%;
+}
+
+.form__block span{
+	position: absolute;
+    top: 60px;
+	left: 10px;
+	color: red;
+	font-size: 14px;
+}
+
+/*labels*/
+.form__block--label{
+	position: absolute;
+	top: 30px;
+	left: 33px;
+	z-index: 1;
+	transition: all .3s ease;
+}
+
+/*Inputs*/
+.firstName,
+.lastName,
+.age,
+.email,
+.phone,
+.passwordTop,
+.passwordBottom,
+.textarea{
+	width: 100%;
+	padding: 10px 10px;
+	padding-left: 30px;
+	background-color: #DADCDB;
+	border:2px solid #C1C3C2;
+	border-radius: 5px;
+	outline: none;
+	position: absolute;
+	top: 22px;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position: 3px center;
+}
+
+/*Пароль*/
+.passEye{
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-image: url(../img/icons/icons-hidden.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 3px;
+	top: 30px;
+	cursor: pointer;
+}
+.passEye__visible{
+	background-image: url(../img/icons/icons-visible.png);
+}
+.passEye__hidden{
+	background-image: url(../img/icons/icons-hidden.png);
+}
+
+/*галочка для пароля*/
+.checkOK:after{
+	content: "✔";
+	display: block;
+	color: #169D82;
+	font-size: 16px;
+	position: absolute;
+    right: -17px;
+    top: 27px;
+}
+
+/*Textarea*/
+textarea{
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+#form__block__textarea{
+	height: 80px;
+
+}
+
+/*Radio buttons*/
+.form__block__radio{
+	background-color: #DADCDB;
+	border:2px solid #C1C3C2;
+	border-radius: 5px;
+	outline: none;
+	padding-left: 30px;
+		padding-top: 12px;
+		background-image: url(../img/icons/icon-sex-grey.png);
+		background-repeat: no-repeat;
+		background-position: 2px;
+		transition: all .3s;
+		margin-top: 21px;
+	margin-bottom: 17px;
+}
+.form__block__radio--iconGreen{
+	background-image: url(../img/icons/icon-sex-green.png);
+	border:2px solid #169D82;
+}
+
+.form__block__radio--iconRed{
+	background-image: url(../img/icons/icon-sex-red.png);
+	border: 2px solid #BB3A2D;
+}
+.form__block__radio p{
+	top: 101%;
+}
+
+/*Изменение вида радиокнопок и label*/
+.radio{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.radioLabel {
+	cursor: pointer;
+	padding-left: 35px;
+}
+.radioButton{
+  	position: absolute;
+}
+
+.radioLabel:before {
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: 0;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #C1C3C2;
+	border-radius: 50%;
+	background-color: #EDEFEE;
+}
+
+.radioButton:not(checked) + .radioLabel:after { 
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #169D82;
+	border:1px solid #169D82;
+	opacity: 0;
+	transition: all .3s;
+}
+.radioButton:checked + label:after {
+	opacity: 1;
+}
+.radioButton:checked + label:before {
+	border: 2px solid #169D82;
+}
+
+/*Серые иконки*/
+.firstName,.lastName{
+	background-image: url(../img/icons/icon-username-grey.png);
+}
+.email{
+	background-image: url(../img/icons/icon-email-grey.png);
+}
+.phone{
+	background-image: url(../img/icons/icon-phone-grey.png);
+}
+.age{
+	background-image: url(../img/icons/icon-age-grey.png);
+}
+.passwordTop, .passwordBottom{
+	background-image: url(../img/icons/icon-password-grey.png);
+}
+.textarea{
+	background-image: url(../img/icons/icon-message-grey.png);
+}
+
+
+/*Зеленые иконки*/
+.firstName__iconGreen{
+	background-image: url(../img/icons/icon-username-green.png);
+	
+}
+.lastName__iconGreen{
+	background-image: url(../img/icons/icon-username-green.png);
+	
+}
+.email__iconGreen{
+	background-image: url(../img/icons/icon-email-green.png);
+	
+}
+.phone__iconGreen{
+	background-image: url(../img/icons/icon-phone-green.png);
+	
+}
+.age__iconGreen{
+	background-image: url(../img/icons/icon-age-green.png);
+	
+}
+.passwordTop__iconGreen{
+	background-image: url(../img/icons/icon-password-green.png);
+	
+}
+.passwordBottom__iconGreen{
+	background-image: url(../img/icons/icon-password-green.png);
+	
+}
+.textarea__iconGreen{
+	background-image: url(../img/icons/icon-message-green.png);
+	
+}
+
+/*Иконки при ошибке*/
+.firstName__iconRed{
+	background-image: url(../img/icons/icon-username-red.png);
+	border: 2px solid #BB3A2D;
+}
+.lastName__iconRed{
+	background-image: url(../img/icons/icon-username-red.png);
+	border: 2px solid #BB3A2D;
+}
+.email__iconRed{
+	background-image: url(../img/icons/icon-email-red.png);
+	border: 2px solid #BB3A2D;
+}
+.phone__iconRed{
+	background-image: url(../img/icons/icon-phone-red.png);
+	border: 2px solid #BB3A2D;
+}
+.age__iconRed{
+	background-image: url(../img/icons/icon-age-red.png);
+	border: 2px solid #BB3A2D;
+}
+.passwordTop__iconRed{
+	background-image: url(../img/icons/icon-password-red.png);
+	border: 2px solid #BB3A2D;
+}
+.passwordBottom__iconRed{
+	background-image: url(../img/icons/icon-password-red.png);
+	border: 2px solid #BB3A2D;
+}
+.textarea__iconRed{
+	background-image: url(../img/icons/icon-message-red.png);
+	border: 2px solid #BB3A2D;
+}
+
+/*Кнопки*/
+.form__block__submit{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.form__block__submit--button {
+	padding: 10px 10px;
+	border-radius: 5px;
+	outline: none;
+	background-color: #888686;
+	border:none;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	width: 76px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.form__block__submit--button:last-child{
+	margin-right: 0;
+}
+
+.form__block__submit--button:hover{
+	background-color: #818C9D;
+}
+
+
+/*Блок с введенными данными после отправки*/
+.aendMessage{
+	text-align: center;
+}
+
+.aendMessage p{
+	text-align: left;
+	font-weight: 400;
+	color: #595858;
+}
+
+.aendMessage img{
+	border-radius: 50%;
+}
+
+/*==========КЛАССЫ==========*/
+.labelUp{
+	transform: translateY(-27px);
+}
+
+.valid{
+	border: 2px solid #169D82;
+}
+.displayBlock{
+	display: block;
+}
+.displayNone{
+	display: none;
+}
