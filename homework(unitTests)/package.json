@@ -1,0 +1,15 @@
+{
+  "name": "unittests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha src/*/js/spec.js"
+  },
+  "author": "maksym",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
+  }
+}
