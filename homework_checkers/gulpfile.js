@@ -15,6 +15,7 @@ var gulp = require('gulp'),
 
   rigger = require('gulp-rigger'),
   rimraf = require('rimraf'),
+  babel = require('gulp-babel'), 
 
   browserSync = require("browser-sync"),
   reload = browserSync.reload;
@@ -63,6 +64,9 @@ gulp.task('js:build', function () {
  gulp.src(path.src.js)
     .pipe(rigger())
     .pipe(sourcemaps.init())
+    .pipe(babel({
+            presets: ['env']
+        }))
     .pipe(concat("main.js"))
     .pipe(uglify())
     .pipe(sourcemaps.write())
