@@ -1,4 +1,6 @@
-
+/*
+ * move 
+ */
 function moveTopLeft(cx, cy, colorElement, activeCircle, arr, colorTopLeft){
 	cx  = Math.floor(cx - sizeRect), 
 	cy  = Math.floor(cy - sizeRect);
