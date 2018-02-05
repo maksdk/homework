@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   watch = require('gulp-watch'),
   prefixer = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
-  sass = require('gulp-sass'),
+  less = require('gulp-less'),
   sourcemaps = require('gulp-sourcemaps'),
   imagemin = require('gulp-imagemin'),
   concatCss = require('gulp-concat-css'),
@@ -72,7 +72,7 @@ gulp.task('js:build', function () {
 gulp.task('style:build', function () {
   gulp.src(path.src.style)
     .pipe(sourcemaps.init())
-    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(less.sync().on('error', less.logError))
     .pipe(prefixer())
     .pipe(concatCss("styles.css"))
     .pipe(cleanCSS())
