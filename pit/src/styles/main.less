@@ -2,8 +2,6 @@
 @import "../../node_modules/normalize.css/normalize.css";
 
 
-
-
 //base
 @import "base/_varibles";
 @import "base/_mixins";
@@ -11,5 +9,43 @@
 @import "base/_utils";
 @import "base/_base";
 
+//sections
+@import "sections/_logo";
+@import "sections/_bigHeader";
+@import "sections/_smallHeader";
 
+.wrapper{
+	width: 940px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
 
+html, body {
+	height: 100%;
+}
+
+html {
+	line-height: 1.7;
+}
+
+body{
+	background: #f2f2f2;
+	text-align: center;
+}
+
+ul{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style-type: none;
+	display: inline-block;
+}
+a{
+	text-transform: uppercase;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+}
