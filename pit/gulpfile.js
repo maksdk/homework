@@ -12,6 +12,7 @@ var gulp = require('gulp'),
   concatCss = require('gulp-concat-css'),
   concat = require('gulp-concat'),
   pngquant = require('imagemin-pngquant'),
+  notify = require( 'gulp-notify'),
 
   rigger = require('gulp-rigger'),
   rimraf = require('rimraf'),
@@ -30,7 +31,7 @@ var path = {
   src: { //Пути откуда брать исходники
     html: 'src/templates/index.html',
     js: 'src/js/*.js',
-    style: 'src/styles/**/*.*',
+    style: 'src/styles/main.less',
     img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
   },
@@ -72,7 +73,11 @@ gulp.task('js:build', function () {
 gulp.task('style:build', function () {
   gulp.src(path.src.style)
     .pipe(sourcemaps.init())
-    .pipe(less.sync().on('error', less.logError))
+    .pipe( less().on( 'error', notify.onError(
+      {
+        message: "<%= error.message %>",
+        title  : "Less Error!"
+      })))
     .pipe(prefixer())
     .pipe(concatCss("styles.css"))
     .pipe(cleanCSS())
