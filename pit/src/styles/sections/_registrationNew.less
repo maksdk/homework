@@ -1,0 +1,92 @@
+.registration_new{
+	flex-basis: 540px;
+	margin-left: auto;
+	margin-bottom: 20px;
+	padding: 65px 40px 42px;
+	box-shadow: 0 1px 1px rgba(223, 223, 223, 0.75);
+	border-radius: 4px;
+	border-top: 4px solid #3dcf7e;
+	background-color: #ffffff;
+	&__inputs{
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__login, &__email, &__password, &__password--r{
+		background-repeat: no-repeat;
+		background-position: 16px 10px;
+		padding-left: 38px;
+		padding-right: 5px;
+		width: 48.5%;
+	}
+	&__login{
+		background-image: url("../img/registr/icon_user.svg");
+		margin-right: auto;
+	}
+	&__email{
+		background-image: url("../img/registr/icon_email.svg");
+		background-position: 16px 13px;
+		margin-left: auto;
+		
+	}
+	&__password{
+		background-image: url("../img/registr/icon_pass.svg");
+		margin-right: auto;
+	}
+	&__password--r{
+		background-image: url("../img/registr/icon_pass.svg");
+		margin-left: auto;
+	}
+	&__progress{
+		margin-bottom: 36px;
+	}
+	&__progress--line{
+		height: 8px;
+		width: 100%;
+    	background: #eeeeee;
+    	border-radius: 4px;
+	}
+	&__progress--green{
+		border-radius: 4px;
+		height: 8px;
+		background: #65d999;
+		width: 77%;
+	}
+	&__progress--text{
+		display: flex;
+		color: #011407;
+		font-family: 'MontserratBold', sans-serif;
+		font-size: 14px;
+		line-height: 22px;
+	}
+	&__progress--l{
+		margin-right: auto;
+	}
+	&__progress--r{
+		margin-left: auto;
+	}
+
+	&__checkBut{
+		display: flex;
+		flex-wrap: wrap;
+		&--checkbox{
+			width: 48.5%;
+			margin-right: auto;	
+			label{
+				color: #455349;
+				font-family: 'MontserratBold', sans-serif;
+				font-size: 14px;
+				line-height: 22px;
+			}
+		}
+		&--registr{
+			width: 48.5%;
+			margin-right: 0;
+			margin-left: auto;
+		}
+	}
+}
+
+div.registration_new__checkBut--checkbox > label > a:hover{
+	text-decoration: underline;
+}

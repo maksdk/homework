@@ -1,0 +1,119 @@
+.accountInfo__profile{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 54px 70px 60px;
+	box-shadow: 0 1px 1px rgba(223, 223, 223, 0.75);
+	border-radius: 4px;
+	background-color: #ffffff;
+	border-top: 4px solid #3dcf7e;
+	&__photo{
+		position: relative;
+		img{
+			display: block;
+			border: 6px solid #eeeeee;
+			border-radius: 50%;
+			margin-bottom: 14px;
+		}
+		&--status{
+			position: absolute;
+			height: 30px;
+			width: 30px;
+			border: 2px solid #3dcf7e;
+			background-color: #ffffff;
+			border-radius: 50%;
+			top: 3px;
+   			right: 4px;
+   			&:after{
+   				content: "";
+   				width: 18px;
+   				height: 18px;
+   				background: #3dcf7e;
+   				position: absolute;
+   				border-radius: 50%;
+   				left: 4px;
+    			top: 4px;
+   			}
+   		}
+
+   		&:before{
+   			content: "";
+   			position: absolute;
+   			width: 70px;
+   			height: 70px;
+   			left: -10px;
+    		top: -10px;
+   			background-image: url("../img/profile-line.png");
+   		}
+	}
+	&__name{
+		color: #3dcf7e;
+		font-family: "MontserratBold", sans-serif;
+		font-size: 24px;
+		line-height: 22px;
+		margin-bottom: 3px;
+		cursor: pointer;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	&__subtitle{
+		color: #011407;
+		font-family: "MontserratBold", sans-serif;
+		font-size: 14px;
+		line-height: 22px;
+		margin-bottom: 19px;
+	}
+	&__social{
+		a{
+			border-radius: 4px;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			text-decoration: none;
+			cursor: pointer;
+			margin-right: 3px;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+		&--tw{
+			background: #40b4e5;
+			background-image: url("../img/social/twitter-icon.png");
+			background-repeat: no-repeat;
+			background-position: 7px;
+		}
+		&--fb{
+			background: #0f75bd;
+			background-image: url("../img/social/facebook-icon.png");
+			background-repeat: no-repeat;
+			background-position: 11px;
+		}
+		&--g{
+			background: #e62c2c;
+			background-image: url("../img/social/google-plus-icon.png");
+			background-repeat: no-repeat;
+			background-position: 8px;
+		}
+		&--plus{
+			background: #eeeeee;
+			background-image: url("../img/social/plus-icon.png");
+			background-repeat: no-repeat;
+			background-position: 8px 7px;
+		}
+	}
+
+	&__follow{
+		cursor: pointer;
+		color: #3dcf7e;
+		font-family: "MontserratBold", sans-serif;
+		font-size: 14px;
+		line-height: 22px;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+
+}
