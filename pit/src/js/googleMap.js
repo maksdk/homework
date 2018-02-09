@@ -59,7 +59,7 @@ function initMap(){
 		addMarker({lat:position.coords.latitude, lng:position.coords.longitude});
 	}
 	function positionNotReceived(positionError){
-		addMarker({lat:latitude, lng:longitude});
+		addMarker(kyiv);
 	}
 	
 	function initialize() {
