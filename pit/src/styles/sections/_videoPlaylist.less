@@ -1,205 +1,128 @@
-.video{
+.video__playlist{
 	display: flex;
-	flex-wrap: wrap;
-}
-
-.video__player{
-	margin-right: auto;
-	margin-bottom: 20px;
-	background-color: #fff;
-	width: 620px;
-	&__screen{
-		height: 300px;
-		width: 620px;
-		background-color: rgba(61, 207, 126, 0.9);
-		border-radius: 4px;
-		position: relative;
-		
-		&--replay{
-			width: 32px;
-			height: 33px;
-			background-image: url("../img/video/replay-icon.png");
-			margin: auto;
-			position: absolute;
-			top: 0;
-		    left: 0;
-		    right: 0;
-		    bottom: 0;
-		    background-color: transparent;
-		    border: none;
-		    cursor: pointer;
-		}
-		&--share{
-			display: flex;
-			flex-direction: column;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 42px;
-			height: 168px;
-			box-shadow: 0 1px 1px rgba(223, 223, 223, 0.75);
-			border-radius: 4px;
-			margin: 10px;
-			
-			.share__plus, .share__tw, .share__fb, .share__g{
-			width: 42px;
-			height: 42px;
-			background-repeat: no-repeat;
-			background-color: #ffffff;
-			border: none;
-			overflow: hidden;
-			cursor: pointer;
-			}
-			.share__plus{
-				border-top-left-radius: 4px;
-				border-top-right-radius: 4px;
-				position: relative;
-				background-color: #011407;
-				background-image: url("../img/video/share-plus-icon.png");
-				background-position: 15px 15px;
-
-				& > span {
-					content: "";
-					width: 0;
-					height: 0;
-					border-top: 10px solid transparent;
-					border-right: 10px solid transparent;
-					border-left: 10px solid  #011407;
-					position: absolute;
-					top: 31px;
-    				left: 15px;
-    				transform: rotate(-45deg);
-				}
-			}
-			.share__tw{
-				background-image: url("../img/video/twitter-icon.png");
-				border-bottom: 2px solid #eeeeee;
-				background-position: 14px 15px;
-			}
-			.share__fb{
-				background-image: url("../img/video/facebook-icon.png");
-				border-bottom: 2px solid #eeeeee;
-				background-position: 17px 14px;
-			}
-			.share__g{
-				background-image: url("../img/video/google-plus-icon.png");
-				border-bottom-left-radius: 4px;
-				border-bottom-right-radius: 4px;
-				background-position: 15px 15px;
-			}
-		}
-		
-
-	}
-
-	&__panel{
-		height: 60px;
-		width: 620px;
-		box-shadow: 0 1px 1px rgba(223, 223, 223, 0.75);
-		border-radius: 4px;
-		background-color: #ffffff;
-		padding: 16px 20px;
+	flex-direction: column;
+	flex-basis: 300px;
+	box-shadow: 0 1px 1px rgba(223, 223, 223, 0.75);
+	border-radius: 4px;
+	&__slide{
 		display: flex;
 		align-items: center;
-		&--play{
-			cursor: pointer;
-			margin-right: 10px;
-			width: 9px;
-			height: 16px;
-			background-image: url("../img/video/play-icon.png");
-			background-repeat: no-repeat;
-			background-position: 0 0;
+		&--text{
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+			margin-right: auto;
+			& > span.playing{
+				text-transform: uppercase;
+				font-family: "MontserratBold", sans-serif;
+				line-height: 22px;
+				color: #8c9c93;
+				font-size: 14px;
+			}
+			& > span.great{
+				color: #011407;
+				font-family: "MontserratBold", sans-serif;
+				font-size: 18px;
+				line-height: 22px;
+			}
 		}
-		&--progress{
-			width: 45%;
-			margin-right: 10px;
-			&--grey{
-				width: 100%;
-				height: 6px;
-				border-radius: 4px;
-				background-color: #eee;
+		&--but{
+			margin-left: auto;
+			button{
+				cursor: pointer;
 			}
-			&--green{
-				width: 50%;
-				height: 6px;
-				border-radius: 4px;
-				background-color: #3dcf7e;
-			}
+		}
+		&--next, &--prew{
+			width: 16px;
+			height: 17px;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+
+		}
+		&--prew{
+			margin-right: 15px;
+			background-image: url("../img/video/previous-icon.png");
+		}
+		&--next{
+			background-image: url("../img/video/next-icon.png");
+		}
+	}
+	
+	&__listScrol{
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		&:before{
+			content: "";
+			width: 4px;
+			height: 234px;
+			background-color: #eee;
+			position: absolute;
+			top: 11px;
+    		right: 7px;
+    		border-radius: 4px;
+		}
+	}
+	&__slide, &__choice, &__list{
+		border-radius: 4px;
+		border-bottom: 1px solid #eee;
+		border-top: 1px solid #eee;
+		display: flex;
+		padding: 20px;
+		background-color: #ffffff;
+		color: #8c9c93;
+		font-family: "MontserratRegular", sans-serif;
+		font-size: 14px;
+		line-height: 22px;
+		
+	}
+	&__choice{
+		background-color: #eee;
+		&--title, &--total{
+			margin-right: auto;
+			color: #8c9c93;
+			font-family: "MontserratBold", sans-serif;
+			font-size: 15px;
+			line-height: 22px;
+			text-transform: uppercase;
+		}
+		&--total{
+			margin-left: auto;
+			color: #3dcf7e;
+		}
+	}
+	&__list{
+		display: flex;
+		&:hover{
+			background-color: #eee;
+		}
+		&--title{
+			margin-right: auto;
+			color: #8c9c93;
+			font-family: "MontserratRegular", sans-serif;
+			font-size: 14px;
+			line-height: 22px;
 		}
 		&--time{
-			padding-left: 1px;
-			padding-right: 1px;
-			margin-right: 10px;
+			margin-left: auto;
 			color: #8c9c93;
-			font-family: 'MontserratRegular', sans-serif;
+			font-family: "MontserratRegular", sans-serif;
 			font-size: 14px;
-			line-height: 18px;
-		}
-		&--volume{
-			display: flex;
-			align-items: center;
-			width: 120px;
-			padding: 10px;
-			border-right: 2px solid #eee;
-			border-left:2px solid #eee;
-			&-ic{
-				cursor: pointer;
-				margin-right: auto;
-				width: 16px;
-				height: 16px;
-				background-image: url("../img/video/volume-icon.png");
-				background-repeat: no-repeat;
-				background-position: 0 0;
-			}
-			&-grey{
-				margin-left: auto;
-				width: 67px;
-				height: 6px;
-				background-color: #eee;
-				border-radius: 4px;
-			}
-			&-green{
-				width: 50%;
-				height: 6px;
-				background-color:  #3dcf7e;
-				border-radius: 4px;
-			}
-		}
-		&--hd{
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 55px;
-			height: 36px;
-			border-right: 2px solid #eee;
-			text-align: center;
-			
-			&-but{
-				color: #3dcf7e;
-				font-family: 'MontserratBold', sans-serif;
-				font-size: 18px;
-				line-height: 18px;
-				text-transform: uppercase;
-				cursor: pointer;
-			}
-		}
-		&--full{
-			display: flex;
-			align-items: center;
-			width: 30px;
-			height: 36px;
-			padding-left: 10px;
-			
-			&-ic{
-				cursor: pointer;
-				width: 16px;
-				height: 16px;
-				background-image: url("../img/video/expand-icon.png");
-				background-repeat: no-repeat;
-				background-position: 0 0;
-			}
-		}
+			line-height: 22px;
+			&-text{
 
+			margin-right: 5px;
+			}
+			&-ic{
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				background-image: url("../img/video/watch-later-icon.png");
+				background-repeat: no-repeat;
+				background-position: 0 0;
+			}
+
+		}
 
 	}
 
