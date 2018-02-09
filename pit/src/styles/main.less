@@ -19,6 +19,9 @@
 @import "sections/_accountInfoOther";
 @import "sections/_accountInfoProfile";
 @import "sections/_accountInfoSkills";
+@import "sections/_videoPlayer";
+@import "sections/_videoPlaylist";
+
 
 
 
@@ -39,7 +42,7 @@ html {
 
 body{
 	margin:0;
-	padding: 0;
+	padding: 3px;
 	background: #f2f2f2;
 	text-align: center;
 }
@@ -64,6 +67,10 @@ a{
 }
 input, button{
 	outline: none;
+}
+button{
+	border:none;
+	background-color: transparent;
 }
 input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="email"]::placeholder{
 	color: #8c9c93;
