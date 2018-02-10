@@ -1,5 +1,4 @@
 function initMap(){
-	
 	var kyiv,
 		map,
 		marker,
@@ -69,7 +68,7 @@ function initMap(){
 }
 
 window.addEventListener('load', function () {
-var img = document.getElementsByClassName('gm-fullscreen-control');
+  var img = document.getElementsByClassName('gm-fullscreen-control');
 	img[0].setAttribute("src", "../img/map/fullscreen_red.png");
 	img[0].setAttribute("style", "heigth: 24px; width:24px;");
 });
