@@ -1,0 +1,109 @@
+.registration{
+	display: flex;
+	flex-wrap: wrap;
+
+	&_access{
+		flex-basis: 380px;
+		margin-right: auto;
+		margin-bottom: 20px;
+		padding: 65px 40px 42px;
+		box-shadow: 0 1px 1px rgba(223, 223, 223, 0.75);
+		border-radius: 4px;
+		border-top: 4px solid #3dcf7e;
+		background-color: #ffffff;
+		&__buttons{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			margin-bottom: 40px;
+			&--social{
+				margin-left: auto;
+			}
+		}
+		&__login{
+			width: 100%;
+			margin-right: auto;
+			background-image: url("../img/registr/icon_user.svg");
+			background-repeat: no-repeat;
+			background-position: 16px 10px;
+		}
+		&__password{
+			width: 100%;
+			background-image: url("../img/registr/icon_pass.svg");
+			background-repeat: no-repeat;
+			background-position: 14px 10px;
+		}
+		&__buttons--or{
+			margin-right: 15px;
+			margin-left: 15px;
+			color: #8c9c93;
+			font-family: 'ArialItalicMT', sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 22px;
+			text-transform: uppercase;
+		}
+		&__buttons--login{
+			padding-right: 53px;
+			padding-left: 53px;
+		}
+		&__buttons--tw, &__buttons--fb{
+			padding: 15px;
+			margin-right: 4px;
+			width: 42px;
+			height: 42px;
+			background-repeat: no-repeat;
+			background-position: 17px center;
+			border-radius: 4px;
+			border: none;
+			cursor: pointer;
+			&:last-child{
+				margin-right: 0;
+			}
+			
+		}
+		&__buttons--tw{
+			background-position: 13px center;
+			background-color: #25aae2;
+			background-image: url("../img/registr/icon_twitter.svg");
+			
+		}
+		&__buttons--fb{
+			background-color: #0f75bd;
+			background-image: url("../img/registr/icon_facebook.svg");
+			
+		}
+		&__link{
+			display: flex;
+			font-family: "MontserratBold", sans-serif;
+			font-size: 14px;
+			line-height: 22px;
+			margin-top: 40px;
+			a.registration_access__link-forgot {
+				color: #011407;
+				display: inline-block;
+				&:hover{
+					color: #3dcf7e;
+				}
+				// span{
+				// 	color:#3dcf7e;
+				// 	text-transform: uppercase;
+				// }
+			}
+			&-forgot{
+				margin-right: auto;
+			}
+			&-new{
+				span:hover{
+					text-decoration: underline;
+				}
+				margin-left: auto;
+				text-transform: lowercase;
+			}
+		}
+	}
+}
+
+a.registration_access__link--new > span:hover {
+	text-decoration: underline;
+}
