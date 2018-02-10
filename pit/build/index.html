@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Titles -->
+	<title>Document</title>
+	<meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Syles -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- FavIcons -->
+	<link rel="icon" href=""  type="image/x-icon" />
+	<link rel="shortcut icon" href=""  type="image/x-icon" />
+    <link rel="apple-touch-icon" href="">
+</head>
+<body>
+	<!--[if lt IE 8]>
+	    <p class="browserupgrade">Вы используете <strong>устаревшую</strong> версию браузера. Пожалуйста <a href="http://browsehappy.com/">обновите свой браузер</a>.</p>
+	<![endif]-->
+
+	<div class="wrapper">
+		<div class="logo">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97" height="97" viewBox="0 0 97 97"><defs><path id="v90fa" d="M615.5 79a48.5 48.5 0 1 1 0 97 48.5 48.5 0 0 1 0-97z"/><clipPath id="v90fb"><use fill="#fff" xlink:href="#v90fa"/></clipPath></defs><g><g transform="translate(-567 -79)"><use fill="#fff" fill-opacity="0" stroke="#3dcf7e" stroke-miterlimit="50" stroke-width="10" clip-path="url(&quot;#v90fb&quot;)" xlink:href="#v90fa"/></g></g>
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" x="24" y="23" height="50" viewBox="0 0 50 50"><defs><path id="2rhua" d="M591.33 145a4.68 4.68 0 1 0 6.63 6.63l15.4-15.38-6.63-6.62zm38.48-28.5l6.7-3.45 3.51-6.78-3.27-3.27-6.79 3.5-3.47 6.7-8.16 8.15 3.31 3.31zm1.46 17.78c-.2 0-.41-.06-.63-.06a9.3 9.3 0 0 0-3.24.6l-19.25-19.22c.38-1 .61-2.1.61-3.23 0-.22-.05-.42-.06-.64a9.29 9.29 0 0 0-13.34-7.8l6.23 6.23c.33.33.56.71.7 1.12a3.11 3.11 0 0 1-2.9 4.2 3.1 3.1 0 0 1-1.1-.2 3.1 3.1 0 0 1-1.12-.7l-6.23-6.23a9.26 9.26 0 0 0 7.81 13.32c.21.01.42.06.63.06a9.3 9.3 0 0 0 3.24-.6l19.25 19.22a9.28 9.28 0 0 0-.6 3.24c0 .21.04.42.06.63a9.3 9.3 0 0 0 13.34 7.8l-6.24-6.23a3.02 3.02 0 0 1-.7-1.12 3.11 3.11 0 0 1 2.91-4.2c.37 0 .74.08 1.09.2.4.16.8.38 1.12.7l6.23 6.23c.59-1.22.94-2.57.94-4.01a9.34 9.34 0 0 0-8.75-9.3z"/></defs><g><g transform="translate(-590 -103)"><use fill="#3dcf7e" xlink:href="#2rhua"/></g></g></svg>
+			</svg>
+			<h1>PLAINEE UI KIT</h1>
+		</div>
+		<div class="bigHeader">
+			<div class="bigHeader__nav">
+				<ul class="bigHeader__nav__items">
+					<li><a href="#">PROFILE</a></li> 
+					<li><a href="#">REQUESTS</a></li>
+					<li><a href="#">ELEMENTS</a></li>
+				</ul>
+				<div class="bigHeader__nav__status">
+					<span class="bigHeader__nav__status--off"></span>
+					<span class="bigHeader__nav__status--on"></span>
+				</div>
+			</div>
+			
+			<div class="bigHeader__profile">
+				<a class="bigHeader__profile__photo" href="#">
+					<img src="../img/header/profil_big_foto.png" title="Andrei Josan" alt="Photo">
+				</a>
+				<div class="bigHeader__profile__userData">
+					<span class="bigHeader__profile__logged">logged in as</span>
+					<span class="bigHeader__profile__name" title="Andrei Josan">Andrei Josan</span>
+				</div>
+				<div class="bigHeader__profile__icons">
+					<span class="bigHeader__profile__settings" title="Settings"></span>
+					<span class="bigHeader__profile__alerts" title="Alerts">
+						<kbd>4</kbd>
+					</span>
+					<span class="bigHeader__profile__calendar" title="Calendar">
+						<kbd>21</kbd>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="smallHeader">
+			<div class="smallHeader__profile">
+				<img src="../img/header/profil_small_foto.png" alt="Photo">
+				<span class="smallHeader__profile__name">Andrei Josan</span>
+			</div>
+			<ul class="bigHeader__nav__items smallHeader__profile__nav--verticalLine">
+				<li><a href="#">PROFILE</a></li>
+				<li><a href="#">REQUESTS</a></li>
+				<li><a href="#">ELEMENTS</a></li>
+			</ul>
+			<div class="smallHeader__search">
+				<input type="search" placeholder="Search...">
+			</div>
+			<div class="bigHeader__profile__icons">
+				<span class="bigHeader__profile__settings" title="Settings"></span>
+				<span class="bigHeader__profile__alerts" title="Alerts">
+					<kbd>4</kbd>
+				</span>
+				<span class="bigHeader__profile__calendar" title="Calendar">
+					<kbd>21</kbd>
+				</span>
+			</div>
+		</div>
+		<div class="registration">
+			<div class="registration_access">
+				<h3 class="heading">ACCESS ACCOUNT</h3>
+				<div>
+					<input class="input_text registration_access__login" type="text">
+				</div>
+				<div>
+					<input class="input_text registration_access__password" type="password">
+				</div>
+				<div class="registration_access__buttons">
+					<button class="registration_access__buttons--login buttons">LOGIN</button>
+					<span class="registration_access__buttons--or">OR</span>
+					
+					<div class="registration_access__buttons--social">
+						<button class="registration_access__buttons--tw "></button>
+						<button class="registration_access__buttons--fb "></button>
+					</div>
+				</div>
+				<div class="line"></div>
+				<div class="registration_access__link">
+					<a class="registration_access__link-forgot" href="#">Forgot password</a>
+					<a class="registration_access__link--new" href="#" style="color:#011407;"><span style="color:#65d999; ">REGISTER</span> new account</a>
+				</div>
+				
+			</div>
+			<div class="registration_new">
+				<h3 class="heading">REGISTER A NEW ACCOUNT</h3>
+				<div class="registration_new__inputs">
+					<input class="input_text  registration_new__login" placeholder="desired username" type="text">
+					<input class="input_text  registration_new__email" placeholder="enter e-mail address" type="email">
+				</div>
+				<div  class="registration_new__inputs">
+					<input class="input_text registration_new__password" placeholder="desired password"  type="password">
+					<input class="input_text  registration_new__password--r" placeholder="desired password" type="password">
+				</div>
+				
+				<div class="registration_new__progress">
+					<div class="registration_new__progress--text">
+						<span class="registration_new__progress--l">Password strength:</span>
+						<span class="registration_new__progress--r">
+							<span style="color: #65d999;">77</span>/100</span>
+					</div>
+					<div class="registration_new__progress--line">
+						<div class="registration_new__progress--green"></div>
+					</div>
+				</div>
+				
+				<div class="registration_new__checkBut">
+					<div class="registration_new__checkBut--checkbox">
+						<input id="check" type="checkbox">
+						<label for="check">
+							Registering means that you
+							agree to our <a href="#" style="color: #3dcf7e; cursor: pointer;">Terms of Service</a>
+						</label>
+					</div>
+					<button class="registration_new__checkBut--registr buttons">
+						REGISTER
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="accountInfo">
+			<div class="accountInfo__skills">
+				<h3 class="heading">MY SKILLS</h3>
+				<div class="accountInfo__skills__progress">
+					<div class="accountInfo__skills__progress--text">
+						<span class="accountInfo__skills__progress--l">Photoshop</span>
+						<span class="accountInfo__skills__progress--r">90%</span>
+					</div>
+					<div  class="accountInfo__skills__progress--line">
+						<div style="width: 90%;" class="accountInfo__skills__progress--green"></div>
+					</div>
+				</div>
+				<div class="accountInfo__skills__progress">
+					<div class="accountInfo__skills__progress--text">
+						<span class="accountInfo__skills__progress--l">Illustrator</span>
+						<span class="accountInfo__skills__progress--r">65%</span>
+					</div>
+					<div class="accountInfo__skills__progress--line">
+						<div style="width: 65%;"  class="accountInfo__skills__progress--green"></div>
+					</div>
+				</div>
+				<div class="accountInfo__skills__progress">
+					<div class="accountInfo__skills__progress--text">
+						<span class="accountInfo__skills__progress--l">HTML &amp; CSS</span>
+						<span class="accountInfo__skills__progress--r">75%</span>
+					</div>
+					<div  class="accountInfo__skills__progress--line">
+						<div style="width:75%;" class="accountInfo__skills__progress--green"></div>
+					</div>
+				</div>
+				<div class="accountInfo__skills__progress">
+					<div class="accountInfo__skills__progress--text">
+						<span class="accountInfo__skills__progress--l">PHP</span>
+						<span class="accountInfo__skills__progress--r">40%</span>
+					</div>
+					<div  class="accountInfo__skills__progress--line">
+						<div style="width: 40%;" class="accountInfo__skills__progress--green"></div>
+					</div>
+				</div>
+			</div>
+			<div class="accountInfo__profile">
+				<div class="accountInfo__profile__photo">
+					<img src="img/big_photo.png" alt="Andrei Josan">
+					<span class="accountInfo__profile__photo--status" ></span>
+				</div>
+				<a class="accountInfo__profile__name" >Andrei Josan</a>
+				<span class="accountInfo__profile__subtitle">web &amp; UI/UX designer</span>
+				<div class="accountInfo__profile__social">
+					<a class="accountInfo__profile__social--tw" href="#"></a>
+					<a class="accountInfo__profile__social--fb" href="#"></a>
+					<a class="accountInfo__profile__social--g" href="#"></a>
+					<a class="accountInfo__profile__social--plus" href="#"></a>
+				</div>
+				<a href="#" class="accountInfo__profile__follow">+Follow</a>
+			</div>
+			<div class="accountInfoOther">
+				<div class="accountInfoOther__slide">
+					<a class="accountInfoOther__slide--prev" href="#">Previous</a>
+					<a class="accountInfoOther__slide--next" href="#">Next</a>
+				</div>
+				
+				<div class="accountInfoOther__subscr">
+					<img src="img/small_photo.png" title="Andrei Josan" alt="Andrei Josan">
+					<div class="accountInfoOther__subscr__but">
+						<a href="#">Andrei Josan</a>
+						<div class="accountInfoOther__subscr__but--value">
+							<button class="accountInfoOther__subscr__but--sub buttons">subccribe</button>
+							<span>624</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="accountInfoOther__data">
+					<div class="accountInfoOther__data__frofile">
+						<img src="img/small_photo.png" title="Andrei Josan" alt="Andrei Josan">
+						<div class="accountInfoOther__data__frofile--loc">
+							<a href="#">Andrei Josan</a>
+							<span>Bucharest, Romania</span>
+						</div>
+					</div>
+					
+					<div class="accountInfoOther__data__line line"></div>
+					
+					<div class="accountInfoOther__data__info">
+						<div class="accountInfoOther__data__info--friends">
+							<span class="accountInfoOther__data__info--num">245</span>
+							<span class="accountInfoOther__data__info--text">friends</span>
+						</div>
+						<div class="accountInfoOther__data__info--views">
+							<span class="accountInfoOther__data__info--num">7654</span>
+							<span class="accountInfoOther__data__info--text">views</span>
+						</div>
+						<div class="accountInfoOther__data__info--likes">
+							<span class="accountInfoOther__data__info--num">809</span>
+							<span class="accountInfoOther__data__info--text">likes</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="video">
+			<div class="video__player">
+				<div class="video__player__screen">
+					<img src="" alt="">
+					<button class="video__player__screen--replay"></button>
+					<div class="video__player__screen--share">
+						<button class="share__plus">
+						<span></span>
+						</button>
+						<button class="share__tw"></button>
+						<button class="share__fb"></button>
+						<button class="share__g"></button>
+					</div>
+				</div>
+			
+				<div class="video__player__panel">
+					<button class="video__player__panel--play"></button>
+					
+					<div class="video__player__panel--progress">
+						<div class="video__player__panel--progress--grey">
+							<div class="video__player__panel--progress--green"></div>
+						</div>
+					</div>
+					
+					<div class="video__player__panel--time">
+						<span>2:30</span>
+						<span>/</span>
+						<span>4:58</span>
+					</div>
+					
+					<div class="video__player__panel--volume">
+						<button class="video__player__panel--volume-ic"></button>
+						<div class="video__player__panel--volume-grey">
+							<div class="video__player__panel--volume-green"></div>
+						</div>
+						
+					</div>
+					
+					<div class="video__player__panel--hd">
+						<button class="video__player__panel--hd-but">HD</button>
+					</div>
+					
+					<div class="video__player__panel--full">
+						<button class="video__player__panel--full-ic"></button>
+					</div>
+			
+				</div>
+			
+			</div>
+			<div class="video__playlist">
+				<div class="video__playlist__slide">
+					<div class="video__playlist__slide--text">
+						<span class="playing" >NOW PLAYING</span>
+						<span class="great">Great video of the...</span>
+					</div>
+					<div class="video__playlist__slide--but">
+						<button class="video__playlist__slide--prew"></button>
+						<button class="video__playlist__slide--next"></button>
+					</div>
+				</div>
+				
+				<div class="video__playlist__choice">
+					<span class="video__playlist__choice--title">
+						VIDEOS IN THIS PLAYLIST: 
+					</span>
+					<span class="video__playlist__choice--total"> 
+						(13)
+					</span>
+				</div>
+				
+				<div class="video__playlist__listScrol">
+					<div class="video__playlist__list">
+						<span class="video__playlist__list--title">
+							Cat videos everywhere
+						</span>
+						<div class="video__playlist__list--time">
+							<span class="video__playlist__list--time-text">8:27</span>
+							<span class="video__playlist__list--time-ic"></span>
+						</div>
+					</div>
+					<div class="video__playlist__list">
+						<span class="video__playlist__list--title">
+							Flat design explained in a...
+						</span>
+						<div class="video__playlist__list--time">
+							<span class="video__playlist__list--time-text">5:00</span>
+							<span class="video__playlist__list--time-ic"></span>
+						</div>
+					</div>
+					<div class="video__playlist__list">
+						<span class="video__playlist__list--title">
+							Top videos currently You...
+						</span>
+						<div class="video__playlist__list--time">
+							<span class="video__playlist__list--time-text">21:58</span>
+							<span class="video__playlist__list--time-ic"></span>
+						</div>
+					</div>
+					<div class="video__playlist__list">
+						<span class="video__playlist__list--title">
+							Travelling to Romania
+						</span>
+						<div class="video__playlist__list--time">
+							<span class="video__playlist__list--time-text">1:40</span>
+							<span class="video__playlist__list--time-ic"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row7"></div>
+		<div class="row8"></div>
+		<div class="row9"></div>
+		<div class="row10"></div>
+		<div class="row11"></div>
+		
+		<div id="map"></div>
+		<script src="js/main.js"></script>
+		<script async defer
+	    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT_t1amQOMRHh43bsgPFBQYwQj-XM07k0&callback=initMap">
+	    </script>
+	   
+	    
+	</div>
+</body>
+</html>
