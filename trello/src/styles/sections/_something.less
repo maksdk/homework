@@ -9,23 +9,44 @@ body{
 }
 
 .outBlock{
+  align-self: flex-start;
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 270px;
-  height: 600px;
-  background-color: #E2E4E6;
+  max-width: 270px;
+ background-color: #E2E4E6;
   border-radius: 5px;
   margin:10px;
   padding:10px;
+  padding-top:5px;
+}
+.parentInBlock{
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 270px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inBlock{
-  padding: 50px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  min-width: 240px;
+  max-width: 240px;
+  padding: 15px;
   background-color: #fff;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: move;
+}
+#darkBg{
+  // display: block;
+  // min-width: 270px;
+  // //height: 30px;
+  // background-color: #222;
+  // opacity: 0.2;
+  // border-radius: 5px;
+  // z-index: 1;
+  // margin-top: 15px;
+  // margin-bottom: 15px;
 }
 
 .addOutBlock{
@@ -37,4 +58,12 @@ body{
   background-color: #222;
   opacity: 0.2;
   border-radius: 5px;
+}
+
+
+.outBlockTitle{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #fff;
+  cursor: move;
 }
