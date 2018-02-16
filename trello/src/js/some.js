@@ -100,7 +100,7 @@ window.onload = () => {
 
 	let saveCardInList = (e)=>{
 		let textarea = document.getElementById("textareaAddCard");
-		textarea.parentNode.setAttribute("style", "padding: 10px; background-color: #ffffff; width:250px;");
+		textarea.parentNode.setAttribute("style", "padding: 10px; background-color: #ffffff; width:160px;");
 		e.target.parentNode.previousSibling.style.display = "block";
 		e.target.parentNode.parentNode.removeChild(e.target.parentNode);
 		textarea.parentNode.innerHTML = textarea.value;
@@ -179,15 +179,22 @@ window.onload = () => {
 			dragObj.elem !== e.target &&
 			dragObj.elem.parentNode !== e.target){
 			let coord = getCoords(e.target);
-			if (Math.abs(coord.left - e.pageX) > 135){
-				if(dragObj.parent === e.target.parentNode.nextElementSibling){
+			if (Math.abs(coord.left - e.pageX) > 100){
+				if (e.target.className == "outBlockTitle"){
+					e.target.parentNode.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.parentNode);
+				} else if (dragObj.parent === e.target.parentNode.nextElementSibling){
 					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
 				}	else {
 					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
 				}
-			}else if (Math.abs(coord.left - e.pageX) < 135) {
-				if((e.target.parentNode.parentNode.children[0] === e.target.parentNode) ||
-					(dragObj.parent === e.target.parentNode.nextElementSibling)){
+			}else if (Math.abs(coord.left - e.pageX) < 100) {
+				console.log(e.target)
+				console.log(e.target.parentNode.parentNode)
+				console.log(dragObj.parent === e.target.parentNode.nextElementSibling)
+				if (e.target.className == "outBlockTitle"){
+					console.log("e.outBlockTitle")
+					e.target.parentNode.parentNode.parentNode.insertBefore(e.target.parentNode.parentNode, dragObj.parent);
+				} else if((dragObj.parent === e.target.parentNode.nextElementSibling)){
 					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
 				} else {
 					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);

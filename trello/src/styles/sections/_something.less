@@ -12,8 +12,8 @@ body{
   align-self: flex-start;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  min-width: 290px;
-  max-width: 290px;
+  min-width: 200px;
+  max-width: 200px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -22,8 +22,8 @@ body{
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 270px;
-  max-width: 270px;
+  min-width: 180px;
+  max-width: 180px;
   background-color: #E2E4E6;
   border-radius: 5px;
   padding:10px;
@@ -32,7 +32,7 @@ body{
 .parentInBlock{
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  min-width: 270px;
+  min-width: 180px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -44,16 +44,14 @@ body{
   cursor: move;
 }
 .addCard{
-  padding-top: 10px;
-  padding-bottom: 10px;
   color: #999999;
   cursor: pointer;
   text-align: left;
-  font-size: 22px;
+  font-size: 14px;
   background-color:#E2E4E6; 
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   &:hover{
     text-decoration: underline;
     background-color:#CACACA; 
@@ -62,19 +60,19 @@ body{
 .add{
    margin-left: 20px;
     margin-right: 20px;
-    min-width: 290px;
-  max-width: 290px;
+    min-width: 200px;
+  max-width: 200px;
   &__List{
     display: block;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    min-width: 270px;
-    height: 30px;
+    min-width: 180px;
+    height: 24px;
     padding: 10px;
    
     cursor: pointer;
     text-align: left;
-    font-size: 22px;
+    font-size: 18px;
     color: #EEEEC0;
     &:hover{
       text-decoration: underline;
@@ -82,15 +80,15 @@ body{
   }
   &__name{
     display: none;
-    min-width: 270px;
-    max-width: 270px;
+    min-width: 180px;
+    max-width: 180px;
     background-color: #E2E4E6;
     border-radius: 5px;
     padding:10px;
     &>input{
       position: relative;
       padding: 3px;
-      width: 265px;
+      width: 170px;
       height: 35px;
       border-radius: 5px;
       outline: none;
@@ -100,7 +98,7 @@ body{
       color: #000;
       &::placeholder{
         color:#FFFFFF;
-        font-size: 22px;
+        font-size: 14px;
         position: absolute;
         left: 5px;
         top: 5px;
@@ -112,12 +110,12 @@ body{
       &--save, &--delete{
         cursor: pointer;
         outline: none;
-        padding: 10px 15px;
+        padding: 10px 10px;
          background-color: #D29034;
         border: none;
         border-radius: 5px;
         color: #eeeec0;
-        font-size: 22px;
+        font-size: 14px;
         &:hover{
           background-color: #A9742A;
         }
@@ -144,12 +142,12 @@ body{
  &--add, &--cancel{
   cursor: pointer;
   outline: none;
-  padding: 10px 15px;
+  padding: 10px 10px;
    background-color: #D29034;
   border: none;
   border-radius: 5px;
   color: #eeeec0;
-  font-size: 22px;
+  font-size: 14px;
   &:hover{
     background-color: #A9742A;
   }
@@ -163,7 +161,7 @@ body{
 
 }
 .textArea{
-  width: 263px;
+  width: 173px;
   height: 100px;
   border-radius:5px;
   resize: vertical;
@@ -171,7 +169,7 @@ body{
 }
 .outBlockTitle{
   text-align: left;
-  font-size: 22px;
+  font-size: 18px;
   color: #484848;
   padding-top: 8px;
   padding-bottom: 8px;
