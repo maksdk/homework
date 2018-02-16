@@ -6,8 +6,17 @@ body{
   display: flex;
   width: 100%;
   height: 100%;
+  padding: 10px;
 }
-
+.parentOutBlock{
+  align-self: flex-start;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 290px;
+  max-width: 290px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .outBlock{
   align-self: flex-start;
   position: relative;
@@ -15,9 +24,8 @@ body{
   flex-direction: column;
   min-width: 270px;
   max-width: 270px;
- background-color: #E2E4E6;
+  background-color: #E2E4E6;
   border-radius: 5px;
-  margin:10px;
   padding:10px;
   padding-top:5px;
 }
@@ -30,38 +38,141 @@ body{
 }
 
 .inBlock{
-  min-width: 240px;
-  max-width: 240px;
-  padding: 15px;
+  padding: 10px;
   background-color: #fff;
   border-radius: 5px;
   cursor: move;
 }
-#darkBg{
-  // display: block;
-  // min-width: 270px;
-  // //height: 30px;
-  // background-color: #222;
-  // opacity: 0.2;
-  // border-radius: 5px;
-  // z-index: 1;
-  // margin-top: 15px;
-  // margin-bottom: 15px;
-}
-
-.addOutBlock{
+.addCard{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #999999;
   cursor: pointer;
-  min-width: 270px;
-  height: 30px;
+  text-align: left;
+  font-size: 22px;
+  background-color:#E2E4E6; 
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   padding: 10px;
-  margin: 10px;
-  background-color: #222;
-  opacity: 0.2;
+  &:hover{
+    text-decoration: underline;
+    background-color:#CACACA; 
+  }
+}  
+.add{
+   margin-left: 20px;
+    margin-right: 20px;
+    min-width: 290px;
+  max-width: 290px;
+  &__List{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 270px;
+    height: 30px;
+    padding: 10px;
+   
+    cursor: pointer;
+    text-align: left;
+    font-size: 22px;
+    color: #EEEEC0;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  &__name{
+    display: none;
+    min-width: 270px;
+    max-width: 270px;
+    background-color: #E2E4E6;
+    border-radius: 5px;
+    padding:10px;
+    &>input{
+      position: relative;
+      padding: 3px;
+      width: 265px;
+      height: 35px;
+      border-radius: 5px;
+      outline: none;
+      border: 2px solid #AFAFAF;
+      background-color: #D7D8DA;
+      margin-bottom: 10px;
+      color: #000;
+      &::placeholder{
+        color:#FFFFFF;
+        font-size: 22px;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+      }
+    }
+    .buttonsList{
+      display: flex;
+
+      &--save, &--delete{
+        cursor: pointer;
+        outline: none;
+        padding: 10px 15px;
+         background-color: #D29034;
+        border: none;
+        border-radius: 5px;
+        color: #eeeec0;
+        font-size: 22px;
+        &:hover{
+          background-color: #A9742A;
+        }
+      }
+      &--save{
+        margin-right:auto;
+      }
+      &--delete{
+        margin-left: auto;
+      }
+    }
+  }
+}  
+
+.buttonsAddCard{
+  display: flex;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
   border-radius: 5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  background-color: #E2E4E6;
+ &--add, &--cancel{
+  cursor: pointer;
+  outline: none;
+  padding: 10px 15px;
+   background-color: #D29034;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 22px;
+  &:hover{
+    background-color: #A9742A;
+  }
+ }
+ &--add{
+  margin-right:auto;
+ }
+ &--cancel{
+  margin-left: auto;
+ }
+
 }
-
-
+.textArea{
+  width: 263px;
+  height: 100px;
+  border-radius:5px;
+  resize: vertical;
+  outline: none;
+}
 .outBlockTitle{
+  text-align: left;
+  font-size: 22px;
+  color: #484848;
   padding-top: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid #fff;

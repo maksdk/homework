@@ -1,133 +1,205 @@
 window.onload = () => {
 	let dragObj = {};
-	let img = new Image;
-	let elem = document.createElement("div");
-		elem.style.display = "none";
-		document.body.appendChild(elem);
-		
-//=========== let mousedown  = (e) => {
-	// 	if (e.which != 1 || (e.target.className != "inBlock" && 
-	// 		e.target.className != "outBlock")){console.log("return");return}
-	// 		e.target.setAttribute("draggable", "false");
-		
-	// 	let parent = e.target.parentNode;
-	// 		parent.style.height = e.target.clientHeight + "px";
-	// 	let elementToDrag = e.target;
-		
-	// 	// координаты мыши в начале перетаскивания.
-	// 	let startX = e.clientX,
-	// 	    startY = e.clientY;
-		   
-	// 	// начальные координаты элемента, который будет перемещаться.
-	// 	let origX = e.target.offsetLeft,
-	// 	    origY = e.target.offsetTop;
-		   
-	// 	// разница между координатами мыши и координатами перетаскиваемого элемента.
-	// 	let deltaX = startX - origX,
-	// 	    deltaY = startY - origY;
-		
-	// 	dragObj.elem = e.target;
-	// 	dragObj.deltaX = deltaX;
-	// 	dragObj.deltaY = deltaY;
-	// 	dragObj.pageX = e.pageX;
-	// 	dragObj.pageY = e.pageY;
+	let addList	= document.getElementById("addList");
+	addList.onclick = (e)=>{
+		let addName = document.getElementById("addName");
+			addName.style.display = "block";
+			addList.style.display = "none";
+		let save = document.getElementById("saveList");
+			save.addEventListener("click", saveList, false);
+		let cancel = document.getElementById("cancelList");
+			cancel.addEventListener("click", cancelAddList, false);
+			document.getElementById("nameList").focus();
+	}
+	let saveList = (e)=>{
+		let columns = document.getElementById("columns"),
+			nameList = document.getElementById("nameList"),
+			parentOutBlock = document.createElement("div"),
+			outBlock = document.createElement("div"),
+			outBlockTitle = document.createElement("div"),
+			addCard = document.createElement("div");
 
-	// 	document.addEventListener("mousemove", mousemove, true);
-	// 	document.addEventListener("mouseup", mouseup, true);
-	// }
-	// let mousemove = (e) => {
+		parentOutBlock.classList.add("parentOutBlock");
+		columns.insertBefore(parentOutBlock, columns.children[columns.children.length - 1]);
+
+		outBlock.classList.add("outBlock");
+		outBlock.setAttribute('draggable', 'true');
+		outBlock.addEventListener('dragenter', dragEnterOutBlock, false);
+		parentOutBlock.appendChild(outBlock);
 		
-	// 	if ( Math.abs(dragObj.pageX - e.pageX) < 3 && 
-	// 		Math.abs(dragObj.pageY - e.pageY) < 3 ) {
-	//       return; // ничего не делать, мышь не передвинулась достаточно далеко
-	//     }
-	//     if (dragObj.elem != document.body) {
+		outBlockTitle.classList.add("outBlockTitle");
+		outBlockTitle.innerText = nameList.value;
+		outBlockTitle.setAttribute('draggable', 'true');
+ 		outBlockTitle.addEventListener('dragstart', dragStart, false);
+ 		outBlockTitle.addEventListener('dragenter', dragEnterTitle, false);
+    	outBlockTitle.addEventListener('dragend', dragEnd, false);
+    	outBlock.appendChild(outBlockTitle);
+		
+		addCard.classList.add("addCard");
+		addCard.id = "addCard";
+		addCard.innerText = "Добавить карточку...";
+		addCard.style.display = "flex";
+
+		addCard.addEventListener("click", addCardInList, false);
+		outBlock.appendChild(addCard);
+
+		nameList.value = null;
+		addName.style.display = "none";
+		addList.style.display = "block";
+	}
+
+	let  cancelAddList = (e)=>{
+		let addName = document.getElementById("addName");
+		addName.style.display = "none";
+		addList.style.display = "block";
+	}
+	let addCardInList = (e)=>{
+		let parentInBlock = document.createElement("div"),
+			inBlock = document.createElement("div"),
+		    textArea = document.createElement("textArea"),
+		    buttonsDiv = document.createElement("div"),
+		    buttonAdd = document.createElement("button"),
+		    buttonCancel = document.createElement("button");
+		    
+	    //вставляем перед кнопкой добавить список
+	    parentInBlock.classList.add("parentInBlock");
+	    let index = e.target.parentNode.children.length - 1;
+	    e.target.parentNode.insertBefore(parentInBlock, e.target.parentNode.children[index]);
+	
+	    inBlock.classList.add("inBlock");
+		inBlock.style.padding = "0";
+		inBlock.style.backgroundColor = "#E2E4E6";
+		parentInBlock.appendChild(inBlock);
+		inBlock.setAttribute('draggable', 'true');
+ 		inBlock.addEventListener('dragstart', dragStart, false);
+ 		inBlock.addEventListener('dragenter', dragEnterInBlock, false);
+    	inBlock.addEventListener('dragend', dragEnd, false);
 			
-	//   		document.body.appendChild(dragObj.elem); // переместить в BODY, если надо
-	//     	dragObj.elem.style.zIndex = 9999; // сделать, чтобы элемент был над другими
-	// 		dragObj.elem.style.position = 'absolute';
-	// 	 }
-	// 	dragObj.elem.style.left = (e.clientX - dragObj.deltaX) + 10 + "px";
-	//     dragObj.elem.style.top = (e.clientY - dragObj.deltaY) + 10 + "px";
-	// }
-	// let mouseup = (e) => {
-	// 	document.removeEventListener("mouseup", mouseup, true);
-	// 	document.removeEventListener("mousemove", mousemove, true);
-	// }
-	// let mouseover = (e)=>{
-	// 	console.log(e)
-	// }
+		textArea.classList.add("textArea");
+		textArea.id = "textareaAddCard";
+		inBlock.appendChild(textArea);
+		document.getElementById("textareaAddCard").focus();
+		//textArea.addEventListener("blur", loseFocusTextarea, false);
 
-	// document.onmousemove  = (e) => {
-	// 	if(!dragObj.elem) {return}
-	// 	if (dragObj.elem != document.body) {
-	  		
-	//   		var coords = getCoords(dragObj.elem);
-	//     		dragObj.shiftX = dragObj.startX - coords.left;
-	//     		dragObj.shiftY = dragObj.startY - coords.top;
+		buttonsDiv.classList.add("buttonsAddCard");
+		buttonsDiv.id = "buttonsAddCardId";
+		e.target.parentNode.appendChild(buttonsDiv);
 
-	//     		document.body.appendChild(dragObj.elem); // переместить в BODY, если надо
-	//     		dragObj.elem.style.zIndex = 9999; // сделать, чтобы элемент был над другими
-	// 			dragObj.elem.style.position = 'absolute';
-	// 	}
-	//  	dragObj.elem.style.left = e.pageX - dragObj.shiftX + 'px';
-	//  	dragObj.elem.style.top = e.pageY - dragObj.shiftY + 'px';
+		buttonAdd.classList.add("buttonsAddCard--add");
+		buttonAdd.innerText = "Добавить";
+		buttonAdd.addEventListener("click", saveCardInList, false);
+		buttonsDiv.appendChild(buttonAdd);
 
-	//   return false;
-	    
-	// }
-	// let getCoords = (elem) => {
-	// 	let box = elem.getBoundingClientRect();
-	// 	return {
-	//     	top: box.top + pageYOffset,
-	//     	left: box.left + pageXOffset
-	//   	};
-	// }
-	// let elemMove;
-	// let id;
-	// let parent;
-	// let darkBg = document.getElementById("darkBg");
-	//let outBlock1 = document.getElementById("outBlock1");
-	
-	
-	//document.addEventListener("mousemove", mousemove, true);
-//============================================================	
+		buttonCancel.classList.add("buttonsAddCard--cancel");
+		buttonCancel.innerText = "Отмена";
+		buttonCancel.addEventListener("click", cancelAddCardInLIst, false);
+		buttonsDiv.appendChild(buttonCancel);
 
+		e.target.style.display = "none";
+	}
+
+	let saveCardInList = (e)=>{
+		let textarea = document.getElementById("textareaAddCard");
+		textarea.parentNode.setAttribute("style", "padding: 10px; background-color: #ffffff; width:250px;");
+		e.target.parentNode.previousSibling.style.display = "block";
+		e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+		textarea.parentNode.innerHTML = textarea.value;
+	}
+
+	let cancelAddCardInLIst = (e)=>{
+		let textarea = document.getElementById("textareaAddCard");
+		let parent = textarea.parentNode.parentNode.parentNode;
+		parent.removeChild(document.getElementById("buttonsAddCardId"));
+		
+		let index = textarea.parentNode.parentNode.parentNode.children.length;
+		parent.children[index - 1].style.display = "block";
+		parent.removeChild(textarea.parentNode.parentNode);
+		textarea.parentNode.removeChild(textarea);
+	}
+	let loseFocusTextarea = (e)=>{
+	}	
 	let dragStart = (e) =>{
-		let parent = e.target.parentNode;
-	 		parent.style.height = e.target.clientHeight - 1 + "px";
+		let eTarget, parent, deltaCoords;
+		if(e.target.className == "outBlockTitle"){
+	 		parent = e.target.parentNode.parentNode;
+	 		eTarget = e.target.parentNode;
+	 	} else if(e.target.className == "inBlock") {
+			parent = e.target.parentNode;
+	 		eTarget = e.target;
+	 	}
+	 	parent.style.height = parent.clientHeight - 1 + "px";
 		
-		// разница между координатами мыши и координатами перетаскиваемого элемента.
+		let clone = parent.cloneNode(true);
+	 	document.body.appendChild(clone);
+		clone.id = "clone";
+		clone.style.position = "absolute";    
+		clone.style.top = "-1000px";
+		clone.style.zIndex = "-100";
+		 
 		let coords = getCoords(e.target);
-		let deltaX = e.pageX - coords.left,
+		let deltaX = e.pageX - coords.left - 30,
 		    deltaY = e.pageY - coords.top;
-
-		e.dataTransfer.dropEffect = 'move';
-		e.dataTransfer.setData("text", e.target.id);
-		e.dataTransfer.setDragImage(img, deltaX, deltaY);    	
-		
-		//обьект dragObj
+		e.dataTransfer.setDragImage(clone, deltaX, deltaY); 
 		dragObj.elem = e.target;
-		dragObj.elemChild = e.target.firstElementChild;
-		dragObj.parent = e.target.parentNode;
-		dragObj.style = e.target.getAttribute("style");
+		dragObj.parent = parent;
+		dragObj.style = eTarget.getAttribute("style");
 		dragObj.deltaX = deltaX;
 		dragObj.deltaY = deltaY;
 
-		e.target.style.zIndex = 9999;
-	 	e.target.style.position = 'absolute';
-	 	e.target.style.opacity = "0";
+		eTarget.style.zIndex = 9999;
+	 	eTarget.style.position = 'absolute';
+	 	eTarget.style.opacity = "0";
+	 	
 	}
-	let dragEnter = (e) =>{
-		// if (e.target === dragObj.elem){return}
-		// let coord = getCoords(e.target);
-		// if(Math.abs (coord.top - e.pageY) > 15){
-		// 	e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
-		// } else if (Math.abs (coord.top - e.pageY) <= 15){
-		// 	e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
-		// }
+	let dragEnterInBlock = (e) =>{
+		if (e.target === dragObj.elem){return}
+		if (dragObj.elem.className == "outBlockTitle"){return}
+		let coord = getCoords(e.target);
+		if(Math.abs(coord.top - e.pageY) > 15){
+			if(e.target.parentNode.nextElementSibling.className != "inBlock" && 
+				e.target.parentNode.nextElementSibling.className != "parentInBlock"){
+				e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
+			} else {
+				e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
+			}
+		} else if (Math.abs(coord.top - e.pageY) <= 15){
+			if (e.target.parentNode.parentNode.children[1] === e.target.parentNode){
+				e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
+			} else {
+				e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
+			}
+		}
 	}
-
+	let dragEnterOutBlock = (e)=>{
+		if(e.target.className == "addCard"){return}
+		if(dragObj.elem == undefined){return}
+		if((e.target.className == "outBlockTitle" || 
+			e.target.className == "outBlock") &&
+			dragObj.elem.className == "outBlockTitle"&&
+			dragObj.elem !== e.target &&
+			dragObj.elem.parentNode !== e.target){
+			let coord = getCoords(e.target);
+			if (Math.abs(coord.left - e.pageX) > 135){
+				if(dragObj.parent === e.target.parentNode.nextElementSibling){
+					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
+				}	else {
+					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
+				}
+			}else if (Math.abs(coord.left - e.pageX) < 135) {
+				if((e.target.parentNode.parentNode.children[0] === e.target.parentNode) ||
+					(dragObj.parent === e.target.parentNode.nextElementSibling)){
+					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
+				} else {
+					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
+				}
+			}
+		} else {return;}
+	}
+	let dragEnterTitle = (e) => {
+		if (dragObj.elem.className != "inBlock"){return}
+		if (e.target.parentNode.childElementCount > 2 ) {return}
+		e.target.parentNode.insertBefore(dragObj.parent, e.target.parentNode.children[1]);
+	}
 	let  getCoords = (elem) => { 
 	  var box = elem.getBoundingClientRect();
 		return {
@@ -136,110 +208,11 @@ window.onload = () => {
 	  };
 	}
 	let dragEnd = (e) =>{
+		e.target.className == "outBlockTitle" ?
+		e.target.parentNode.setAttribute("style", dragObj.style) :
 		e.target.setAttribute("style", dragObj.style);
+		dragObj.parent.style.height = "100%";
+		let clone = document.getElementById("clone");
+		document.body.removeChild(clone);
 	}
-	let dragLeave = (e) =>{
-	}
-	let dragOver = (e) =>{
-		e.preventDefault();
-	}
-	let dragDrop = (e) =>{
-		e.preventDefault();
-		e.stopPropagation();
-		var id = e.dataTransfer.getData("text");
-		var elem = document.getElementById(id);
-		e.target.appendChild(elem);
-	}
-
-	let mouseover = (e) =>{
-		if(e.target.className != "inBlock" && 
-			e.target.className != "outBlockTitle"){return}
-		screen(e.target);
-	}
-
-	let dragStartOutBlock = (e)=>{
-		
-		console.log(e.target.parentNode.clientHeight)
-		console.log(e.target.parentNode.clientWidth)
-		let parentNode = e.target.parentNode.cloneNode(true) ;
-		elem.appendChild(parentNode);
-		
-
-		// разница между координатами мыши и координатами перетаскиваемого элемента.
-		let coords = getCoords(e.target);
-		let deltaX = e.pageX - coords.left,
-		    deltaY = e.pageY - coords.top;
-		
-		elem.style.display = "block";
-		elem.style.position = "absolute";    
-		elem.style.left = "0";
-		elem.style.top = "-1000px";
-		//elem.style.height = e.target.parentNode.clientHeight + "px";
-		//elem.style.width = e.target.parentNode.clientWidth + "px";
-		//elem.style.border = "2px solid red";
-		elem.style.zIndex = "-100";
-		elem.style.opacity = "1";
-		
-
-		e.dataTransfer.dropEffect = 'move';
-		e.dataTransfer.setData("text", e.target.id);
-		e.dataTransfer.setDragImage(parentNode, deltaX, deltaY); 
-		e.target.parentNode.style.opacity = "0";
-	}
-	let dragEnterOutBlock = (e)=>{
-		console.log(e)
-	}
-	let dragEndOutBlock = (e)=>{
-
-	}
-	let dragOutBlock = (e)=>{
-		//console.log(e)
-		elem.style.left = e.pageX - dragObj.deltaX + "px";
-		elem.style.top = e.pageY - dragObj.deltaY +  "px";
-	}
-	let inBlock = document.querySelectorAll(".inBlock"),
-		outBlock = document.querySelectorAll(".outBlock"),
-		outBlockTitle = document.querySelectorAll(".outBlockTitle");
-
-		
-
-	inBlock.forEach((item) => {
-		item.setAttribute('draggable', 'true');
-	 	item.addEventListener('dragstart', dragStart, false);
-	 	//item.addEventListener('drag', drag, false);
-	   // item.addEventListener('mousedown', mousedown, false);
-	   item.addEventListener('mouseover', mouseover, false);
-	    item.addEventListener('dragenter', dragEnter, false);
-	    item.addEventListener('dragend', dragEnd, false);
-	});
-	outBlockTitle.forEach((item) => {
-		item.setAttribute('draggable', 'true');
-	 	item.addEventListener('dragstart', dragStartOutBlock, false);
-	 	item.addEventListener('drag', dragOutBlock, false);
-	   // item.addEventListener('mousedown', mousedown, false);
-	   item.addEventListener('mouseover', mouseover, false);
-	    item.addEventListener('dragenter', dragEnterOutBlock, false);
-	    item.addEventListener('dragend', dragEndOutBlock, false);
-	});
-
-	window.screen = function(elem){
-		html2canvas(elem, {
-    	onrendered: function (canvas) {
-    			dragObj.img = canvas;
-    			img.src = canvas.toDataURL("image/jpeg");
-    			}
-		});
-	}
-	
-
-    
-    
-	
-	// outBlock.forEach((item) => {
-	// 	item.addEventListener('dragenter', dragEnter, true);
-	//     item.addEventListener('dragleave', dragLeave, false);
-	//     item.addEventListener('dragover', dragOver, false);
-	//     item.addEventListener('drop', dragDrop, false);
-	// });
-
 }
