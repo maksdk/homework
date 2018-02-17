@@ -33,6 +33,7 @@ window.onload = () => {
  		outBlockTitle.addEventListener('dragstart', dragStart, false);
  		outBlockTitle.addEventListener('dragenter', dragEnterTitle, false);
     	outBlockTitle.addEventListener('dragend', dragEnd, false);
+    	//outBlockTitle.addEventListener('drag', drag, false);
     	outBlock.appendChild(outBlockTitle);
 		
 		addCard.classList.add("addCard");
@@ -74,7 +75,8 @@ window.onload = () => {
  		inBlock.addEventListener('dragstart', dragStart, false);
  		inBlock.addEventListener('dragenter', dragEnterInBlock, false);
     	inBlock.addEventListener('dragend', dragEnd, false);
-			
+    	//inBlock.addEventListener('drag', drag, false);
+	
 		textArea.classList.add("textArea");
 		textArea.id = "textareaAddCard";
 		inBlock.appendChild(textArea);
@@ -188,11 +190,7 @@ window.onload = () => {
 					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode.nextElementSibling);
 				}
 			}else if (Math.abs(coord.left - e.pageX) < 100) {
-				console.log(e.target)
-				console.log(e.target.parentNode.parentNode)
-				console.log(dragObj.parent === e.target.parentNode.nextElementSibling)
 				if (e.target.className == "outBlockTitle"){
-					console.log("e.outBlockTitle")
 					e.target.parentNode.parentNode.parentNode.insertBefore(e.target.parentNode.parentNode, dragObj.parent);
 				} else if((dragObj.parent === e.target.parentNode.nextElementSibling)){
 					e.target.parentNode.parentNode.insertBefore(dragObj.parent, e.target.parentNode);
@@ -222,4 +220,13 @@ window.onload = () => {
 		let clone = document.getElementById("clone");
 		document.body.removeChild(clone);
 	}
+	// let drag = (e)=>{
+	// 	console.log(e.target.parentNode)
+	// 	if(e.target.className == "outBlockTitle"){
+	// 		e.target.parentNode.style.opacity = "0";
+	// 	} else {
+	// 		e.target.style.opacity = "0";
+	// 	}
+		
+	// }
 }
