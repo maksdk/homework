@@ -1,0 +1,305 @@
+body{
+  text-align: left;
+  background-color: #D29034;
+}
+button, input, textarea {
+  outline: none;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.allLists {
+  display: flex;
+}
+
+.addList__btnAdd {
+  padding: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 200px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #EEEEC0;
+  text-align: left;
+}
+.addList__btnAdd:hover {
+  text-decoration: underline;
+}
+
+.addList__title {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #e2e4e6;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 180px
+}
+.addList__title--input {
+  padding: 3px;
+  width: 170px;
+  height: 35px;
+  border-radius: 5px;
+  border: 2px solid #afafaf;
+  background-color: #d7d8da;
+  margin-bottom: 10px;
+  color: #000;
+}
+.addList__title--save {
+  margin-right: auto;
+  
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: #d29034;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 14px;
+}
+.addList__title--save:hover {
+  text-decoration: underline;
+}
+.addList__title--cancel {
+  margin-left: auto;
+  
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: #d29034;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 14px;
+}
+.addList__title--cancel:hover {
+  text-decoration: underline;
+}
+
+
+.parentList {
+  align-self: flex-start;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 200px;
+  max-width: 200px;
+  margin-right: 10px;
+}
+.list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #e2e4e6;
+  min-width: 180px;
+  max-width: 180px;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.list__title {
+  max-width: 135px;
+  min-width: 135px;
+  min-height: 21px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+  color: #484848;
+  padding-top: 8px;
+  border-bottom: 1px solid #fff;
+  cursor: move;
+  margin: 0 auto;
+  word-break: break-all
+  
+}
+.list__title--remove {
+  display: inline-block;
+  position: absolute;
+  right: -28px;
+  top:5px;
+  height: 16px;
+  width: 16px;
+  background-image: url("../img/icon_delete.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  cursor: pointer;
+}
+.list__title--remove:hover {
+  background-image: url("../img/icon_delete_hover.png");
+}
+      
+      
+.list__content__parentCard {
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 180px;
+  border-radius: 5px;
+}
+.list__content__card {
+  position: relative;
+  padding: 10px 20px 10px 10px;
+  background-color: #ffffff;
+  max-width: 160px;
+  min-width: 150px;
+  border-radius: 5px;
+  word-break: break-all;
+  cursor: move;
+  min-height: 10px;
+}
+.list__content__card--redact {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 16px;
+  width: 16px;
+  background-image: url("../img/icon_pen.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  cursor: pointer;
+}
+
+.list__content__card--redact:hover {
+  background-image: url("../img/icon_pen_hover.png");
+}
+
+.list__addCard--add {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  padding: 8px 0;
+  background-color: #e2e4e6;
+
+}
+.list__addCard--add:hover {
+  text-decoration: underline;
+}
+
+
+
+.list__addCard--inputData {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0 10px;
+
+}   
+.list__addCard--textarea {
+  padding: 3px;
+  width: 170px;
+  height: 80px;
+  border-radius: 5px;
+  border: 2px solid #afafaf;
+  background-color: #d7d8da;
+  margin-bottom: 10px;
+  color: #000;
+  resize: vertical;
+} 
+.list__addCard--save {
+  margin-right: auto;
+
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: #d29034;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 14px;
+}
+.list__addCard--savel:hover {
+  text-decoration: underline;
+}
+.list__addCard--cancel {
+  margin-left: auto;
+
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: #d29034;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 14px;
+}
+.list__addCard--cancel:hover {
+  text-decoration: underline;
+}   
+  
+
+.redact {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #E2E4E6;
+}
+.redact__textarea {
+  padding: 3px;
+  width: 170px;
+  height: 80px;
+  border-radius: 5px;
+  border: 2px solid #afafaf;
+  background-color: #d7d8da;
+  margin-bottom: 10px;
+  color: #000;
+  resize: vertical;
+}
+.redact__btnSaveCard, .redact__btnCancelCard {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: #d29034;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 14px;
+}
+.redact__btnSaveCard:hover, .redact__btnCancelCard:hover {
+    text-decoration: underline;
+}
+
+.redact__btnSaveCard {
+  margin-right: auto;
+}
+.redact__btnCancelCard {
+  margin-left: auto;
+}
+ 
+
+
+.redact__btnRemoveCard {
+  margin: auto;
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: #C0392B;
+  border: none;
+  border-radius: 5px;
+  color: #eeeec0;
+  font-size: 14px;
+}
+.redact__btnRemoveCard:hover {
+  text-decoration: underline;
+}
+
+
+.opacityZero {
+  opacity: 0;
+}
+.hiddenCloneElem {
+  position: absolute;
+  top: -1000px;
+  z-index: -100;
+}
+.displayNone {
+  display: none;
+}
+.displayBlock {
+  display: block;
+}
