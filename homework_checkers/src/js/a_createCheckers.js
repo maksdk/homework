@@ -50,7 +50,7 @@ class CreateCheckers {
 }
 
 let size = Math.floor(document.documentElement.clientHeight * .80  / 8);
-  size % 2 ? size++ : size = size;
+size % 2 ? size++ : size = size;
      
 let container = new CreateCheckers("svg", document.body, 9).setAttributesSvg(),
   outerBoard =new CreateCheckers("svg", container, 9, size, 0).setAttributesSvg(),
