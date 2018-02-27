@@ -71,9 +71,7 @@ function createRect() {
 
   for (let j = 0; j < 8; j++) {
     for (let i = 0; i < 8; i++) {
-         
       ((j + i)  % 2) ? fill = "#85653E" : fill = "#EDCFA9";
-     
       let rectBoard = new CreateCheckers("rect", innerBoard, 1, x, y, fill, 2, "0").setAttributesRect();
       x += size;
     }
