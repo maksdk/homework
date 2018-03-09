@@ -37,36 +37,36 @@ class MoveChecker extends Game {
 			that = this;
 
 		if (flag === "move" || flag === "simpleMove") {
-				this.move(cx, cy);
-				this.checkQueen(cy);
+			this.move(cx, cy);
+			this.checkQueen(cy);
 		} else if (flag === "delete") {
-				this.getdeleteCircles();
-				this.getScale();
-				this.endGame = this.scale == 22 ? true : false;
-				this.getCyDeletedCircle();
+			this.getdeleteCircles();
+			this.getScale();
+			this.endGame = this.scale == 22 ? true : false;
+			this.getCyDeletedCircle();
 
-				this.deleteCircles.forEach( elem => {
-					let cx_elem = elem.getAttribute("cx"),
-						cy_elem = elem.getAttribute("cy");
+			this.deleteCircles.forEach( elem => {
+				let cx_elem = elem.getAttribute("cx"),
+					cy_elem = elem.getAttribute("cy");
+				
+				if (cx == cx_elem && cy == cy_elem) {
+					elem.classList.remove(`${this.colorDelete}`);
 					
-					if (cx == cx_elem && cy == cy_elem) {
-						elem.classList.remove(`${this.colorDelete}`);
-						
-						let deleteColor = this.colorDelete;
-						
-						setTimeout(function(){
-							that.createCloneDeletedCircle(deleteColor, elem);
-						}, 600);
+					let deleteColor = this.colorDelete;
+					
+					setTimeout(function(){
+						that.createCloneDeletedCircle(deleteColor, elem);
+					}, 600);
 
-						setTimeout(function(){
-							that.deleteElem(elem);
-						},350);
-						
-						this.endGame && setTimeout(function(){
-							that.gameOver();
-						}, 900); 
-					}
-				});
+					setTimeout(function(){
+						that.deleteElem(elem);
+					},350);
+					
+					this.endGame && setTimeout(function(){
+						that.gameOver();
+					}, 900); 
+				}
+			});
 		}
 		
 		if (++this.index < this.route.length && stop) {
