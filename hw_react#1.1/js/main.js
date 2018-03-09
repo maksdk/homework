@@ -1,4 +1,4 @@
-class Buttons extends React.Component {
+class Button extends React.Component {
 	state = {
 		mainColor: "#004080"
 	}
@@ -29,7 +29,7 @@ class Buttons extends React.Component {
 				>
 					Choose color:
 					<input
-						className="inputColor"
+						className="label--inputColor"
 						onChange={this.watchColorPicker}
 						type="color"
 						value={`${this.state.mainColor}`}
@@ -64,6 +64,6 @@ class Buttons extends React.Component {
 }
 
 ReactDOM.render(
-  <Buttons />,
+  <Button />,
   document.body
 )

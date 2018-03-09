@@ -1,43 +1,114 @@
-*, *:before, *:after {
-	box-sizing: border-box;
-	outline: none;
+.btn-circle-download {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  background: #E8EAED;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
-.container {
-	display: flex;
-	flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+.btn-circle-download:after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(115deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+  transform: translate(-100%, -25%);
 }
-.thumbnail {
-	display: flex;
-    flex-direction: column;
-	width: 250px;
-	padding: 10px;
-	margin: 10px;
-	border: 2px solid #eee;
-	border-radius: 5px;
+.btn-circle-download svg {
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.btn-circle-download svg#border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  stroke: none;
+  stroke-dasharray: 144;
+  stroke-dashoffset: 144;
+  transition: all 0.9s linear;
+}
+.btn-circle-download svg#arrow {
+  position: absolute;
+  top: 14px;
+  left: 17px;
+  stroke: #9098A9;
+  transition: all 0.2s ease;
+}
+.btn-circle-download svg#check {
+  position: absolute;
+  top: 17px;
+  left: 13px;
+  stroke: white;
+  transform: scale(0);
+}
+.btn-circle-download:hover {
+  background: rgba(34, 154, 255, 0.2);
+}
+.btn-circle-download:hover #arrow path,
+.btn-circle-download:hover #arrow polyline {
+  stroke: #229AFF;
+}
+.btn-circle-download.load {
+  background: rgba(34, 154, 255, 0.2);
+}
+.btn-circle-download.load #arrow path,
+.btn-circle-download.load #arrow polyline {
+  stroke: #229AFF;
+}
+.btn-circle-download.load #border {
+  stroke: #229AFF;
+  stroke-dasharray: 144;
+  stroke-dashoffset: 0;
+}
+.btn-circle-download.done {
+  background: #229AFF;
+  animation: rubberBand 0.8s;
+}
+.btn-circle-download.done:after {
+  transform: translate(50%, -25%);
+  transition: transform 0.3s ease;
+  transition-delay: 0.7s;
+}
+.btn-circle-download.done #border,
+.btn-circle-download.done #arrow {
+  display: none;
+}
+.btn-circle-download.done #check {
+  transform: scale(1);
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
 }
 
-.thumbnail__img {
-	width: 200px;
-	margin: 0 auto;
-	display: block;
+@keyframes rubberBand {
+  from {
+    transform: scale(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.15, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.15, 1);
+  }
+  50% {
+    transform: scale3d(1.1, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
 }
-.thumbnail__btn {
-	margin-top: auto;
-	padding: 10px;
-    background-color: #3479B7;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 600;
-    width: 150px;
-}
-.thumbnail__num {
-	background-color: #fff;
-    color: #3479B7;
-    border-radius: 10px;
-    padding: 2px 7px 3px 6px;
-    margin-left: 5px;
-    font-weight: 800;
+.cntr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
