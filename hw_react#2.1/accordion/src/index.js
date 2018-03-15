@@ -48,6 +48,7 @@ class Accordion extends Component {
 			handler = this.clickQuestion;
 		return (
 			<div className="container">
+			<h2>Lorem</h2>
 				{props.map( (data, i) => 
 					<Box key={i} handler={handler} data={data}/>)
 				}
@@ -58,5 +59,5 @@ class Accordion extends Component {
 
 ReactDOM.render(
 	<Accordion props = {options}/>,
-	document.getElementById("root")
+	document.querySelector(".root")
 );
