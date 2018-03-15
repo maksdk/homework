@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.box__answer {
+	height: 0;
+	overflow: hidden;
+}
+.box__question {
+	cursor: pointer;
+}
+.box__question:hover {
+	text-decoration: underline;
+}
+.active {
+	color: red;
+}
+.open {
+	height: 100%;
+}
