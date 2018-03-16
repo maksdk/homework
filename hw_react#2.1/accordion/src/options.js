@@ -1,27 +1,27 @@
 let options = [{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Чи безпечно отримувати перекази за номером телефону на вашому сайті?',
+	answer: 'Так, сервіс переказів за номером телефону підтримується Mastercard і захищений за стандартом інформаційної безпеки PCI DSS*, тож тут ніхто не може викрасти ваші кошти або інформацію. Крім того, сервіс не запитує у вас секретні дані: CVV- чи CVC-коди, пін-код тощо. Ви вводите на сайті лише номер своєї картки. Цього недостатньо для шахрайства. \n \n *Стандарт PCI DSS (Payment Card Industry Data Security Standard) єдиний для усіх компаній, які працюють із секретними даними платіжних карток. Він складається з 12 правил, яких необхідно дотримуватися, щоб повністю убезпечити онлайн-платежі. Сервіс переказів за номером телефону пройшов повноцінну перевірку на дотримання цих правил.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Як здійснюється платіж за номером телефону?',
+	answer: 'Коли вам відправляють кошти за номером телефону, сума переказу блокується на картці відправника і знімається з його рахунку лише тоді, коли ви підтверджуєте, що бажаєте отримати переказ на свою картку. \n Якщо ви не підтверджуєте отримання переказу, кошти розблоковуються і повертаються відправнику.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Чи є комісія за переказ?',
+	answer: 'Якщо ви отримуєте переказ, то не сплачуєте жодної комісії – отримання переказу за номером телефону безкоштовне. Комісію за переказ сплачує відправник.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Куди буде зараховано переказ, який я отримав?',
+	answer: 'Переказ зарахується на картку, яку ви вкажете в персональному кабінеті. Ви можете отримувати всі перекази на одну картку або кожен раз обирати іншу. \n Зверніть увагу, перекази ніколи не зараховуються на ваш номер телефону. \n Якщо спливає строк зберігання переказу, то переказ повертається відправнику.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Як швидко я отримаю переказ?',
+	answer: 'Зазвичай перекази зараховуються миттєво, але іноді це займає до 30 хвилин, в залежності від регламентів роботи вашого банку.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'На які картки можна отримати переказ?',
+	answer: 'Отримувати перекази можливо на платіжні картки Visa та Mastercard, емітовані будь-яким українським банком. \n Якщо у вас виникли проблеми з отриманням коштів, зателефонуйте в контакт-центр свого банку. Телефон контакт-центру вказано на зворотному боці вашої картки.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Чи може інша людина отримати мій переказ за номером телефону?',
+	answer: 'Ні. Щоб отримати переказ на картку, потрібно увійти до персонального кабінету. Для цього треба ввести унікальний SMS-код, який ми надсилаємо на ваш номер під час кожного входу, та підтвердити отримання переказу додатковим SMS-кодом.'
 },{
-	question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente!?',
-	answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut perspiciatis veniam consectetur eum qui odit, nihil, voluptatem perferendis, fuga voluptatibus pariatur repellat deserunt esse nostrum quam nobis sit vitae id.'
+	question: 'Що робити, якщо я втратив свій мобільний телефон?',
+	answer: 'Якщо ви втратили мобільний телефон і не можете відновити номер, зателефонуйте нам. Ми тимчасово заблокуємо ваші перекази у нашому сервісі і підкажемо, як відновити доступ до коштів. Телефон нашої служби підтримки: 044 333 4121.'
 }];
 
 export default options;

@@ -7,14 +7,14 @@ import options from './options.js';
 const Box = ({handler, data}) => {
 	let {question, answer} = data;
 	return (
-		<div className="box">
+		<div className="accordion">
 	    	<a 
-	    		className="box__question"
+	    		className="accordion__question"
 	    		onClick={handler}
 	    	>
 	    		{question}
 	    	</a>
-	    	<p className="box__answer">
+	    	<p className="accordion__answer">
 	    		{answer}
 	    	</p>
 	   </div>
@@ -23,24 +23,24 @@ const Box = ({handler, data}) => {
 
 class Accordion extends Component {
 	state = {
-		checked: false
+		show: false
 	}
 	clickQuestion = (e) => {
 		if (e.target.classList.contains('active')) {
 			document.querySelector('.open').classList.remove('open');
 			e.target.classList.remove('active');
 			this.setState({
-				checked: false
+				show: false
 			})
 			return;
-		} else if (this.state.checked) {
+		} else if (this.state.show) {
 			document.querySelector('.open').classList.remove('open');
 			document.querySelector('.active').classList.remove('active');
 		}
 		e.target.classList.add('active');
 		e.target.nextElementSibling.classList.add('open');
 		this.setState({
-			checked: true
+			show: true
 		})
 	}
 	render() {
@@ -48,7 +48,7 @@ class Accordion extends Component {
 			handler = this.clickQuestion;
 		return (
 			<div className="container">
-			<h2>Lorem</h2>
+			<h2>Популярні питання</h2>
 				{props.map( (data, i) => 
 					<Box key={i} handler={handler} data={data}/>)
 				}

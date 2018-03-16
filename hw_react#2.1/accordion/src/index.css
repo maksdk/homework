@@ -4,34 +4,35 @@ body {
   font-family: sans-serif;
   background-color: #f8f7f5;
   text-align: center;
+   white-space: pre-line;
 }
 .root {
 	display: flex;
 	justify-content: center;
 }
 .container {
-	width: 600px;
+	width: 650px;
 }
-.box {
+.accordion {
 	text-align: left;
 	padding: 5px;
     border-bottom: 1px solid #e8e6e4;
 }
-.box__question {
+.accordion__question {
 	font-weight: 600;
-	width: 600px;
+	width: 650px;
 	margin-top: 25px;
 	display: inline-block;
 	cursor: pointer;
 	background-image: url(img/chevron-arrow-down.png);
-	background-position: 580px center;
+	background-position: 630px center;
 	background-repeat: no-repeat;
 }
-.box__question:hover {
+.accordion__question:hover {
 	text-decoration: underline;
 	color: #1f669b;
 }
-.box__answer {
+.accordion__answer {
 	margin-left: 10px;
 	font-size: 14px;
 	color: #83a0a6;
@@ -45,7 +46,7 @@ body {
 	text-decoration: underline;
 	text-decoration-style: dotted;
 	background-image: url(img/chevron-arrow-up.png);
-	background-position: 580px center;
+	background-position: 630px center;
 	background-repeat: no-repeat;
 }
 .open {
