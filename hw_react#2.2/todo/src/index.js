@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import './index.css';
+import './To.scss';
+
+import Todo from './Todo.js';
+
+ReactDOM.render(
+	<Todo />, 
+	document.getElementById('root')
+);
