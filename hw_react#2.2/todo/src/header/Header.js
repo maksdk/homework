@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './css/Header.css';
+import './_header.css';
 
 import Logo from './Logo.js';
 import Search from './Search.js';

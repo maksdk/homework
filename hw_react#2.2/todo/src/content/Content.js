@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './css/Content.css';
 
+import './_content.css';
 import Menu from './Menu.js';
 import Main from './Main.js';
 

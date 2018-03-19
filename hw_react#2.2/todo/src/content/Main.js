@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 
-import './css/Main.css';
-import AddTask from './AddTask.js'
+import './_content.css';
+import AddData from './AddData.js'
 
 class Main extends Component {
 	render() {
 		return (
 			<div className="todo__content__main">
-				<AddTask/>
+				<AddData
+					className="main"
+					children="задачу"
+				/>
 			</div>
 		);
 	}

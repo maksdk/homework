@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import './css/Menu.css';
+
+import './_content.css';
+import AddData from './AddData.js';
 
 class Menu extends Component {
 	render() {
@@ -14,6 +16,10 @@ class Menu extends Component {
 				<div>
 					Проекты
 				</div>
+				<AddData
+					className="menu"	
+					children="проект"			
+				/>
 			</div>
 		);
 	}
