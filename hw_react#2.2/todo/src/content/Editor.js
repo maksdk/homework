@@ -4,7 +4,7 @@ import Field from '../common/Field.js';
 import Btn from '../common/Btn.js';
 
 class Editor extends Component {
-	state={}
+	state = {}
 	save = () => {
 		console.log(this);
 	}

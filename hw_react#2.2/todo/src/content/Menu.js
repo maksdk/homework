@@ -10,8 +10,6 @@ class Menu extends Component {
 				Menu
 				<ul className="menu__period">
 					<li>Входящие</li>
-					<li>Сегодня</li>
-					<li>Следующие 7 дней</li>
 				</ul>
 				<div>
 					Проекты
