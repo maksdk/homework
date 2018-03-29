@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './_header.css';
 
+import '../styles/Header.css';
 import Logo from './Logo.js';
 import Search from './Search.js';
 import QuickAdd from './QuickAdd.js';

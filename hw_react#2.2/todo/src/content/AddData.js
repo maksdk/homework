@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
-import './_content.css';
-
+import '../styles/Content.css';
 import Btn from '../common/Btn.js';
 import Editor from './Editor.js';
 

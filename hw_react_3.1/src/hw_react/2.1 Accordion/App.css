@@ -1,0 +1,63 @@
+.accordion {
+	width: 650px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 5px;
+    border-bottom: 1px solid #e8e6e4;
+}
+.accordion__question {
+	font-weight: 600;
+	width: 650px;
+	margin-top: 25px;
+	display: inline-block;
+	cursor: pointer;
+	background-image: url(img/chevron-arrow-down.png);
+	background-position: 630px center;
+	background-repeat: no-repeat;
+}
+.accordion__question:hover {
+	text-decoration: underline;
+	color: #1f669b;
+}
+.accordion__answer {
+	margin-left: 10px;
+	font-size: 14px;
+	color: #83a0a6;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+}
+.down {
+	color: #1f669b;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	background-image: url(img/chevron-arrow-up.png);
+}
+
+.visible {
+	height: 100%;
+	opacity: 1;
+	transition: all .7s linear;
+	animation: slideDown .3s linear;
+	
+}
+
+.hidden {
+	display: none;
+}
+
+@keyframes slideDown{
+  from {
+  	opacity: 0;
+    transform: translateY(-20%);
+  }
+  to {
+  	opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+

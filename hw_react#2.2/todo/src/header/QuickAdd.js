@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './_header.css';
-
+import '../styles/Header.css';
 
 class QuickAdd extends Component {
 	render() {

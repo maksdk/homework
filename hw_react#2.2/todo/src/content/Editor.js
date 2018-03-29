@@ -1,32 +1,52 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-import Field from '../common/Field.js';
 import Btn from '../common/Btn.js';
 
 class Editor extends Component {
-	state = {}
-	save = () => {
-		console.log(this);
+	state = {
+		input:""
 	}
 	cancel = () => {
-		this.parent.classList.toggle("hide");
+		this.editor.classList.toggle("hide");
+	}
+	onChangeTask = (e) => {
+		let inputValue = e.target.value;
+		this.setState({
+			input: inputValue
+		})
 	}
 	render() {
-		let {className, children} = this.props;
+		let {
+			onClickSaveTask = () => {},
+			className,
+			children
+		} = this.props;
+		let {input} = this.state;
 		return (
 			<div 
 				className={`${className}__addData__editor hide`}
-				ref={(div) => { this.parent = div; }}
+				ref={(div) => { this.editor = div}}
 			>
-				<Field 
+				<input 
 					className={`${className}__addData__editor--input`}
 					type="text"
+					ref={(input) => {this.field = input}}
+					onChange={this.onChangeTask}
 				/>
-				<Btn
+				<button
 					className={`${className}__addData__editor--save`}
 					children={`Сохранить ${children}`}
-					handler={this.save}
-				/>
+					onClick={() => {
+						input && onClickSaveTask(input);
+						this.field.value = "";
+						this.setState({
+							input: ""
+						});
+					}}
+				>
+				</button>
+				
 				<Btn
 					className={`${className}__addData__editor--cancel`}
 					children="Отмена"
@@ -37,6 +57,24 @@ class Editor extends Component {
 	}
 }
 
-export default Editor;
+//мапим обьект store в props
+const mapStateToProps = state => ({store:state});
 
-				
+//нужен для запуска actions
+//dispatch - это метод store, к ней есть доступ через connect
+const mapDispatchToProps = dispatch => ({
+	onClickSaveTask: newTask => 
+		dispatch({
+			type: 'Add_task',
+			payload:{
+				value: newTask,
+				id: Date.now()
+			}
+		})
+});
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (Editor);
+
+			
