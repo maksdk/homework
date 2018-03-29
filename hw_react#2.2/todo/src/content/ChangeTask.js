@@ -10,19 +10,19 @@ class ChangeTask extends Component {
 		this.className = props.className;
 	}
 
-	onClickCancelBtn(e) => {
+	onClickCancelBtn(e) {
 		this.field.value = "";
 		this.setState({
 			input: ""
 		});
 		this.editor.classList.toggle("hide");
 	}
-	onChangeInput(e){
+	onChangeInput(e) {
 		this.setState({
 			input: this.field.value
 		})
 	}
-	onClickSaveBtn(e){
+	onClickSaveBtn(e) {
 		let {input} = this.state;
 		input && this.onClickSaveTask(input);
 		this.field.value = "";

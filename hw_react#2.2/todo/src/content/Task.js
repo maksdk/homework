@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import InputData from './InputData.js';
+import ChangeTask from './ChangeTask.js';
 
 class Task extends Component {
 	render(){
@@ -14,7 +14,7 @@ class Task extends Component {
 					{data.addTask.map(({id, value}) => {
 						return (
 							<div key={id}>
-								<InputData/>
+								<ChangeTask/>
 								<div>
 									<span>0</span>
 									<span>{value}</span>
