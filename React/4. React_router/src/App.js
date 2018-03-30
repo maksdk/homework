@@ -15,8 +15,7 @@ const react = [
   {id: '1.1 ButtonLoader'},
   {id: '1.2 ThandnailList'},
   {id: '2.1 Accordion'},
-  {id: '3.1 Http'},
-  {id: '3.2'}
+  {id: '3.1 Http_request'}
 ];
 
 js.forEach((item) => item.Component = require(`./hw_js/${item.id}/App`).default);

@@ -1,0 +1,19 @@
+.thandnailList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.thandnail {
+	display: inline-block;
+	width: 250px;
+	padding: 5px;
+	margin: 5px;
+	border: 2px solid #eee;
+	border-radius: 5px;
+}
+.thandnail__img {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	display: block;
+}
