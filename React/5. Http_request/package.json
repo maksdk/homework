@@ -12,7 +12,11 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^5.0.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "styled-components": "latest",
+    "react-fontawesome": "latest",
+    "react-final-form": "latest",
+    "final-form": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
