@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body {
+		position: relative;
+		background-color: green;
+	}
+	.list {
+		width: 300px;
+		position: relative;
+		padding: 30px;
+		background-color: #eee;
+	}
+	.list__parentCard {
+		background-color: #B2B2B2;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.list__parentCard__card {
+		width: 280px;
+		background-color: #fff;
+		padding: 10px;
+		cursor: move;
+		
+	}
+	.clone{
+		pointer-events: none;
+		position: absolute;
+		top: -10000px;
+		transform: rotate(-5deg);
+	}
+
+	</style>
+</head>
+<body>
+	<div class="list">
+		<div class="list__parentCard">
+			<div class="list__parentCard__card">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+		</div>	
+		<div class="list__parentCard">
+			<div class="list__parentCard__card">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+		</div>
+		<div class="list__parentCard">
+			<div class="list__parentCard__card">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+		</div>
+		<div class="list__parentCard">
+			<div class="list__parentCard__card">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		
+		let card = document.querySelectorAll('.list__parentCard__card');
+		card.forEach( item => {
+			item.addEventListener('dragstart', dragStart, true);
+			item.addEventListener('dragenter', dragEnter, true);
+			item.addEventListener('drag', drag, true);
+			item.addEventListener('dragend', dragEnd, true);
+			item.setAttribute('draggable', true);
+		});
+			
+		let dragElem = {};
+		
+		function dragStart(e) {
+			let clone = this.cloneNode(true);
+			document.body.appendChild(clone);
+			clone.classList.add("clone"); 
+
+			this.style.opacity = '0';
+
+			let coords = getCoords(this),
+		        deltaX = e.pageX - coords.left,
+		        deltaY = e.pageY - coords.top;
+
+		    dragElem.clone = clone;
+			dragElem.element = this;
+			dragElem.parent = this.parentNode;
+			dragElem.deltaX = deltaX;
+			dragElem.deltaY = deltaY;
+			dragElem.coordsTop = coords.top;
+		}
+
+		function dragEnter(e) {
+			let validEnter = this.className == "list__parentCard__card" &&
+				this !== dragElem.element;
+			
+			if (!validEnter) return;
+			let thisElemCoords = getCoords(this);
+			let dragElemCoords = getCoords(dragElem.element);
+
+			if (thisElemCoords.top > dragElemCoords.top) {
+				this.parentNode.parentNode.insertBefore(this.parentNode, dragElem.parent); 
+			} else if (thisElemCoords.top < dragElemCoords.top) {
+				this.parentNode.parentNode.insertBefore(this.parentNode, dragElem.parent.nextSibling); 
+			}
+		}
+ 
+		function drag(e) {
+			dragElem.clone.style.border = "2px solid red";
+			dragElem.clone.style.left = e.pageX - dragElem.deltaX + 'px';
+			dragElem.clone.style.top = e.pageY - dragElem.deltaY + 'px';
+		}
+
+		function dragEnd(e) {
+			dragElem.element.style.opacity = '1';
+			let clone = document.querySelector('.clone');
+			clone.parentNode.removeChild(clone);
+		}
+
+		function  getCoords(elem) { 
+		    let box = elem.getBoundingClientRect();
+		    return {
+		      top: box.top + pageYOffset,
+		      left: box.left + pageXOffset
+		    };
+		}
+	</script>
+	
+</body>
+</html>
