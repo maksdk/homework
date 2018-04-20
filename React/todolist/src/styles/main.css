@@ -1,0 +1,262 @@
+
+/*change size*/
+.changeSize {
+	position: absolute;
+	width: 4px;
+	height: 100%;
+	background-color: #666666;
+}
+.changeHeigth {
+	height: 4px;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+}
+.changeWidth {
+	width: 4px;
+	height: 100%;
+	top: 0;
+	right: 0;
+}
+.changeSize:hover {
+	cursor: move;
+}
+
+/*main content*/
+.mainContent {
+	padding: 8px 18px 4px 14px;
+	/*position: relative;*/
+	width: 600px;
+	height: 400px;
+	background-color: #eee;
+	border-top: 4px solid #666666;
+}
+
+/*leftside*/
+.leftside {
+	padding: 4px;
+	position: relative;
+}
+
+
+.leftside {
+	border-top: 4px solid #666666;
+	border-left: 4px solid #666666;
+	border-bottom: 4px solid #666666;
+	background-color: #eee;
+}
+
+
+
+/*addTask__inputData*/
+.addTask__fieldInput {
+	border: none;
+    background-color: #eee;
+    border-bottom: 1px solid #887575;
+    margin-left: 10px;
+    margin-right: 5px;
+    color: #887575;
+    outline: none;
+    padding: 5px;
+}
+.addTask__inputData {
+	/*max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;*/
+}
+.addTask--btnSave, .addTask--btnCancel {
+	cursor: pointer;
+	padding: 1px 10px;
+    margin-right: 5px;
+    outline: none;
+}
+
+.hiddenBtnAddTask {
+	/*max-height: 0;
+	padding: 0;
+	border: none;*/
+}
+
+
+
+/*task*/
+.wrapperTask {
+	display: flex;
+	margin-top: 10px;
+  	margin-bottom: 10px;
+
+}
+.list {
+	width: 100%;
+	background-color: #eee;
+}
+.backTask {
+	border-radius: 1px;
+	background-color: #B2B2B2;
+	width: 100%;
+  	/*margin-top: 10px;
+  	margin-bottom: 10px;*/
+}
+.task {
+	display: flex;
+	align-items: center;
+	border-radius: 1px;
+	background-color: #fff;
+}
+.listTasks__task--delete {
+	margin-left: auto;
+}
+.listTasks__task--delete {
+	margin-left: auto;
+}
+.listTasks__task--drag {
+	padding: 9px 10px 10px 12px;
+	cursor: move;
+	border-right: 2px solid #eee;
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
+	color: #887575a3;
+	font-size: 18px;
+	font-weight: bold;
+}
+.listTasks__task--drag:hover {
+	color: #887575;
+}
+
+.listTasks__task--text {
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	width: 100%;
+	padding: 11px 12px;
+}
+
+/*.subtask {
+	padding-left: 42px;
+}*/
+
+
+.linePureBox {
+	min-width: 42px;
+	display: inline-block;
+	background-color: #eee;
+}
+.lineFullVertical, .lineFullVerticalHalfRight, .lineHalfUpHalfRight {
+	position: relative;	
+}
+.lineFullVertical:before {
+	content: '';
+	width: 1px;
+	height: 52px;
+	position: absolute;
+	top: -10px;
+	left: 20px;
+	background-color: #887575
+}
+.lineFullVerticalHalfRight:before{
+	content: '';
+	height: 52px;
+	width: 1px;
+	position: absolute;
+	left: 20px;
+	top: -10px;
+	background-color: #887575
+}
+
+.lineFullVerticalHalfRight:after{
+	content: '';
+	height: 1px;
+	width: 22px;
+	position: absolute;
+	right: 0;
+	top: 21px;
+	background-color: #887575
+}
+.lineHalfUpHalfRight:before {
+	content: '';
+	height: 1px;
+	width: 22px;
+	position: absolute;
+	right: 0;
+	top: 21px;
+	background-color: #887575
+}
+.lineHalfUpHalfRight:after {
+	content: '';
+	height: 31px;
+	width: 1px;
+	position: absolute;
+	left: 20px;
+	top: -10px;
+	background-color: #887575
+}
+
+
+
+.cursorImg {
+	pointer-events: none;
+	position: absolute;
+	transform: rotate(-1deg);
+	border: 1px solid red;
+	top: -10000px;
+}
+
+.opacity {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+
+/*=====lines=====*/
+.listTasks_turn { 
+	min-width: 42px;
+	position: relative;
+	background-color: #eee;
+}
+
+.listTasks__btn--turnOff {
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	left: 50%;
+	right: 50%;
+}
+.horizontalLineRight {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 1px;
+	width: 21px;
+	background-color: #887575;
+}
+.horizontalLineLeft {
+	position: absolute;
+	right: 50%;
+	top: 50%;
+	height: 1px;
+	width: 21px;
+	background-color: #887575;
+}
+.verticalLineUp {
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	height: 30px;
+	width: 1px;
+	background-color: #887575;
+}
+
+.verticalLineDown {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 30px;
+	width: 1px;
+	background-color: #887575;
+}
+
+
+
+.hide {
+	opacity: 0;
+}
+

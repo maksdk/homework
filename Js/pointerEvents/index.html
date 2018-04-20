@@ -4,35 +4,34 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style type="text/css">
-	body {
-		position: relative;
-		background-color: green;
-	}
-	.list {
-		width: 300px;
-		position: relative;
-		padding: 30px;
-		background-color: #eee;
-	}
-	.list__parentCard {
-		background-color: #B2B2B2;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	.list__parentCard__card {
-		width: 280px;
-		background-color: #fff;
-		padding: 10px;
-		cursor: move;
-		
-	}
-	.clone{
-		pointer-events: none;
-		position: absolute;
-		top: -10000px;
-		transform: rotate(-5deg);
-	}
-
+		body {
+			position: relative;
+			background-color: green;
+		}
+		.list {
+			width: 300px;
+			position: relative;
+			padding: 30px;
+			background-color: #eee;
+		}
+		.list__parentCard {
+			background-color: #B2B2B2;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.list__parentCard__card {
+			width: 280px;
+			background-color: #fff;
+			padding: 10px;
+			cursor: move;
+			
+		}
+		.clone{
+			pointer-events: none;
+			position: absolute;
+			top: -10000px;
+			transform: rotate(-5deg);
+		}
 	</style>
 </head>
 <body>
@@ -87,15 +86,14 @@
 			dragElem.element = this;
 			dragElem.parent = this.parentNode;
 			dragElem.deltaX = deltaX;
-			dragElem.deltaY = deltaY;
-			dragElem.coordsTop = coords.top;
-		}
+			dragElem.deltaY = deltaY;		}
 
 		function dragEnter(e) {
 			let validEnter = this.className == "list__parentCard__card" &&
 				this !== dragElem.element;
 			
 			if (!validEnter) return;
+			
 			let thisElemCoords = getCoords(this);
 			let dragElemCoords = getCoords(dragElem.element);
 
@@ -120,7 +118,7 @@
 
 		function  getCoords(elem) { 
 		    let box = elem.getBoundingClientRect();
-		    return {
+		   	return {
 		      top: box.top + pageYOffset,
 		      left: box.left + pageXOffset
 		    };

@@ -1,0 +1,21 @@
+{
+  "name": "react-final-form-asynchronous-field-level-validation-example",
+  "description": "This example demonstrates how field-level validation functions may be asynchronous.",
+  "version": "0.0.18",
+  "dependencies": {
+    "styled-components": "2.2.3",
+    "react-final-form": "1.1.1",
+    "react-dom": "16.0.0",
+    "react": "16.0.0",
+    "final-form": "1.2.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
