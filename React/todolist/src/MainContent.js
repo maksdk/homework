@@ -55,7 +55,7 @@ class MainContent extends Component {
 
 		//console.log(indexStart === indexEnter);
 		if (indexStart === indexEnter) return;
-
+		console.log("dragEnterTask");
 		this.props.shiftTask(
 			indexStart, 
 			indexEnter
@@ -87,7 +87,7 @@ class MainContent extends Component {
 		let indexEnter = findIndex(listChildren, e.target.parentNode);
 
 		if (indexStart !== indexEnter) return;
-		
+		console.log("shiftSubtaskLeft");
 		this.props.shiftSubtaskLeft(
 			indexStart
 		);
