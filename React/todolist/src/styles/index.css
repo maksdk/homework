@@ -8,6 +8,9 @@ body {
 li {
 	list-style-type: none;
 }
+button, input{
+	outline: none;;
+}
 #todolist {
 	display:flex;
 	position: relative;

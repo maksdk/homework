@@ -22,45 +22,52 @@ export default class Task extends Component {
 				opacity,
 				parent,
 				index,
-				lastTask
+				lastTask,
+				hideOpenSubtask,
+				hiddenChildren
 			} = this.props;
-			
 		return (
 			<div className="wrapperTask">
-				{ 
-					depth && depth.map((item, i) => {
-						// console.log("==============");
-						// console.log(depth.length);
-						// console.log(i === depth.length - 1);
-						// console.log(item);
+				{	depth && depth.map((item, i) => {
 						if (i === depth.length - 1) {
 							item = lastTask ? 'lineHalfUpHalfRight' : 'lineFullVerticalHalfRight';
-							//console.log("TASK DEPTH", i);
+						}
+						if (i === 0) {
+							item = 'firstPureBox';
 						}
 						return (
 							<span 
 								key={i} 
 								className={`linePureBox ${item}`}
 								onDragEnter={shiftSubtaskLeft}
-							></span>
+							>
+								{
+									parent &&  (i === depth.length - 1)  &&
+									<Button
+										className={
+											`listTasks__toggle 
+											${
+												hiddenChildren 
+												? 'listTasks__toggle--plus' 
+												: 'listTasks__toggle--minus'
+											}`
+										}
+										onclick={hideOpenSubtask}
+										index={index}
+									/>
+									//expand
+									//collapse
+								}
+							</span>
 						);
 					})
 				}
-				
-				{// <HideSubtask 
-												// 	index={index}
-												// 	parent={parent}
-												// 	lastTask={lastTask}
-												// />
-											}
-				
-			
+				 
 				<div
 					className={`backTask ${ opacity ? 'opacity' : ''}`}
 					ref={(div) => this.backTask = div}
 					style={{height: heightBackTask}}		
 				>	
-
 					<div 
 						className={`task ${classHide}`}
 						ref={(div) => this.task = div}
@@ -77,43 +84,17 @@ export default class Task extends Component {
 							dragEnter={shiftSubtaskRigth}
 							content={content}
 						/>
-						
 						<Button 
 							className='listTasks__task--delete'
 							children='x'
-							onclick={() => deleteTask()}
+							onclick={deleteTask}
+							index={index}
 						/>
 						<Button 
 							className='listTasks__task--menu'
 							children='...'
 						/>
 					</div>
-					{	
-						// subtask && subtask.map(({content, subtask}, i) => {
-
-						// 	return (
-						// 		<div 
-						// 			className="subtask"
-						// 			key={i}
-						// 		>
-						// 			<Task 
-						// 				key={i} 
-						// 				classHide={classHide}
-						// 				content={content}
-						// 				//subtask={subtask}
-						// 				deleteTask={() => deleteTask(i)}
-						// 				dragStart={this.dragStart}
-						// 				dragEnd={this.dragEnd}
-						// 				drag={this.drag}
-						// 				dragEnterTask={this.dragEnterTask}
-						// 				shiftSubtaskRigth={this.shiftSubtaskRigth}
-						// 			/>
-						// 		</div>
-						// 	);
-						// })
-						
-					}
-						
 				</div>	
 			</div>
 		);

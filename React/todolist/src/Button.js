@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({children, className, onclick}) => (
+export default ({children, className, onclick, index}) => (
 	<button
-		onClick={onclick}
+		onClick={() => onclick(index)}
 		className={className}
 	>
 		{children}

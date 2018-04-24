@@ -25,6 +25,7 @@ class MainContent extends Component {
 	}
 	
 	dragStart(e){
+		console.log("dragStart");
 		let elementStart = e.target.parentNode;
 		let indexStart = this.findIndexChild(e.target); 
 		
@@ -48,14 +49,14 @@ class MainContent extends Component {
 	}
 
 	dragEnterTask(e) {
+		if (e.target.parentNode.classList.contains('hide')) return;
+		console.log("dragEnterTask");
+		
 		let { task } = this.props;
+
 		let indexStart = findIndex(task, {hide: true});
 		let indexEnter =  this.findIndexChild(e.target);
 		
-
-		//console.log(indexStart === indexEnter);
-		if (indexStart === indexEnter) return;
-		console.log("dragEnterTask");
 		this.props.shiftTask(
 			indexStart, 
 			indexEnter
@@ -87,11 +88,14 @@ class MainContent extends Component {
 		let indexEnter = findIndex(listChildren, e.target.parentNode);
 
 		if (indexStart !== indexEnter) return;
+		
 		console.log("shiftSubtaskLeft");
+		
 		this.props.shiftSubtaskLeft(
 			indexStart
 		);
 	}
+
 	drag(e) {
 		let cursorImg = this.container.lastChild;
 		cursorImg.style.left = e.pageX - this.deltaX + 'px';
@@ -109,9 +113,10 @@ class MainContent extends Component {
 		this.setState({
 			cursorImg: null
 		});
+	}
+	deleteTask() {
 
 	}
-
 	findIndexChild(elem) {
 		let listChildren = [...this.list.children],
 			child = elem.parentNode.parentNode.parentNode;
@@ -143,7 +148,7 @@ class MainContent extends Component {
 		console.log("===== RENDER =====");
 		console.log(this.props);
 		
-		let { addTask, deleteTask, task} = this.props;
+		let { addTask, deleteTask, hideOpenSubtask, task} = this.props;
 		let { cursorImg } = this.state;
 		
 		return (
@@ -159,8 +164,9 @@ class MainContent extends Component {
 					ref={(list) => this.list = list}
 				>
 					{
-						task.map( ({content, depth, opacity, parent, lastTask, hide}, i) => {
-							
+						task.map( ({content, depth, opacity, parent, lastTask, hide, hiddenChildren}, i) => {
+							//console.log("parent");
+							//console.log(parent);
 							return (
 							<Task 
 								key={i} 
@@ -171,8 +177,10 @@ class MainContent extends Component {
 								depth={depth}
 								opacity={opacity}
 								parent={parent}
+								hiddenChildren={hiddenChildren}
+								deleteTask={deleteTask}
+								hideOpenSubtask={hideOpenSubtask}
 								shiftSubtaskLeft={this.shiftSubtaskLeft}
-								deleteTask={() => deleteTask(i)}
 								dragStart={this.dragStart}
 								dragEnd={this.dragEnd}
 								drag={this.drag}
@@ -217,14 +225,16 @@ const mapDispatchToProps = dispatch => ({
 			payload: {
 				content: task,
 				depth: [],
-				children: 0
+				firstTask: true
 			}
 		})
 	},
 	deleteTask: index => {
 		dispatch({
 			type: 'DELETE__TASK',
-			payload: index
+			payload: {
+				index
+			}
 		})
 	},
 	startDragTask: index => {
@@ -268,8 +278,15 @@ const mapDispatchToProps = dispatch => ({
 				
 			}
 		})
+	},
+	hideOpenSubtask: index => {
+		dispatch({
+			type: 'HIDE__OPEN__SUBTASK',
+			payload: {
+				index
+			}
+		})
 	}
-
 });
 export default connect(
 	mapStateToProps,

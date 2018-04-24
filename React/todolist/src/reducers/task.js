@@ -1,8 +1,16 @@
 export default (state = [], action) => {
 	if (action.type === 'ADD__TASK') {
-		return [...state, action.payload ];
+		
+		let index = state.length;
+		state = [...state, action.payload];
+		state[index].depth = ['', ...state[index].depth];
+		console.log(state[index]);
+		// console.log(state[index].depth);
+		return [...state];
 	} else if (action.type === 'DELETE__TASK') {
-		state.splice(action.payload, 1);
+		let { index } = action.payload;
+		let children = findAllChildren(index, state);
+		state.splice( index, children + 1);
 		return [...state];
 	} else if (action.type === "START__DRAG__TASK") {
 		let { index } = action.payload;
@@ -23,117 +31,123 @@ export default (state = [], action) => {
 		);
 		return [...state];
 	} else if (action.type === "SHIFT__TASK") {
-		let { indexStart, indexEnter } = action.payload,
+		let { indexStart, indexEnter } = action.payload;
+		
+		let childrenStart = findAllChildren(indexStart, state), 
+		    childrenEnter = findAllChildren(indexEnter, state),
 		    depthStart = state[indexStart].depth.length,
 		    depthEnter = state[indexEnter].depth.length;
-
-		let indexOldParent = findIndexParent (indexStart, state);
-
-		if (depthEnter - depthStart !== 0) {
-			let depth = depthEnter - depthStart;
-			for (let i = indexStart; i < state.length; i++) {
-				let currentDepth = state[i].depth.length;
-				if ( depthStart >= currentDepth && i !== indexStart) break;
-				state[i].depth = new Array(currentDepth + depth).fill('');
+		
+		if (depthStart > depthEnter) {
+			let indexParentStart = findIndexParent(indexStart, state);
+			for (let i = indexStart; i <= indexStart + childrenStart; i++) {
+				state[i].depth.splice(0, depthStart, ...state[indexEnter].depth);
+				if (state[i].depth.length === 0) {
+					delete state[indexStart].lastTask;
+				}
 			}
+			let childrenParentStart = findAllChildren(indexParentStart, state);
+			if (childrenParentStart === 0) {
+				delete state[indexParentStart].parent;
+			}
+		} else if (depthStart < depthEnter) {
+			let indexStartParent = findIndexParent(indexStart, state);
+			for (let i = indexStart; i <= indexStart + childrenStart; i++) {
+				state[i].depth.splice(0, depthStart, ...state[indexEnter].depth);
+			}
+			if (state[indexStart].lastTask) {
+				setFinalState(state, indexStart, indexStartParent);
+			}
+			delete state[indexStart].lastTask;
 		}
-
+		
+		let item = state.splice(indexStart, childrenStart + 1);
+		let newIndex;
 		if (indexStart < indexEnter) {
-			if (depthEnter < depthStart) {
-				let childrenOldParent = state[indexOldParent].children;
-				let childrenStart = state[indexStart].children;
-				state[indexOldParent].children = childrenOldParent - childrenStart - 1;
-				if (state[indexOldParent].children === 0) {
-					delete state[indexOldParent].parent;
-				} 
-			}
-			let item = state.splice(indexEnter, state[indexEnter].children + 1);
-			state.splice(indexStart, 0, ...item);
+			newIndex = indexEnter + childrenEnter - childrenStart;
+			state.splice(newIndex, 0 , ...item);
 		} else if (indexStart > indexEnter) {
-			if (depthEnter < depthStart) {
-				let childrenEnter = state[indexEnter].children;
-				let childrenStart = state[indexStart].children;
-				state[indexEnter].children = childrenEnter - childrenStart - 1;
-				if (state[indexEnter].children === 0) {
-					delete state[indexEnter].parent;
-				} 
-			} else if (depthEnter > depthStart) {
-				let indexNewParent = findIndexParent (indexEnter, state);
-
-				let childrenNewParent = state[indexNewParent].children;
-				let childrenStart = state[indexStart].children;
-				state[indexNewParent].children = childrenNewParent + childrenStart + 1;
-			}
-
-			let item = state.splice( indexStart, state[indexStart].children + 1);
-			state.splice(indexEnter, 0, ...item);
-			indexStart = indexEnter;
+			state.splice(indexEnter, 0 , ...item);
+			newIndex = indexEnter;
 		}
 
-		setFinalState(state, indexStart);
+		setFinalState(state, newIndex);
 		return [...state];
 	} else if (action.type === "SHIFT__SUBTASK__RIGHT") {
 		let { index } = action.payload;
+		let children = findAllChildren(index, state);
 		
-		let depth = state[index].depth.length;
-		for (let i = index; i < state.length; i++) {
-			let currentDepth = state[i].depth.length;
-			if (depth >= currentDepth && i !== index) break;
+		for (let i = index; i <= index + children; i++) {
 			state[i].depth = [...state[i].depth, ''];
 		}
 		
 		let indexNewParent = findIndexParent (index, state);
-		let childrenParent = state[indexNewParent].children;
-		let childrenChild = state[index].children;
-		state[indexNewParent].children = childrenParent + childrenChild + 1;
-		
-		if (state[index].lastTask){
+		if (state[index].lastTask || state[index].firstTask){
 			state[indexNewParent].lastTask = true;
-		} 
+			delete  state[index].firstTask;
+		}
+
+		console.log(state[indexNewParent]);
+		if (state[indexNewParent].hiddenChildren) {
+			state.splice(index + children + 1, 0, ...state[indexNewParent].hiddenChildren);
+			delete state[indexNewParent].hiddenChildren;
+		}
 
 		setFinalState (state, index, indexNewParent);
 		return [...state];
 	} else if (action.type === "SHIFT__SUBTASK__LEFT") {
 		let { index } = action.payload;
-		
-		let indexOldParent = findIndexParent (index, state);
-		let childrenParent = state[indexOldParent].children;
-		let childrenChild = state[index].children;
-		state[indexOldParent].children = childrenParent - childrenChild - 1;
-		
-		delete state[indexOldParent].lastTask;
-		delete state[index].lastTask;
 
-		if (state[indexOldParent].children === 0) {
-			delete state[indexOldParent].parent;
-		} else {
-			let item = state.splice(index, state[index].children + 1);
-			index = indexOldParent + state[indexOldParent].children + 1;
-			console.log(index);
-			state.splice(index, 0, ...item);	
+		let indexParent = findIndexParent(index, state);
+		console.log(indexParent === false);
+		console.log(indexParent == false);
+		if (indexParent === false) {
+			delete state[index].lastTask;
+			state[index].firstTask = true;
+			return;
 		}
 
-		let depth =  state[index].depth.length;
-		for (let i = index; i < state.length; i++) {
+		let childrenParent = findAllChildren(indexParent, state);
+		let childrenChild = findAllChildren(index, state);
+		let restChildren = childrenParent - childrenChild - 1;
+		
+		if (state[indexParent].lastTask) {
+			delete state[indexParent].lastTask;
+			state[index].lastTask = true;
+		} else if (!state[indexParent].lastTask) {
+			delete state[index].lastTask;
+		}
+
+		for (let i = index; i <= index + childrenChild; i++) {
 			let currentDepth = state[i].depth.length;
-			if (depth >= currentDepth && i !== index) break;
-			state[i].depth.splice(depth - 1, 1);
+			state[i].depth.splice(currentDepth - 1, 1);
 		}
 
-		let indexLastChild = findIndexLastChild(indexOldParent, state);
-		if (indexLastChild) {
-			state[indexLastChild].lastTask = true;
+		if (restChildren === 0) {
+			delete state[indexParent].parent;
+		} else if (restChildren > 0) {
+			let item = state.splice(index, childrenChild + 1);
+			index = indexParent + restChildren + 1;
+			state.splice(index, 0, ...item);
 		}
 		
-		setFinalState (state, index, indexOldParent);
+		setFinalState (state, null, indexParent);	
 		setFinalState (state, index);
+		return [...state];
+	} else if (action.type === "HIDE__OPEN__SUBTASK") {
+		let { index } = action.payload;
+
+		if (state[index].hiddenChildren) {
+			state.splice(index + 1, 0, ...state[index].hiddenChildren);
+			delete state[index].hiddenChildren;
+		} else if (!state[index].hiddenChildren){
+			let children = findAllChildren(index, state);
+			state[index].hiddenChildren = state.splice(index + 1, children);
+		}
 		return [...state];
 	}
 	return state;
 }
-
-
-
 
 
 function setFinalState (state, indexChild, parent) {
@@ -141,25 +155,22 @@ function setFinalState (state, indexChild, parent) {
 		? parent 
 		: findIndexParent (indexChild, state);
 	
-	if (indexParent === false) return;
+	if (indexParent === false) {
+		delete state[indexChild].lastTask;
+		return;
+	}
 	
 	let indexLastChild = findIndexLastChild(indexParent, state);
 	if (indexLastChild === false) {
 		delete state[indexParent].parent;
-		state[indexParent].children = 0;
 		return;
 	}
 	
 	let parentDepth = state[indexParent].depth.length;
 	for (let i = indexParent + 1; i < state.length; i++) {
 		let currentDepth = state[i].depth.length;
-		
 		if (parentDepth >= currentDepth) {
 			break;
-		}
-
-		if (state[i].children === 0) {
-			delete state[i].parent;
 		}
 
 		if (state[indexParent].lastTask) {
@@ -223,6 +234,18 @@ function changeOpacity (index, callback, state) {
 	}
 }
 
+function findAllChildren(indexParent, state) {
+	let parentDepth = state[indexParent].depth.length;
+	let children = 0;
+	for (let i = indexParent + 1; i < state.length; i++) {
+		let currentDepth = state[i].depth.length;
+		if (parentDepth >= currentDepth) break;
+		children = i - indexParent;
+	}
+
+	return children;
+}
+
 function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+	return !isNaN(parseFloat(n)) && isFinite(n);
 }

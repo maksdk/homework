@@ -24,7 +24,7 @@
 
 /*main content*/
 .mainContent {
-	padding: 8px 18px 4px 14px;
+	padding: 8px 18px 4px 0;
 	/*position: relative;*/
 	width: 600px;
 	height: 400px;
@@ -84,7 +84,7 @@
 	display: flex;
 	margin-top: 10px;
   	margin-bottom: 10px;
-
+	position: relative;
 }
 .list {
 	width: 100%;
@@ -140,7 +140,14 @@
 	display: inline-block;
 	background-color: #eee;
 }
-.lineFullVertical, .lineFullVerticalHalfRight, .lineHalfUpHalfRight {
+
+.firstPureBox {
+	pointer-events: none;
+}
+
+
+
+.lineFullVertical, .lineFullVerticalHalfRight, .lineHalfUpHalfRight, .linePureBox {
 	position: relative;	
 }
 .lineFullVertical:before {
@@ -179,6 +186,7 @@
 	right: 0;
 	top: 21px;
 	background-color: #887575
+
 }
 .lineHalfUpHalfRight:after {
 	content: '';
@@ -191,6 +199,48 @@
 }
 
 
+.listTasks__toggle {
+	position: absolute;
+    left: 12px;
+    top: 12px;
+    border-radius: 50%;
+    width: 16px;
+    height: 18px;
+    border: 1px solid #887575;
+    background-color: #eee;
+    z-index: 1;
+    pointer-events:auto;
+}
+
+.listTasks__toggle:after {
+	content: '';
+    height: 1px;
+    width: 15px;
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    background-color: #887575;
+}
+.listTasks__toggle--plus:before {
+	content: '+';
+	position: absolute;
+	color: #887575;
+	font-weight: 400;
+	font-size: 23px;
+    top: -5px;
+    left: 1px;
+}
+.listTasks__toggle--minus:before {
+	content: '-';
+	position: absolute;
+	color: #887575;
+	font-weight: 400;
+	font-size: 32px;
+	left: 2px;
+	top: -12px;
+}
+
+
 
 .cursorImg {
 	pointer-events: none;
@@ -198,6 +248,7 @@
 	transform: rotate(-1deg);
 	border: 1px solid red;
 	top: -10000px;
+	z-index: 100;
 }
 
 .opacity {
