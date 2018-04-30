@@ -1,0 +1,38 @@
+.galleryFilter {
+	display: flex;
+	justify-content: center;
+}
+
+.galleryFilter__select{
+	width: 97px;
+	display: flex;
+	flex-direction: column;
+	margin-right: 5px;
+    margin-bottom: 10px;
+    margin-top: 6px;
+    background-color: #2f2f31;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+@media (min-width: 660px) {
+	.galleryFilter__select{
+		width: 203px;
+		margin-right: 11px;
+	}
+}
+
+.galleryFilter__select:last-child {
+	margin-right: 0;
+}
+
+.galleryFilter__select--label {
+	color: #999;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+
+
+

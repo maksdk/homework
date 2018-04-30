@@ -4,7 +4,6 @@ export default ({children, className, onclick, index}) => (
 	<button
 		onClick={() => onclick(index)}
 		className={className}
-	>
-		{children}
-	</button>
+		children={children}
+	/>
 );

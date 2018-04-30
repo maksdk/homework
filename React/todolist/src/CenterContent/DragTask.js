@@ -4,13 +4,12 @@ export default ({className, dragStart, dragEnd, drag, dragEnter}) => {
 	return (
 		<span
 			className={className}
-			draggable='true'	
+			draggable='true'
+			children=':::'	
 			onDragStart={dragStart}
 			onDragEnd={dragEnd}	
 			onDrag={drag}
 			onDragEnter={dragEnter}					
-		>
-			:::
-		</span>
-		);
+		/>
+	);
 }

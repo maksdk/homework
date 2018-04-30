@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 
-import Button from './Button.js';
-import Drag from './Drag.js';
+import Button from '../Button.js';
+import Drag from './DragTask.js';
 import TaskContent from './TaskContent.js';
-import HideSubtask from './HideSubtask.js';
+import DoneTask from './DoneTask.js';
 
 export default class Task extends Component {
+	constructor(props) {
+      super(props);
+      this.list = React.createRef();
+    } 
 	render() {
+		console.log(this.props);
 		let heightBackTask = this.task && this.task.offsetHeight;
 		let {
 				deleteTask, 
@@ -16,18 +21,23 @@ export default class Task extends Component {
 				dragStart, 
 				dragEnd, 
 				drag, 
-				shiftSubtaskRigth, 
+				dragTaskRigth, 
 				dragEnterTask,
-				shiftSubtaskLeft,
+				dragTaskLeft,
 				opacity,
 				parent,
 				index,
 				lastTask,
 				hideOpenSubtask,
-				hiddenChildren
+				hiddenChildren,
+				onClickDoneTask,
+				done
 			} = this.props;
 		return (
-			<div className="wrapperTask">
+			<div 
+				className="wrapperTask"
+				ref={(list) => this.list = list}
+			>
 				{	depth && depth.map((item, i) => {
 						if (i === depth.length - 1) {
 							item = lastTask ? 'lineHalfUpHalfRight' : 'lineFullVerticalHalfRight';
@@ -39,7 +49,7 @@ export default class Task extends Component {
 							<span 
 								key={i} 
 								className={`linePureBox ${item}`}
-								onDragEnter={shiftSubtaskLeft}
+								onDragEnter={dragTaskLeft}
 							>
 								{
 									parent &&  (i === depth.length - 1)  &&
@@ -65,12 +75,12 @@ export default class Task extends Component {
 				 
 				<div
 					className={`backTask ${ opacity ? 'opacity' : ''}`}
-					ref={(div) => this.backTask = div}
+					//ref={(div) => this.backTask = div}
 					style={{height: heightBackTask}}		
 				>	
 					<div 
 						className={`task ${classHide}`}
-						ref={(div) => this.task = div}
+						//ref={(div) => this.task = div}
 					>	
 						<Drag 
 							className='listTasks__task--drag'
@@ -79,9 +89,14 @@ export default class Task extends Component {
 							drag={drag}
 							dragEnter={dragEnterTask}
 						/>
+						<DoneTask
+							done={done}
+							index={index}
+							onClickDoneTask={onClickDoneTask}
+						/>
 						<TaskContent 
 							className='listTasks__task--text'
-							dragEnter={shiftSubtaskRigth}
+							dragEnter={dragTaskRigth}
 							content={content}
 						/>
 						<Button 

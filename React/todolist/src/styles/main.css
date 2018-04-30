@@ -1,29 +1,32 @@
-
+#todolist{
+	display:flex;
+	position: relative;
+}
 /*change size*/
-.changeSize {
+/*.changeSize {
 	position: absolute;
 	width: 4px;
 	height: 100%;
 	background-color: #666666;
-}
-.changeHeigth {
+}*/
+/*.changeHeigth {
 	height: 4px;
 	width: 100%;
 	left: 0;
 	bottom: 0;
-}
-.changeWidth {
+}*/
+/*.changeWidth {
 	width: 4px;
 	height: 100%;
 	top: 0;
 	right: 0;
-}
-.changeSize:hover {
+}*/
+/*.changeSize:hover {
 	cursor: move;
-}
+}*/
 
 /*main content*/
-.mainContent {
+.tasks {
 	padding: 8px 18px 4px 0;
 	/*position: relative;*/
 	width: 600px;
@@ -36,6 +39,7 @@
 .leftside {
 	padding: 4px;
 	position: relative;
+	width: 100px;
 }
 
 
@@ -48,8 +52,8 @@
 
 
 
-/*addTask__inputData*/
-.addTask__fieldInput {
+
+/*.addTask__fieldInput {
 	border: none;
     background-color: #eee;
     border-bottom: 1px solid #887575;
@@ -60,22 +64,22 @@
     padding: 5px;
 }
 .addTask__inputData {
-	/*max-height: 0;
+	max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;*/
+    transition: max-height 0.2s ease-out;
 }
 .addTask--btnSave, .addTask--btnCancel {
 	cursor: pointer;
 	padding: 1px 10px;
     margin-right: 5px;
     outline: none;
-}
+}*/
 
 .hiddenBtnAddTask {
 	/*max-height: 0;
 	padding: 0;
 	border: none;*/
-}
+}*/*/*/
 
 
 
@@ -127,7 +131,7 @@
 	border-bottom-left-radius: 2px;
 	border-top-left-radius: 2px;
 	width: 100%;
-	padding: 11px 12px;
+	padding: 11px 12px 11px 5px;
 }
 
 /*.subtask {
@@ -157,7 +161,7 @@
 	position: absolute;
 	top: -10px;
 	left: 20px;
-	background-color: #887575
+	background-color: #88757545
 }
 .lineFullVerticalHalfRight:before{
 	content: '';
@@ -166,7 +170,7 @@
 	position: absolute;
 	left: 20px;
 	top: -10px;
-	background-color: #887575
+	background-color: #88757545
 }
 
 .lineFullVerticalHalfRight:after{
@@ -176,7 +180,7 @@
 	position: absolute;
 	right: 0;
 	top: 21px;
-	background-color: #887575
+	background-color: #88757545
 }
 .lineHalfUpHalfRight:before {
 	content: '';
@@ -185,7 +189,7 @@
 	position: absolute;
 	right: 0;
 	top: 21px;
-	background-color: #887575
+	background-color: #88757545
 
 }
 .lineHalfUpHalfRight:after {
@@ -195,7 +199,7 @@
 	position: absolute;
 	left: 20px;
 	top: -10px;
-	background-color: #887575
+	background-color: #88757545
 }
 
 
@@ -206,7 +210,7 @@
     border-radius: 50%;
     width: 16px;
     height: 18px;
-    border: 1px solid #887575;
+    border: 1px solid #88757545;
     background-color: #eee;
     z-index: 1;
     pointer-events:auto;
@@ -219,12 +223,12 @@
     position: absolute;
     left: 14px;
     top: 8px;
-    background-color: #887575;
+    background-color: #88757545;
 }
 .listTasks__toggle--plus:before {
 	content: '+';
 	position: absolute;
-	color: #887575;
+	color: #88757545;
 	font-weight: 400;
 	font-size: 23px;
     top: -5px;
@@ -233,7 +237,7 @@
 .listTasks__toggle--minus:before {
 	content: '-';
 	position: absolute;
-	color: #887575;
+	color: #88757545;
 	font-weight: 400;
 	font-size: 32px;
 	left: 2px;
@@ -258,7 +262,7 @@
 
 
 /*=====lines=====*/
-.listTasks_turn { 
+/*.listTasks_turn { 
 	min-width: 42px;
 	position: relative;
 	background-color: #eee;
@@ -277,7 +281,7 @@
 	top: 50%;
 	height: 1px;
 	width: 21px;
-	background-color: #887575;
+	background-color: #88757540;
 }
 .horizontalLineLeft {
 	position: absolute;
@@ -285,7 +289,7 @@
 	top: 50%;
 	height: 1px;
 	width: 21px;
-	background-color: #887575;
+	background-color: #88757540;
 }
 .verticalLineUp {
 	position: absolute;
@@ -293,7 +297,7 @@
 	bottom: 50%;
 	height: 30px;
 	width: 1px;
-	background-color: #887575;
+	background-color: #88757540;
 }
 
 .verticalLineDown {
@@ -302,12 +306,49 @@
 	top: 50%;
 	height: 30px;
 	width: 1px;
+	background-color: #88757540;
+}*/
+
+
+
+/*doneTask*/
+.doneTask {
+	width: 17px;
+    height: 13px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #887575;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.doneTask--checked {
+	
+}
+.doneTaskAnimation:after {
+	content: '';
+	height: 1px;
 	background-color: #887575;
+	position: absolute;
+	width: 200px;
+	top: 50%;
+	left: 100%;
+	animation: done .3s linear;
 }
 
-
+@keyframes done {
+	from {
+		width: 0;
+	}
+	to {
+		width: 200px;
+	}
+}
 
 .hide {
 	opacity: 0;
+}
+
+.datePicker{
+	border:2px solid red;
 }
 

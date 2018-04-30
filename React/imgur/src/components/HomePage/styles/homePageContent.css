@@ -1,0 +1,36 @@
+.homePage__content {
+	display: flex;
+    flex-direction: column;
+    background-color: #2c2f34;
+    padding-top: 30px;
+}
+
+.homePage__content--img {
+	margin: auto;
+	max-width: 700px;
+	padding: 0 5px;
+
+}
+.homePage__content--img > img {
+	object-fit: cover;
+    height: 100%;
+    width: 100%;
+	margin-bottom: 20px;  
+}
+
+.homePage__content--video > video {
+	object-fit: cover;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.homePage__content--description {
+	margin-bottom: 20px;
+	padding: 0 30px;
+	color: #f2f2f2;
+    font-size: 16px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+

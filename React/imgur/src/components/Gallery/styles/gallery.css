@@ -1,0 +1,138 @@
+.galleryList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.galleryList__post {
+	flex-basis: 310px;
+	min-width: 310px;
+	display: flex;
+	flex-direction: column;
+	background: #2f2f31;
+   padding: 5px;
+   border-radius: 2px;
+   margin: 5px;
+   position: relative;
+}
+
+.galleryList__post--link>img {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	position: relative;
+	box-shadow: 0 0 0 #fff;
+	display: block;
+}
+
+.galleryList__post--link>img:hover {
+	box-shadow: inset 0 0 1em #999;
+}
+
+.galleryList__post--title {
+	padding: 0 5px;
+   color: #f2f2f2;
+   font-size: 18px;
+   font-weight: bold;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   transition: all .7s ease .1s;
+   margin-bottom: 10px;
+}
+
+@media (min-width: 320px) {
+	.galleryList__post--title{
+		white-space: normal;
+	}
+}
+
+.galleryList__post--title:hover  {
+	white-space: normal;
+}
+
+.galleryList__post--stat {
+	padding-top: 7px;
+	border-top: 1px solid #9999991f;
+	display: flex;
+	margin: 0 auto;
+	height: 30px;
+    align-items: center;
+    min-width: 300px;
+    justify-content: space-around;
+    padding-left: 5px;
+    padding-right: 5px;
+    flex-wrap: wrap;
+}
+
+.galleryList__post--views {
+	padding-right: 20px;
+   color: #999;
+   position: relative;
+   font-size: 14px;
+   margin-right: auto;
+}
+.galleryList__post--views:after {
+	content: '';
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image: url('../../../img/icons/eye.png');
+}
+
+.galleryList__post--points {
+	padding-right: 20px;
+   color: #999;
+   position: relative;
+   font-size: 14px;
+   margin-left: auto;
+}
+.galleryList__post--points:after {
+	content: '';
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+	background-image: url('../../../img/icons/likes.png');
+}
+
+.galleryList__post--comment {
+	padding-right: 20px;
+   color: #999;
+   position: relative;
+   font-size: 14px;
+   margin-left: auto;
+}
+.galleryList__post--comment:after {
+	content: '';
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image: url('../../../img/icons/comment.png');
+}
+
+.galleryList__post--nickName {
+	color: #3f669fc9;
+   font-size: 14px;
+   position: relative;
+   padding: 0 15px;
+   margin-left: 20px;
+   margin-bottom: 10px;
+   margin-top: 3px;
+   cursor: pointer;
+   font-weight: 700;
+}
+
+.galleryList__post--nickName::before {
+	content: 'by';
+	font-size: 12px;
+	position: absolute;
+	left:-5px;
+	top: 1px;
+	color: #BBB;
+}

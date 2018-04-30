@@ -99,8 +99,7 @@ export default (state = [], action) => {
 		let { index } = action.payload;
 
 		let indexParent = findIndexParent(index, state);
-		console.log(indexParent === false);
-		console.log(indexParent == false);
+		
 		if (indexParent === false) {
 			delete state[index].lastTask;
 			state[index].firstTask = true;
@@ -143,6 +142,14 @@ export default (state = [], action) => {
 		} else if (!state[index].hiddenChildren){
 			let children = findAllChildren(index, state);
 			state[index].hiddenChildren = state.splice(index + 1, children);
+		}
+		return [...state];
+	} else if (action.type === "DONE__TASK") {
+		let { index } = action.payload;
+		let children = findAllChildren(index, state);
+		console.log(index);
+		for(let i = index; i <= index + children; i++) {
+			state[i].done = true;
 		}
 		return [...state];
 	}

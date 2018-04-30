@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Drag from './Drag.js';
+import Drag from './CenterContent/DragTask.js';
 import Button from './Button.js';
 
 export default ({task, style, className}) => (
@@ -13,9 +13,8 @@ export default ({task, style, className}) => (
 		/>
 		<span 
 			className='listTasks__task--text'
-		>
-			{task}
-		</span>
+			children={task}
+		/>
 		<Button 
 			className='listTasks__task--delete'
 			children='x'

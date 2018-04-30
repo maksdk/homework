@@ -1,0 +1,20 @@
+.btnBackToTop {
+	opacity: 0.4;
+	background-color: #999;
+	width: 45px;
+	height: 45px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 5px;
+	border: none;
+    background-image: url('../../img/icons/chevron-arrow-up.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+    cursor: pointer;
+    outline: none;
+    transition: all .3s ease;
+}  
+.btnBackToTop:hover {
+    opacity: 0.9;
+}

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 
-import App from './App.js';
+import TodoList from './TodoList.js';
 import reducers from './reducers/index.js';
 import './styles/index.css';
 
@@ -12,9 +12,10 @@ const store = createStore(
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+let todolist = document.getElementById('todolist');
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <TodoList todolist={todolist} />
   </Provider>,
-  document.getElementById('todolist')
+ 	todolist
 );

@@ -1,0 +1,16 @@
+body {
+	background-color: #191919;
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	margin: 0;
+	padding: 0;
+	word-wrap: normal;
+}
+
+/*@media (min-width:320px) {
+	.root{
+		min-width: 320px;
+	}
+}*/

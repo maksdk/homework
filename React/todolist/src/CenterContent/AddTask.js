@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Button from './Button.js';
+import Button from '../Button.js';
+import './styles/addTask.css'
 
 export default class AddTask extends Component {
 	constructor(props) {
