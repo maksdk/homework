@@ -10,11 +10,12 @@ export default class List extends Component {
 
    renderTask() {
    	let { allTasks, ...handlers } = this.props;
-   	return (
+      return (
    		allTasks.map((task, i) => {
    			return (
    				<Task 
    					key={task.exactCreationTime}
+                  index={i}
    					task={task}
    					{...handlers}
    				/>

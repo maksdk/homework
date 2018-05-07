@@ -3,18 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "final-form": "^4.6.1",
+    "downshift": "^1.31.14",
+    "font-awesome": "^4.7.0",
     "lodash": "^4.17.5",
     "moment": "^2.22.1",
-    "rc-datepicker": "^5.0.12",
     "react": "^16.3.0",
-    "react-calendar": "^2.14.0",
     "react-dom": "^16.3.0",
-    "react-final-form": "^3.4.0",
-    "react-native-listener": "^1.0.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.1",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

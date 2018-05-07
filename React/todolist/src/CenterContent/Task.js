@@ -5,34 +5,30 @@ import Drag from './DragTask.js';
 import TaskContent from './TaskContent.js';
 import DoneTask from './DoneTask.js';
 
+import './styles/task.css';
+
 export default class Task extends Component {
 	constructor(props) {
       super(props);
       this.list = React.createRef();
     } 
 	render() {
-		console.log(this.props);
 		let heightBackTask = this.task && this.task.offsetHeight;
 		let {
-				deleteTask, 
-				content, 
-				classHide,
-				depth,
-				dragStart, 
-				dragEnd, 
+				deleteTask,
 				drag, 
-				dragTaskRigth, 
-				dragEnterTask,
+				dragEnd, 
+				dragEnter,
+				dragStart, 
+				//classHide,
 				dragTaskLeft,
-				opacity,
-				parent,
-				index,
-				lastTask,
+				dragTaskRigth,
 				hideOpenSubtask,
-				hiddenChildren,
-				onClickDoneTask,
-				done
+				onClickDoneTask, 
+				index,
+				task
 			} = this.props;
+			let { depth, lastTask, parent, hiddenChildren, opacity, doneTask, content, hide } = task;
 		return (
 			<div 
 				className="wrapperTask"
@@ -79,7 +75,7 @@ export default class Task extends Component {
 					style={{height: heightBackTask}}		
 				>	
 					<div 
-						className={`task ${classHide}`}
+						className={`task ${hide ? 'hide' : ''}`}
 						//ref={(div) => this.task = div}
 					>	
 						<Drag 
@@ -87,15 +83,15 @@ export default class Task extends Component {
 							dragStart={dragStart}
 							dragEnd={dragEnd}
 							drag={drag}
-							dragEnter={dragEnterTask}
+							dragEnter={dragEnter}
 						/>
 						<DoneTask
-							done={done}
+							doneTask={doneTask}
 							index={index}
 							onClickDoneTask={onClickDoneTask}
 						/>
 						<TaskContent 
-							className='listTasks__task--text'
+							doneTask={doneTask}
 							dragEnter={dragTaskRigth}
 							content={content}
 						/>

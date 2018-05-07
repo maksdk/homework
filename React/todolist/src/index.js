@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import {composeWithDevTools} from "redux-devtools-extension"
+import thunk from "redux-thunk"
 
 import TodoList from './TodoList.js';
 import reducers from './reducers/index.js';
 import './styles/index.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 const store = createStore(
-	reducers,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+	reducers, 
+	composeWithDevTools(applyMiddleware(thunk))
 );
 
 let todolist = document.getElementById('todolist');

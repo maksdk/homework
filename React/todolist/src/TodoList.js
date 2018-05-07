@@ -2,219 +2,218 @@ import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 
-import './styles/main.css';
-
-import { findIndex } from 'lodash';
+import { find as _find } from 'lodash';
 import moment from 'moment';
 import 'moment/locale/ru';
 
-import List from './CenterContent/List.js';
-import AddTask from './CenterContent/AddTask.js';
-import Calendar from './LeftMenu/Calendar/Calendar.js';
-import CursorImg from './CursorImg.js';
+import AddTask from './AddTask/AddTask.js';
+import Calendar from './Calendar/Calendar.js';
+import Project from './LeftMenu/Project/Project.js';
+import Task from './Task/Task.js';
+import Downshift from './Downshift.js';
+import { 
+	findTaskByDate, 
+	dropDownSubtask,
+	addNewListInStore,
+	getValueAllTasks
+} from './actions/actions.js';
+import { ALL__TASKS, INBOX__TASKS } from './constants/index.js';
+
+import './styles/main.css';
 
 
 class TodoList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			cursorImg: null,
-			month: moment()
-		}
+			activeDate: undefined,
+			
+			activeList: {
+				list:INBOX__TASKS,
+				color: '#887575'
+			},
+			
+			allLists:[{
+				list:ALL__TASKS,
+				color:'#887575'
+			},{
+				list:INBOX__TASKS,
+				color:'#887575'
+			}],
+			month: moment(),
+			draggingTask: {
+				list: null,
+				id: null
+			},
 
-		this.dragStart = this.dragStart.bind(this);
-		this.dragEnd = this.dragEnd.bind(this);
-		this.drag = this.drag.bind(this);
-		this.dragEnter = this.dragEnter.bind(this);
-		this.dragTaskRigth = this.dragTaskRigth.bind(this);
-		this.dragTaskLeft =  this.dragTaskLeft.bind(this);
-		this.findIndexChildInDOM =  this.findIndexChildInDOM.bind(this);
-		this.selectPrevMonth =  this.selectPrevMonth.bind(this);
-		this.selectNextMonth =  this.selectNextMonth.bind(this);
-		this.selectDay =  this.selectDay.bind(this);
-		this.renderCursorImage =  this.renderCursorImage.bind(this);
+			cursorImg: null,
+			//error: null,
+			//setDate:'',
+			
+		}
+		this.selectList = this.selectList.bind(this);
+		this.addList = this.addList.bind(this);
+		this.renderCursorImg = this.renderCursorImg.bind(this);
+		this.removeCursorImg = this.removeCursorImg.bind(this);
+		this.selectDay = this.selectDay.bind(this);
+		this.quickSearchTask = this.quickSearchTask.bind(this);
+		
 	}
 	
-	dragStart(e){
-		let elemDrag = e.target.parentNode;
-		let elemCoords = this.getCoords(elemDrag);
-		this.deltaX = e.pageX - elemCoords.left;
-	   this.deltaY = e.pageY - elemCoords.top;
-	   
-	   let indexStart = this.findIndexChildInDOM(e.target);
-	   let { task, startDragTask }	= this.props;
-	   	
-   	startDragTask(
-   		indexStart
-   	);
 
-   	this.setState({
-   		cursorImg: {
-				content: task[indexStart].content,
-				width: elemDrag.offsetWidth,
-				height: elemDrag.offsetHeight
+	selectDay(date) {
+		let { lists, findTaskByDate} = this.props;
+		let list = _find(lists, {list: ALL__TASKS});
+		findTaskByDate(date, list);
+		this.setState({
+			activeDate: date
+		})
+	}
+	addList(list) {
+		let { allLists } = this.state;
+		let { addNewListInStore } = this.props;
+		addNewListInStore(list.list);
+		this.setState({
+			allLists: [...allLists, list]
+		})
+		
+		
+	}
+	selectList(list, color) {
+		let { activeList} = this.state;
+		if (activeList.list === list) return;
+		this.setState({
+			activeDate: undefined,
+			activeList: {
+				list: list,
+				color: color
 			}
 		})
 	}
-
-	dragEnter(e) {
-		if (e.target.parentNode.classList.contains('hide')) return;
-		console.log("dragEnter");
-		
-		let { task } = this.props;
-
-		let indexStart = findIndex(task, {hide: true});
-		let indexEnter =  this.findIndexChildInDOM(e.target);
-		
-		this.props.shiftTask(
-			indexStart, 
-			indexEnter
-		);
+	quickSearchTask(task) {
+	// console.log(task);
+		//  let { activeDate, activeList } = this.state;
+		// if (activeDate) {
+		// 	let { calendar } = this.props;
+		// 	currentList = calendar.tasks;
+		// 	downshift = calendar.downshift;
+		// } else {
+		// 	let list = _find(lists, {list: activeList.list});
+		// 	currentList =list.tasks;
+		// 	downshift = list.downshift;
+		// }
 	}
-
-	dragTaskRigth(e) {
-		let { task } = this.props;
-		let indexStart = findIndex(task, {hide: true});
-		let indexEnter = this.findIndexChildInDOM(e.target);
-
-		if (indexStart !== indexEnter) return;
-		if (!indexStart) return;
-
-		let prevDepth = task[indexStart - 1].depth,
-			thisDepth = task[indexStart].depth;
-		if (prevDepth.length - thisDepth.length < 0) return;
-		
-		this.props.dragTaskRigth(
-			indexStart
-		); 
+	renderCursorImg(task, activeList) {
+		this.setState({
+			cursorImg: {
+				task: task,
+				activeList:activeList
+			},
+			draggingTask: {
+				list: task.list,
+				id: task.id
+			}
+		})
 	}
-
-	dragTaskLeft(e) {
-		let { task } = this.props;
-		let indexStart = findIndex(task, {hide: true});
-
-		let listChildren = [...this.list.children];
-		let indexEnter = findIndex(listChildren, e.target.parentNode);
-		
-		if (indexStart !== indexEnter) return;
-		
-		console.log("dragTaskLeft");
-		
-		this.props.dragTaskLeft(
-			indexStart
-		);
-	}
-
-	drag(e) {
-		let { todolist } = this.props;
-		let cursorImg = todolist.lastChild;
-		cursorImg.style.left = e.pageX - this.deltaX + 'px';
-		cursorImg.style.top = e.pageY - this.deltaY + 'px';
-	}
-
-	dragEnd(e) {
-		let { task } = this.props;
-		let indexDragElem = findIndex(task, {hide: true});
-		
-		this.props.endDrag(
-			indexDragElem
-		);
-
+	removeCursorImg () {
 		this.setState({
 			cursorImg: null
-		});
-	}
-
-	renderCursorImage(cursorImg) {
-		let { todolist} = this.props;
-		return (
-			ReactDOM.createPortal(
-				<CursorImg 
-					task={cursorImg.content}
-					className='cursorImg'
-					style={{
-						width: cursorImg.width,
-						height: cursorImg.height
-					}}	
-				/>,
-				todolist
-			)
-		);
-	}
-	
-	selectPrevMonth () {
-		let { month } = this.state;
-		this.setState({
-			month: month.subtract(1, 'months')
 		})
 	}
-	selectNextMonth () {
-		let { month } = this.state;
-		this.setState({
-			month: month.add(1, 'months')
-		})
-	}
-
-	selectDay() {
-		console.log("selectDay");
-	}
-
-	findIndexChildInDOM(elem) {
-		let listChildren = [...this.list.children],
-			child = elem.parentNode.parentNode.parentNode;
-		return findIndex(listChildren, child);
-	}
-
-	getCoords(elem) {
-		let box = elem.getBoundingClientRect();
-		return {
-	      top: box.top,
-	      left: box.left
-	    };
-	}
-
 	render() {
-
+		let { lists, dueDate } = this.props;
 		let { 
-			addTask, 
-			deleteTask, 
-			hideOpenSubtask, 
-			onClickDoneTask, 
-			task
-		} = this.props;
-		let { 
-			cursorImg, 
-			month 
+			draggingTask,
+			activeDate,
+			activeList,
+			allLists,
+			month,
+			cursorImg
 		} = this.state;
-		console.log(task);
+
+		let currentList;
+		let downshift;
+		if (activeDate) {
+			let { calendar } = this.props;
+			currentList = calendar.tasks;
+			downshift = calendar.downshift;
+		} else {
+			let list = _find(lists, {list: activeList.list});
+			currentList =list.tasks;
+			downshift = list.downshift;
+		}
+		
+		
+		if (cursorImg) {
+			this.body = document.body;
+		}
 		return (
 			<Fragment>
-				<div className='leftMenu'>
+				<div className='leftside'>
 					<Calendar 
-						selectPrevMonth={this.selectPrevMonth}
-						selectNextMonth={this.selectNextMonth}
 						selectDay={this.selectDay}
 						month={month}
+						activeDate={activeDate}
+						dueDate={dueDate}
+					/>
+					<Project
+						addList={this.addList}
+						allLists={allLists}
+						selectList={this.selectList}
+						activeList={activeList}
+						//error={error}
 					/>
 				</div>
 				<div className='content'>
-					<List 
-						ref={list => this.list = list}
-						allTasks={task}
-						deleteTask={deleteTask}
-						hideOpenSubtask={hideOpenSubtask}
-						onClickDoneTask={onClickDoneTask}
-						dragTaskLeft={this.dragTaskLeft}
-						dragStart={this.dragStart}
-						dragEnd={this.dragEnd}
-						drag={this.drag}
-						dragEnter={this.dragEnter}
-						dragTaskRigth={this.dragTaskRigth}
-					/>
-					<AddTask addTask={addTask}/>
+					<div className='listTasks__header'>
+						{
+						<span
+							className='listTasks__titleList'
+							children={`#${activeList.list}`}
+						/>
+						}
+						{
+							// <Downshift
+							// 	items={downshift}
+							// 	onChange={selectedItem => this.quickSearchTask(selectedItem)}
+							// />
+						}
+						
+					</div>
+					
+					<div className='listTasks'>
+						<AddTask
+							activeList={activeList}
+							activeDate={activeDate}
+							allLists={allLists}
+						/>
+						{currentList && 
+							currentList.map( (task, index) => (
+									<Task
+										draggingTask={draggingTask}
+										key={task.id}
+										task={task}
+										allLists={allLists}
+										//index={index}
+										activeList={activeList}
+										activeDate={activeDate}
+										renderCursorImg={this.renderCursorImg}
+										removeCursorImg={this.removeCursorImg}
+									/>
+								)
+							)
+						}
+					</div>
 				</div>
-				{
-					cursorImg && this.renderCursorImage(cursorImg)
+				{ cursorImg &&
+					ReactDOM.createPortal(
+						<Task 
+							activeList={cursorImg.activeList}
+							task={cursorImg.task}
+							classNameCursorImg='cursorImg'
+						/>,
+						this.body
+					)
 				}
 			</Fragment>	
 		);
@@ -222,95 +221,27 @@ class TodoList extends Component {
 }
 
 
-
-
-const mapStateToProps = state => (
-	{
-		task: state.task
-	}
-);
+const mapStateToProps = state => ({
+		lists: state.lists,
+		dueDate: state.dueDate,
+		calendar: state.calendar
+});
 
 const mapDispatchToProps = dispatch => ({
-	addTask: task => {
-		dispatch({
-			type: 'ADD__TASK',
-			payload: {
-				content: task,
-				depth: [],
-				firstTask: true,
-				creationDate: moment().format('DD.MM.YYYY'),
-				exactCreationTime: moment().format('DD.MM.YYYY HH:mm:ss')
-			}
-		})
+	findTaskByDate: (date, list) => {
+		dispatch(findTaskByDate(date, list))
 	},
-	deleteTask: index => {
-		dispatch({
-			type: 'DELETE__TASK',
-			payload: {
-				index
-			}
-		})
+	dropDownSubtask: (id, activeList) => {
+		dispatch(dropDownSubtask(id, activeList))
 	},
-	onClickDoneTask: index => {
-		dispatch({
-			type: 'DONE__TASK',
-			payload: {
-				index
-			}
-		})
+	addNewListInStore: list => {
+		dispatch(addNewListInStore(list))
 	},
-	startDragTask: index => {
-		dispatch({
-			type: 'START__DRAG__TASK',
-			payload: {
-				index
-			}
-		})	
-	},
-	endDrag: index => {
-		dispatch({
-			type: 'END__DRAG__TASK',
-			payload: {
-				index
-			}
-		})	
-	},
-	shiftTask: (indexStart, indexEnter) => {
-		dispatch({
-			type: 'SHIFT__TASK',
-			payload: {
-				indexStart,
-				indexEnter
-			}
-		})
-	},
-	dragTaskRigth: index => {
-		dispatch({
-			type: 'SHIFT__SUBTASK__RIGHT',
-			payload: {
-				index
-			}
-		})
-	},
-	dragTaskLeft: index => {
-		dispatch({
-			type: 'SHIFT__SUBTASK__LEFT',
-			payload: {
-				index
-				
-			}
-		})
-	},
-	hideOpenSubtask: index => {
-		dispatch({
-			type: 'HIDE__OPEN__SUBTASK',
-			payload: {
-				index
-			}
-		})
+	getValueAllTasks: (selectedList, allLists) => {
+		dispatch(getValueAllTasks(selectedList, allLists))
 	}
 });
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps	
+	mapDispatchToProps
 )(TodoList);

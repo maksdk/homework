@@ -1,0 +1,30 @@
+.colorPicker__container {
+	width: 144px;
+    padding: 7px;
+    background-color: #eee;
+    border-radius: 4px;
+
+}
+.colorPicker__container:after {
+	content: '';
+    position: absolute;
+    top: -18px;
+    left: 59px;
+    border: 8px solid transparent;
+    border-bottom: 10px solid #eee;
+}
+.colorPicker__item {
+	height: 14px;
+	width: 14px;
+	margin: 2px;
+}
+.colorPicker__container--title {
+	display: flex;
+    font-size: 14px;
+    margin-bottom: 5px;
+    justify-content: center;
+    color: #1d1914;
+    background-color: rgba(136, 117, 117, 0.26);
+    border-radius: 4px;
+}
+   

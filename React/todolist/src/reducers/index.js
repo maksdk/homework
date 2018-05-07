@@ -1,8 +1,11 @@
 import {combineReducers} from 'redux';
 
-import task from './task.js';
-import drag from './drag.js';
+import dueDate from './dueDate.js';
+import lists from './lists.js';
+import calendar from './calendar.js';
+
 export default combineReducers({
-	task,
-	drag
+	dueDate,
+	lists,
+	calendar
 });

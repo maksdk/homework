@@ -53,19 +53,19 @@ class Gallery extends Component {
             });
       }
    } 
-   onChangeSelect(value, {_owner}){
-      let type = _owner.memoizedProps.type;
-      if (type === 'section') {
+   onChangeSelect(value, {props}){
+      let { data } = props;
+      if (data === 'section') {
          this.setState({
             section: value.toLowerCase(),
             page: 0
          });
-      } else if (type === 'sort') {
+      } else if (data === 'sort') {
          this.setState({
             sort: value.toLowerCase(),
             page: 0
          });
-      } else if (type === 'period') {
+      } else if (data === 'period') {
          this.setState({
             period: value.toLowerCase(),
             page: 0
@@ -100,7 +100,7 @@ class Gallery extends Component {
       return (
          <Fragment>
             <GalleryFilter
-               onchange={this.onChangeSelect}
+               onChangeSelect={this.onChangeSelect}
             />
             <GalleryListPosts
                galleryList={galleryList}

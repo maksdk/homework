@@ -1,31 +1,158 @@
 #todolist{
 	display:flex;
 	position: relative;
+	height: 100vh;
 }
-/*change size*/
-/*.changeSize {
-	position: absolute;
-	width: 4px;
-	height: 100%;
-	background-color: #666666;
-}*/
-/*.changeHeigth {
-	height: 4px;
+
+.leftside {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border-right: 1px solid #eee;
+	min-width: 190px;
+	background-color: #e3d7bfe0;
+}
+.content {
+	background-image: url('../CenterContent/img/bg-content.png');
+	background-size: cover;
 	width: 100%;
-	left: 0;
-	bottom: 0;
-}*/
-/*.changeWidth {
-	width: 4px;
-	height: 100%;
+	position: relative;
+	padding: 25px;
+	overflow-y: auto;
+}
+.listTasks__titleList {
+	color:#ddd;
+	font-size: 20px;
+	font-weight: 600;
+    display: inline-block;
+    margin-right: 25px;
+}
+.listTasks__header {
+	margin-bottom: 20px;
+	display: flex;
+}
+.listTasks__quickSearch {
+	position: relative;
+}
+.listTasks__quickSearch--input {
+	position: relative;
+}
+.listTasks__quickSearch--input--icon {
+	position: absolute;
 	top: 0;
-	right: 0;
-}*/
-/*.changeSize:hover {
-	cursor: move;
+	left: 0;
+	z-index: 100;
+	color: #6666663d;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    width: 25px;
+    justify-content: center;
+    border-right: 1px solid #8875753d;
+}
+.listTasks__quickSearch--field {
+	width: 200px;
+    height: 25px;
+    border-radius: 4px;
+    border: none;
+    position: relative;
+    padding-left: 30px;
+    background-color: #f1f1f142;
+}
+.listTasks__quickSearch--select {
+	display: flex;
+	flex-direction: column;
+	/*border-top: 2px solid #887575bf;*/
+	border-radius: 5px;
+	position: absolute;
+	width: 228px;
+    background-color: #eee;
+    margin-top: 5px;
+}
+/*.listTasks__quickSearch--select:after {
+	content: '';
+    position: absolute;
+    top: -18px;
+    left: 26px;
+    border: 8px solid transparent;
+    border-bottom: 10px solid #887575bf;
+    z-index: 150;
 }*/
 
-/*main content*/
+.listTasks__quickSearch--select--items {
+	display: flex;
+	background-color: #eee;
+	width: 100%;
+	border: solid 1px #e4e8ed;
+	cursor: pointer;
+	opacity: 1;
+	z-index: 100;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.listTasks__quickSearch--select--items:hover {
+	background-color: #ddd;
+}
+
+
+
+.rightSide {
+	width: 400px;
+	background-color: #e3d7bfe0;
+	border-left: 1px solid #eee;
+}
+.displayNone {
+	display:none;
+}
+.displayFlex {
+	display: flex;
+}
+
+/*TAG*/
+.tagDeleteIcon {
+	padding-left: 3px;
+    cursor: pointer;
+}
+.tagDeleteIcon:hover {
+	color:#fff;
+}
+
+.red {
+    color: #ff0000bf;
+}
+.orange {
+    color: orange;
+}
+.blue {
+    color: blue;
+}
+.grey {
+    color: grey;
+}
+.cursorImg {
+	pointer-events: none;
+	position: absolute;
+	transform: rotate(-1deg);
+	top: -10000px;
+	z-index: 100;
+}
+.classDraggingElem {
+	opacity: 0;
+}
+.classDraggingDarkBack {
+	border-radius: 4px;
+    background-color: #66666657;
+}
+.classDraggingOpacity {
+	opacity: .5;
+	pointer-events: none;
+}
+::placeholder {
+   font-size: 14px;
+   font-style: italic;
+}
+
 .tasks {
 	padding: 8px 18px 4px 0;
 	/*position: relative;*/
@@ -35,123 +162,25 @@
 	border-top: 4px solid #666666;
 }
 
-/*leftside*/
-.leftside {
-	padding: 4px;
-	position: relative;
-	width: 100px;
-}
 
-
-.leftside {
+/*.leftside {
 	border-top: 4px solid #666666;
 	border-left: 4px solid #666666;
 	border-bottom: 4px solid #666666;
 	background-color: #eee;
-}
-
-
-
-
-/*.addTask__fieldInput {
-	border: none;
-    background-color: #eee;
-    border-bottom: 1px solid #887575;
-    margin-left: 10px;
-    margin-right: 5px;
-    color: #887575;
-    outline: none;
-    padding: 5px;
-}
-.addTask__inputData {
-	max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-.addTask--btnSave, .addTask--btnCancel {
-	cursor: pointer;
-	padding: 1px 10px;
-    margin-right: 5px;
-    outline: none;
-}*/
-
-.hiddenBtnAddTask {
-	/*max-height: 0;
-	padding: 0;
-	border: none;*/
-}*/*/*/
-
-
-
-/*task*/
-.wrapperTask {
-	display: flex;
-	margin-top: 10px;
-  	margin-bottom: 10px;
-	position: relative;
-}
-.list {
-	width: 100%;
-	background-color: #eee;
-}
-.backTask {
-	border-radius: 1px;
-	background-color: #B2B2B2;
-	width: 100%;
-  	/*margin-top: 10px;
-  	margin-bottom: 10px;*/
-}
-.task {
-	display: flex;
-	align-items: center;
-	border-radius: 1px;
-	background-color: #fff;
-}
-.listTasks__task--delete {
-	margin-left: auto;
-}
-.listTasks__task--delete {
-	margin-left: auto;
-}
-.listTasks__task--drag {
-	padding: 9px 10px 10px 12px;
-	cursor: move;
-	border-right: 2px solid #eee;
-	border-bottom-right-radius: 2px;
-	border-top-right-radius: 2px;
-	color: #887575a3;
-	font-size: 18px;
-	font-weight: bold;
-}
-.listTasks__task--drag:hover {
-	color: #887575;
-}
-
-.listTasks__task--text {
-	border-bottom-left-radius: 2px;
-	border-top-left-radius: 2px;
-	width: 100%;
-	padding: 11px 12px 11px 5px;
-}
-
-/*.subtask {
-	padding-left: 42px;
 }*/
 
 
+
+
+
+
+
+
+.lineFullVertical,
+.lineFullVerticalHalfRight,
+.lineHalfUpHalfRight,
 .linePureBox {
-	min-width: 42px;
-	display: inline-block;
-	background-color: #eee;
-}
-
-.firstPureBox {
-	pointer-events: none;
-}
-
-
-
-.lineFullVertical, .lineFullVerticalHalfRight, .lineHalfUpHalfRight, .linePureBox {
 	position: relative;	
 }
 .lineFullVertical:before {
@@ -160,46 +189,64 @@
 	height: 52px;
 	position: absolute;
 	top: -10px;
-	left: 20px;
-	background-color: #88757545
+	left: 22px;
+	background-color: #d56e00;
 }
 .lineFullVerticalHalfRight:before{
 	content: '';
 	height: 52px;
 	width: 1px;
 	position: absolute;
-	left: 20px;
+	left: 22px;
 	top: -10px;
-	background-color: #88757545
+	background-color: #d56e00;
 }
 
 .lineFullVerticalHalfRight:after{
 	content: '';
 	height: 1px;
-	width: 22px;
+	width: 18px;
 	position: absolute;
 	right: 0;
 	top: 21px;
-	background-color: #88757545
+	background-color: #d56e00;
 }
 .lineHalfUpHalfRight:before {
 	content: '';
 	height: 1px;
-	width: 22px;
+	width: 18px;
 	position: absolute;
 	right: 0;
-	top: 21px;
-	background-color: #88757545
+	top: 20px;
+	background-color: #d56e00;
+
+	/*content: '';
+    height: 1px;
+    width: 19px;
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    background-color: #999;*/
 
 }
+
+
 .lineHalfUpHalfRight:after {
 	content: '';
 	height: 31px;
 	width: 1px;
 	position: absolute;
-	left: 20px;
+	left: 22px;
 	top: -10px;
-	background-color: #88757545
+	background-color: #d56e00;
+/*
+	    content: '';
+    height: 31px;
+    width: 1px;
+    position: absolute;
+    left: 22px;
+    top: -10px;
+    background-color: #999;*/
 }
 
 
@@ -223,7 +270,7 @@
     position: absolute;
     left: 14px;
     top: 8px;
-    background-color: #88757545;
+    background-color: #d56e00;
 }
 .listTasks__toggle--plus:before {
 	content: '+';
@@ -244,108 +291,9 @@
 	top: -12px;
 }
 
-
-
-.cursorImg {
-	pointer-events: none;
-	position: absolute;
-	transform: rotate(-1deg);
-	border: 1px solid red;
-	top: -10000px;
-	z-index: 100;
-}
-
 .opacity {
 	opacity: 0.5;
 	pointer-events: none;
-}
-
-
-/*=====lines=====*/
-/*.listTasks_turn { 
-	min-width: 42px;
-	position: relative;
-	background-color: #eee;
-}
-
-.listTasks__btn--turnOff {
-	position: absolute;
-	top: 50%;
-	bottom: 50%;
-	left: 50%;
-	right: 50%;
-}
-.horizontalLineRight {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	height: 1px;
-	width: 21px;
-	background-color: #88757540;
-}
-.horizontalLineLeft {
-	position: absolute;
-	right: 50%;
-	top: 50%;
-	height: 1px;
-	width: 21px;
-	background-color: #88757540;
-}
-.verticalLineUp {
-	position: absolute;
-	left: 50%;
-	bottom: 50%;
-	height: 30px;
-	width: 1px;
-	background-color: #88757540;
-}
-
-.verticalLineDown {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	height: 30px;
-	width: 1px;
-	background-color: #88757540;
-}*/
-
-
-
-/*doneTask*/
-.doneTask {
-	width: 17px;
-    height: 13px;
-    position: relative;
-    display: inline-block;
-    border: 1px solid #887575;
-    border-radius: 50%;
-    margin-left: 10px;
-}
-.doneTask--checked {
-	
-}
-.doneTaskAnimation:after {
-	content: '';
-	height: 1px;
-	background-color: #887575;
-	position: absolute;
-	width: 200px;
-	top: 50%;
-	left: 100%;
-	animation: done .3s linear;
-}
-
-@keyframes done {
-	from {
-		width: 0;
-	}
-	to {
-		width: 200px;
-	}
-}
-
-.hide {
-	opacity: 0;
 }
 
 .datePicker{
