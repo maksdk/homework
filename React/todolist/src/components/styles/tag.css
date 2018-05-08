@@ -1,0 +1,7 @@
+.tagDeleteIcon {
+	padding-left: 3px;
+    cursor: pointer;
+}
+.tagDeleteIcon:hover {
+	color:#fff;
+}

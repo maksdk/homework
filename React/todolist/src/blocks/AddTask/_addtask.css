@@ -1,0 +1,228 @@
+.addTask {
+    align-items: center;
+    position: relative;
+    display: inline-flex;
+    min-width: 320px;
+    background-color: rgba(136,117,117, 0.26);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-bottom: 20px;
+}
+.addTask__inputData {
+    position: relative;
+}
+.addTask__inputData--msgError {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    font-size: 14px;
+    padding: 5px;
+    background-color: #ff0000de;
+    border-radius: 5px;
+    color:#8e1212;
+    opacity: 1;
+    animation-name: addError;
+    animation-duration: .5s;
+    white-space: nowrap;
+   text-overflow: ellipsis;
+   color: #444445;
+}
+.addTask__inputData--msgError:after  {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left:15px;
+    border: 8px solid transparent;
+    border-bottom: 10px solid #ff0000de;
+}
+@keyframes addError {
+
+   from {
+      left: -154px;
+      opacity: 0;
+   }
+   to {
+    left: 0;
+    opacity: 1;
+   }
+}
+
+.addTask__inputData--field{
+    border: none;
+    background-color: transparent;
+    color: #444445;
+    outline: none;
+    padding-left: 5px;
+    height: 30px;
+    min-width: 230px;
+}
+.addTask--icons {
+    display: flex;
+    position: relative;
+}
+
+.addTask--tag {
+    color: #666666a8;
+    font-size: 12px;
+    display: flex;
+    vertical-align: top;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 3px;
+    border-radius: 3px;
+    background-color: #d56e004f;
+    margin-right: 5px;  
+}
+.addTask--saveTask, 
+.addTask--selectPriority, 
+.addTask--selectList, 
+.addTask--selectDate {
+    background-color: transparent;
+    border: none;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 7px;
+    padding-left: 7px;
+    color: #887575;
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+}
+.addTask--saveTask{
+    margin-right: 20px;
+}
+
+.addTask--saveTask:hover, 
+.addTask--selectPriority:hover, 
+.addTask--selectList:hover, 
+.addTask--selectDate:hover {
+   color: #fff;
+}
+.addTask--selectDate:before, 
+.addTask--selectPriority:before, 
+.addTask--selectList:before,
+.addTask--saveTask:before {
+    content: '';
+    height: 20px;
+    width: 1px;
+    background-color: #887575;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+ 
+.addTask--dropdownCalendar {
+    position: absolute;
+    background-color: #eee;
+    border-radius: 5px;
+    top: 37px;
+    left: -75px;
+    min-height: 200px;
+    z-index: 100;
+}
+.addTask--dropdownCalendar:after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 84px;
+    border: 8px solid transparent;
+    border-bottom: 10px solid #eee;
+}
+
+.addTask__lists{
+    position: absolute;
+    top: 35px;
+    background-color: #eee;
+    color: #444445bd;
+    padding: 10px;
+    right: -34px;
+    border-radius: 3px;
+    z-index: 100;
+}
+.addTask__lists--body {
+    padding: 2px;
+    display: flex;
+   padding-left: 6px;
+   cursor: pointer;
+}
+.addTask__lists--body:hover {
+    background-color: #aaa9c74a;
+   border-radius: 4px;
+}
+.addTask__lists--iconList{
+    display: flex;
+   color: #887575;
+}
+.addTask__lists--titleList{
+    display: flex;
+   padding-left: 7px;
+   color: #444445bd;
+   cursor: pointer;
+}
+.addTask__lists:after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    right: 70px;
+    border: 8px solid transparent;
+    border-bottom: 10px solid #eee;
+}
+
+.addTask--dropdownPriority {
+    position: absolute;
+    top: 37px;
+    padding: 10px 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    left: -22px;
+    z-index: 100;
+}
+.addTask--dropdownPriority:after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 59px;
+    border: 8px solid transparent;
+    border-bottom: 10px solid #eee;
+}
+.addTask--dropdownPriority__red, 
+.addTask--dropdownPriority__orange, 
+.addTask--dropdownPriority__blue,
+.addTask--dropdownPriority__grey {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: 1px solid #b2b2b226;
+    margin-right: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.addTask--dropdownPriority__red:hover, 
+.addTask--dropdownPriority__orange:hover, 
+.addTask--dropdownPriority__blue:hover,
+.addTask--dropdownPriority__grey:hover{
+    background-color: #d56e0017;
+}
+.addTask--dropdownPriority__red {
+    color: red;       
+}
+.addTask--dropdownPriority__orange {
+    color: orange; 
+}
+.addTask--dropdownPriority__blue {
+    color: blue; 
+}  
+.addTask--dropdownPriority__grey {
+   color: grey;
+}  
+.colorOpenIcons {
+    color: #FFF;
+}

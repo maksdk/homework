@@ -84,8 +84,6 @@ export const getValueAllTasks = (selectedList, allLists) => dispatch => (
 		}
 	})
 );
-
-
 export const dragEnterTask = (
 	idEnterTask,
 	idStartTask, 

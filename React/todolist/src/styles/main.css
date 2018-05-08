@@ -13,7 +13,7 @@
 	background-color: #e3d7bfe0;
 }
 .content {
-	background-image: url('../CenterContent/img/bg-content.png');
+	background-image: url('../static/img/bg-content.png');
 	background-size: cover;
 	width: 100%;
 	position: relative;
@@ -109,14 +109,7 @@
 	display: flex;
 }
 
-/*TAG*/
-.tagDeleteIcon {
-	padding-left: 3px;
-    cursor: pointer;
-}
-.tagDeleteIcon:hover {
-	color:#fff;
-}
+
 
 .red {
     color: #ff0000bf;

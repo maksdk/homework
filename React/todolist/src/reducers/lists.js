@@ -2,7 +2,11 @@ import {
 	find as _find, 
 	findIndex as _findIndex 
 } from 'lodash';
-import { ALL__TASKS, INBOX__TASKS } from '../constants/index.js';
+import { 
+	ALL__TASKS, 
+	INBOX__TASKS,
+	CLASS__DRAGGING__OPACITY 
+} from '../constants/index.js';
 import { 
 	ADD__TASK, 
 	DELETE__TASK, 
@@ -131,7 +135,6 @@ export default ( state = initialState , action )  => {
 
 
 	else if (action.type === DRAG__START__TASK) {
-		//console.log("DRAG__ENTER__TASK__LEFT");
 		let  {id, activeList}   = action.payload;
 		
 		let findList = _find(state, {list: activeList});
@@ -140,7 +143,7 @@ export default ( state = initialState , action )  => {
 		
 		let childrenStart = findAllChildren(indexStart, allTasks);
 		for (let i = indexStart + 1; i <= indexStart + childrenStart; i++) {
-			allTasks[i].draggingOpacity = 'classDraggingOpacity';
+			allTasks[i].draggingOpacity = CLASS__DRAGGING__OPACITY;
 		}
 		
 		return [...state];
@@ -160,7 +163,6 @@ export default ( state = initialState , action )  => {
 	} 
 
 	else if (action.type === DRAG__ENTER__TASK) {
-		////console.log("DRAG__ENTER__TASK");
 		let { idEnterTask, idStartTask, activeList } = action.payload;
 		
 		let findList = _find(state, {list: activeList});
@@ -194,9 +196,6 @@ export default ( state = initialState , action )  => {
 		}
 
 		let indexNewParent = findIndexParent(newIndex, allTasks);
-		//console.log("parent");
-		//console.log(indexNewParent);
-		//console.log(indexOldParent);
 		if (indexNewParent >= 0) {
 			setDepthLines (indexNewParent, allTasks);
 		} else {
@@ -208,7 +207,6 @@ export default ( state = initialState , action )  => {
 	} 
 
 	else if (action.type === DRAG__ENTER__TASK__RIGHT) {
-		//console.log("DRAG__ENTER__TASK__RIGHT");
 		let { indexStart, activeList } = action.payload;
 		let findList = _find(state, {list: activeList});
 		let allTasks = findList.tasks;
@@ -221,15 +219,11 @@ export default ( state = initialState , action )  => {
 		}
 		allTasks[indexStart].lastTask = true;
 		let indexNewParent = findIndexParent(indexStart, allTasks);
-		//console.log("parent");
-		//console.log(indexNewParent);
-		//console.log(indexOldParent);
 		if (indexOldParent >= 0) setDepthLines (indexOldParent, allTasks);
 		if (indexNewParent >= 0) setDepthLines (indexNewParent, allTasks);
 		setDepthLines (indexStart, allTasks);
 		return [...state];
 	} else if ( action.type === DRAG__ENTER__TASK__LEFT ) {
-		//console.log("DRAG__ENTER__TASK__LEFT");
 		let { idStartTask, activeList } = action.payload;
 		
 		let findList = _find(state, {list: activeList});
@@ -255,9 +249,6 @@ export default ( state = initialState , action )  => {
 		}
 		
 		let indexNewParent = findIndexParent(newIndex, allTasks);
-		//console.log("parent");
-		//console.log(indexNewParent);
-		//console.log(indexOldParent);
 		if (indexNewParent >= 0) {
 			setDepthLines (indexNewParent, allTasks);
 		} else {
@@ -267,7 +258,6 @@ export default ( state = initialState , action )  => {
 		setDepthLines (newIndex, allTasks);
 		return [...state];
 	}
-	  
 	return [...state];
 }
 
@@ -277,9 +267,6 @@ export default ( state = initialState , action )  => {
 function setDepthLines (indexParent, allTasks) {
 	if(indexParent === undefined) return;
 	let indexLastChild = findIndexLastChild(indexParent, allTasks);
-	//console.log("setDepthLines");
-		//console.log(indexParent);
-		//console.log(indexLastChild);
 	if (indexLastChild === false) {
 		delete allTasks[indexParent].parent;
 		return;
@@ -288,11 +275,6 @@ function setDepthLines (indexParent, allTasks) {
 	let parentDepth = allTasks[indexParent].depth.length;
 	for (let i = indexParent + 1; i < allTasks.length; i++) {
 		let currentDepth = allTasks[i].depth.length;
-		// console.log("setDepthLines");
-		// console.log(parentDepth >= currentDepth);
-		// console.log(currentDepth - parentDepth === 1);
-		// console.log( i < indexLastChild && currentDepth - parentDepth > 1);
-		// console.log( i > indexLastChild && currentDepth - parentDepth > 1);
 		if (parentDepth >= currentDepth) {
 			break;
 		}
@@ -314,8 +296,6 @@ function setDepthLines (indexParent, allTasks) {
 }
 
 function findIndexLastChild(indexParent, allTasks) {
-	//console.log("findIndexLastChild");
-		//console.log(indexParent);
 	let parentDepth = allTasks[indexParent].depth.length,
 	    lastChildDepth = parentDepth + 1,
 	    indexLastChild = false;
@@ -329,8 +309,6 @@ function findIndexLastChild(indexParent, allTasks) {
 	return indexLastChild;
 }
 function findAllChildren(indexParent, state) {
-	//console.log("findAllChildren");
-		//console.log(indexParent);
 	let parentDepth = state[indexParent].depth.length;
 	let children = 0;
 	for (let i = indexParent + 1; i < state.length; i++) {
@@ -343,8 +321,6 @@ function findAllChildren(indexParent, state) {
 }
 
 function findIndexParent (indexChild, allTasks) {
-	//console.log("findIndexParent");
-		//console.log(indexChild);
 	let parentDepth = allTasks[indexChild].depth.length - 1,
 	    indexParent = undefined;
 	for (let i = indexChild - 1; i >= 0; i--) {

@@ -1,9 +1,11 @@
 export const ALL__TASKS = 'Все задачи';
 export const INBOX__TASKS = 'Входящие';
+export const CLASS__DRAGGING__OPACITY = 'classDraggingOpacity';
 export const CLASS__DRAGGING__ELEM = 'classDraggingElem';
 export const CLASS__DRAGGING__DARK__BACK = 'classDraggingDarkBack';
 export const SHOW__TOGGLE = 'showToggle';
 export const ERROR__SAME__TITLE__LIST = "Проект с таким именем уже есть";
+export const ERROR__EMPTY__FIELD = "Вы не ввели имя задачи";
 export const COLOR__LIST = [ 
 	'#0079BF', '#D29034', 
     '#519839', '#B04632', 

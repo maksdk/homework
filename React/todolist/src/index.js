@@ -5,9 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import {composeWithDevTools} from "redux-devtools-extension"
 import thunk from "redux-thunk"
 
-import TodoList from './TodoList.js';
+import App from './App.js';
 import reducers from './reducers/index.js';
-import './styles/index.css';
+import './index.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 const store = createStore(
@@ -18,7 +18,7 @@ const store = createStore(
 let todolist = document.getElementById('todolist');
 ReactDOM.render(
   <Provider store={store}>
-    <TodoList todolist={todolist} />
+    <App todolist={todolist} />
   </Provider>,
  	todolist
 );
