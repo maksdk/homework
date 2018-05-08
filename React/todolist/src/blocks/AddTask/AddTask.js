@@ -23,9 +23,9 @@ class AddTask extends Component{
 		this.state = {
 			month:moment(),
 			openBlock: null,
-			selectedDate: undefined,
-			selectedList: undefined,
-			selectedPriority: undefined,
+			selectedDate: '',
+			selectedList: '',
+			selectedPriority: '',
 			error: null
 		}
 
@@ -51,7 +51,7 @@ class AddTask extends Component{
 		})
 	}
 	selectPriority(color, childrenPriority) {
-		this.childrenPriority = childrenPriority;
+		//this.childrenPriority = childrenPriority;
 		this.setState({
 			openBlock: null,
 			selectedPriority: {
@@ -67,6 +67,7 @@ class AddTask extends Component{
 		})
 	}
 	selectList(list, color) {
+		console.log(list);
 		this.setState({
 			openBlock: null,
 			selectedList: {
@@ -89,40 +90,30 @@ class AddTask extends Component{
 		}
 		let { addTask, activeList, activeDate, saveDueDate } = this.props;
 		let { selectedDate, selectedPriority, selectedList } = this.state;
-		
-		let dueDate = selectedDate ? selectedDate : activeDate;
-		let list = selectedList ? selectedList.list : activeList.list;
-		let text = this.textInput.textInput.value;
-
+		const TASK = {
+			dueDate: selectedDate || 'Без срока',
+			list: selectedList.list || activeList.list,
+			colorList: selectedList.color || activeList.color,
+			text: this.textInput.textInput.value,
+			priority: selectedPriority,
+			depth: [],
+			creationTime: moment().format('DD.MM.YYYY HH:mm:ss'),
+			id: moment().format('x'),
+			children: 0,
+			draggingOpacity: '',
+			hiddenSubtasks: [],
+		};
+		addTask(TASK);
+		if (selectedDate) saveDueDate(selectedDate);
 		this.textInput.textInput.value = '';
 		this.textInput.textInput.focus();
-
 		this.setState({
-			selectedDate: undefined,
-			selectedList: undefined,
-			selectedPriority: undefined,
+			selectedDate: '',
+			selectedList: '',
+			selectedPriority: '',
 			openBlock: null,
 			error: null
-		})
-		
-		if (list === ALL__TASKS) {
-			list = INBOX__TASKS;
-		}
-		
-		let colorList = 
-			selectedList 
-			? selectedList.color 
-			: activeList.color;
-		console.log(list);
-		addTask(
-			text,
-			dueDate,
-			list,
-			selectedPriority,
-			colorList
-		);
-		if (!dueDate) return;
-		saveDueDate(dueDate);
+		});
 	}
 	componentDidMount() {
 		this.textInput.textInput.focus();
@@ -204,9 +195,9 @@ class AddTask extends Component{
 						classNameIcon="fa fa-times"
 						className='addTask--tag'
 						styleChildren={{
-							color: selectedPriority
+							color: selectedPriority.color
 						}}
-						children={this.childrenPriority }
+						children={selectedPriority.child }
 						onclick={() => this.deleteTag('selectedPriority')}
 				/>}
 				{selectedList && 
@@ -226,9 +217,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	addTask: (text, dueDate, list, priority, colorList) => {
+	addTask: task => {
 	
-		dispatch(addTask(text, dueDate, list, priority, colorList));
+		dispatch(addTask(task));
 	},
 	saveDueDate: dueDate => {
 		dispatch(saveDueDate(dueDate))

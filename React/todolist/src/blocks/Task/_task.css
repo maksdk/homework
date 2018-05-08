@@ -118,7 +118,9 @@
     text-overflow: ellipsis;
     height: 100%;
 }
-
+.task__body--text--inlineBlock {
+    display: inline-block;
+}
 
 .task__body--priority {
     width: 32px;
@@ -202,7 +204,7 @@
 .doneTaskText:after {
     content: '';
     height: 1px;
-    background-color: #50792f;
+    background-color: green;
     position: absolute;
     width: 100%;
     top: 50%;

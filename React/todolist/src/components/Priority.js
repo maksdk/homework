@@ -18,10 +18,12 @@ export default ({className, onclick}) => (
 			onclick={() => onclick('blue', '!')}
 			children='!'
 		/>
-		<Button
-			className={`${className}__grey`}
-			onclick={() => onclick('grey', '!')}
-			children='!'
-		/>
+		{
+			// <Button
+			// 	className={`${className}__grey`}
+			// 	onclick={() => onclick('grey', '!')}
+			// 	children='!'
+			// />
+		}
 	</div>
 );

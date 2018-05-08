@@ -75,13 +75,13 @@ class Task extends Component {
    	})
    }
 
-   onClickCheckbox (task, e) {
-   	let { doneTask } = this.props;
-   	doneTask(task);
-   }
+   onClickCheckbox (index) {
+	   	let { doneTask, task } = this.props;
+	   	doneTask(task, index);
+    }
 
     dragStart(e){
-		let { renderCursorImg, task, dragStartTask, activeList} = this.props;
+		let { renderCursorImg, task, dragStartTask, activeList, lists} = this.props;
 		let { priority, list, dueDate, text, id, colorList } = task;
 		
 		let cursorImg = {
@@ -92,8 +92,7 @@ class Task extends Component {
 			id: id,
 			colorList: colorList
 		}
-		
-		dragStartTask( id, activeList.list);
+		dragStartTask( id, activeList.list, lists);
 		renderCursorImg(cursorImg, activeList);
 		
 		this.taskStart = this.getTask(e.target);
@@ -151,13 +150,13 @@ class Task extends Component {
 		this.taskStart.classList.remove(CLASS__DRAGGING__ELEM);
 		this.taskStartParent.classList.remove(CLASS__DRAGGING__DARK__BACK);
 	}
-	dropDownSubTask(e){
-		let {dropDownSubtask, task, activeList} = this.props;
-		dropDownSubtask(task.id, activeList.list);
+	dropDownSubTask(index){
+		let {dropDownSubtask, task} = this.props;
+		dropDownSubtask(task, index);
 	}
-	removeTask(e) {
-		let { deleteTask, task,  allLists } = this.props;
-		deleteTask(task.id, allLists);
+	removeTask(index) {
+		let { deleteTask, task } = this.props;
+		deleteTask(index, task);
 	}
 	getTask(elem) {
 		return elem.parentNode.parentNode;
@@ -178,7 +177,8 @@ class Task extends Component {
 			task, 
 			classNameCursorImg = '',
 			activeList,
-			activeDate
+			activeDate,
+			index
 		} = this.props;
 		let { 
 			text,
@@ -195,10 +195,6 @@ class Task extends Component {
 			colorList
 		} = task;
 		let { hoverCheckbox } = this.state;
-		
-		//console.log('====RENDER TASK====');
-		//console.log(this.props);
-		
 		return (
 			<div className={`task__wrapper ${classNameCursorImg} ${draggingOpacity}`}>
 				{depth &&
@@ -233,12 +229,12 @@ class Task extends Component {
 								/>
 								<DropDownSubtask
 									className={`task__body--dropdownSubtask ${parent || hiddenSubtasks.length ? SHOW__TOGGLE : ''}`}
-									onclick={this.dropDownSubTask}
+									onclick={() => this.dropDownSubTask(index)}
 								/>
 							</div>
 							<Checkbox
 								className='task__body--checkbox'
-								onclick={() => this.onClickCheckbox(task)}
+								onclick={() => this.onClickCheckbox(index)}
 								hover={hoverCheckbox}
 								checked={done}
 								onDragEnter={this.dragEnterRight}
@@ -246,6 +242,7 @@ class Task extends Component {
 	           					onMouseLeave={this.hoverOffCheckbox}
 							/>
 							<TaskText
+								className={done ? 'doneTaskText' : ''}
 								dragEnter={this.dragEnterRight}
 								text={text}
 							/>
@@ -259,7 +256,6 @@ class Task extends Component {
 								<Button
 									className='task__body--list'
 									onclick={() => this.setDataTask('list')}
-									//onclick={this.dontDo}
 									children={
 										<Tag
 											classNameIcon="fa fa-list-alt"
@@ -278,7 +274,7 @@ class Task extends Component {
 									children={
 										<Tag
 											classNameIcon="fa fa-calendar"
-											children={dueDate}
+											children={done ? 'Сделано' : dueDate}
 											className='task__body--calendar--tag'
 										/>
 									}
@@ -294,7 +290,7 @@ class Task extends Component {
 							/>
 							<Button 
 								className='task__body--delete'
-								onclick={this.removeTask}
+								onclick={() => this.removeTask(index)}
 								classNameIcon="fa fa-times"
 								title='Удалить задачу'
 							/>
@@ -310,8 +306,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	doneTask: task => {
-		dispatch(doneTask(task))
+	doneTask: (task, index) => {
+		dispatch(doneTask(task, index))
 	},
 	dragEnterTask:(idEnterTask, idStartTask, activeList ) => {
 		dispatch(dragEnterTask(idEnterTask, idStartTask, activeList ))
@@ -328,11 +324,11 @@ const mapDispatchToProps = dispatch => ({
 	dragEndTask: ( id, activeList) => {
 		dispatch(dragEndTask( id, activeList))
 	},
-	deleteTask: (id, allLists) => {
-		dispatch(deleteTask(id, allLists))
+	deleteTask: (index, task) => {
+		dispatch(deleteTask(index, task))
 	},
-	dropDownSubtask: (id, activeList) => {
-		dispatch(dropDownSubtask(id, activeList))
+	dropDownSubtask: (task, index) => {
+		dispatch(dropDownSubtask(task, index))
 	},
 	findTaskByDate: date => {
 		dispatch(findTaskByDate(date))

@@ -6,8 +6,9 @@ export default ({
 	className = ''
 }) => (
 	<span 
-		className={`task__body--text ${className}`}
+		className={`task__body--text `}
 		onDragEnter={dragEnter}
-		children={text}
-	/>
+	> 
+		<span className ={`${className}`}>{text}</span>
+	</span>
 );

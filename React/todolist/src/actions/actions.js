@@ -16,55 +16,36 @@ export const SAVE__DUE__DATE = 'SAVE__DUE__DATE';
 export const GET__VALUE__ALL__TASKS = 'GET__VALUE__ALL__TASKS';
 export const FIND__TASK__BY__DATE = 'FIND__TASK__BY__DATE';
 
-export const addTask = (
-	text,
-	dueDate = 'Без срока', 
-	list = 'Входящие',
-	priority = {color:'grey', child: '!'},
-	colorList
-) => dispatch =>{
+export const addTask = task => dispatch => (
 	dispatch({
 		type: ADD__TASK,
-		payload:{
-			list: list,
-			downshift: text,
-			tasks: [{
-				depth:[],
-				list: list,
-				dueDate: dueDate,
-				text: text,
-				priority: priority,
-				creationTime: moment().format('DD.MM.YYYY HH:mm:ss'),
-				id: moment().format('x'),
-				children: 0,
-				draggingOpacity: '',
-				hiddenSubtasks: [],
-				colorList: colorList
-			}]
-		}
+		payload: task
 	})
-}
-export const deleteTask = (id, allLists) => dispatch => (
+);
+export const deleteTask = (index, task) => dispatch => (
 	dispatch({
 		type: DELETE__TASK,
 		payload: {
-			allLists: allLists,
-			id: id
+			index: index,
+			task: task
 		}
 	})
 );	
-export const doneTask = id => dispatch => (
+export const doneTask = (task, index) => dispatch => (
 	dispatch({
 		type: DONE__TASK,
-		payload: id
+		payload: {
+			task: task, 
+			index: index
+		}
 	})
 );
-export const dropDownSubtask = (id, activeList) => dispatch => (
+export const dropDownSubtask = (task, index) => dispatch => (
 	dispatch({
 		type: DROP__DOWN__SUBTASK,
 		payload: {
-			id: id,
-			activeList: activeList
+			task: task,
+			index: index
 		}
 	})
 );
@@ -122,12 +103,13 @@ export const dragEnterTaskLeft = (
 		}
 	})
 }
-export const dragStartTask = (id, activeList) => dispatch => (
+export const dragStartTask = (id, activeList, lists) => dispatch => (
 	dispatch({
 		type: DRAG__START__TASK,
 		payload: {
 			id: id,
-			activeList: activeList
+			activeList: activeList,
+			lists: lists
 		}
 	})
 );

@@ -31,7 +31,7 @@ class TodoList extends Component {
 				color: '#887575'
 			},
 			allLists:[
-				{list:ALL__TASKS, color:'#887575'},
+				//{list:ALL__TASKS, color:'#887575'},
 				{list:INBOX__TASKS, color:'#887575'}
 			],
 			month: moment(),
@@ -46,8 +46,6 @@ class TodoList extends Component {
 		this.renderCursorImg = this.renderCursorImg.bind(this);
 		this.removeCursorImg = this.removeCursorImg.bind(this);
 		this.selectDay = this.selectDay.bind(this);
-		//this.quickSearchTask = this.quickSearchTask.bind(this);
-		
 	}
 	selectDay(date) {
 		let { lists, findTaskByDate} = this.props;
@@ -63,9 +61,7 @@ class TodoList extends Component {
 		addNewListInStore(list.list);
 		this.setState({
 			allLists: [...allLists, list]
-		})
-		
-		
+		})	
 	}
 	selectList(list, color) {
 		let { activeList} = this.state;
@@ -78,9 +74,6 @@ class TodoList extends Component {
 			}
 		})
 	}
-	// quickSearchTask(task) {
-	
-	// }
 	renderCursorImg(task, activeList) {
 		this.setState({
 			cursorImg: {
@@ -130,6 +123,7 @@ class TodoList extends Component {
 		if (cursorImg) {
 			this.body = document.body;
 		}
+		
 		return (
 			<Fragment>
 				<div className='leftside'>
@@ -157,6 +151,7 @@ class TodoList extends Component {
 						/>
 					</div>
 					<div className='listTasks'>
+
 						<AddTask
 							activeList={activeList}
 							activeDate={activeDate}
@@ -165,6 +160,7 @@ class TodoList extends Component {
 						{currentList && 
 							currentList.map( (task, index) => (
 									<Task
+										index={index}
 										draggingTask={draggingTask}
 										key={task.id}
 										task={task}
