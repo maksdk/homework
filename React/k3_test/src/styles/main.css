@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.calendar {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 734px;
+}
+.calendar__header {
+    display: flex;
+    padding-left: 42px;
+}
+.calendar__header__allDay {
+    width: 41px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+.calendar__header__time {
+    position: relative;
+    width: 81px;
+    display: flex;
+    align-items: center;
+}
+.calendar__header__time:before {
+    content: "";
+    height: 15px;
+    width: 2px;
+    background-color: #ccc;
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+}
+.calendar__row {
+    display: flex;
+    border: 2px solid #ccc;
+}
+.calendar__row__nameDay {
+    border-right: 2px solid #ccc;
+    width: 40px;
+    background-color: #fff;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calendar__row__day--hour {
+    display: inline-flex;
+    padding: 10px;
+    width: 5px;
+    border-right: 2px solid #ccc;
+    height: 30px;
+}
+.calendar__row__day--hour:last-child {
+    border-right: none;
+}
+.calendar__row__checkbox {
+    border-right: 2px solid #ccc;
+    width: 40px;
+    background-color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calendar__buttons {
+    padding-top: 25px;
+    display: flex;
+}
+.calendar__buttons--clearWeek {
+    margin-left: auto;
+    margin-right: 20px;
+}
+.calendar__pre {
+    white-space: pre;
+    display: inline-block;
+    border: 2px solid #aaaaaa;
+    width: 126px;
+    padding: 29px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.onHoverOur:hover {
+    background-color: #233e67;
+}
+.selectedTime {
+    background-color: #83a0a6c9;
+}

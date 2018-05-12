@@ -1,0 +1,27 @@
+
+.checkbox__wrap {
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    position: relative;
+}
+.checkbox__wrap__input {
+    position: absolute;
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    left: -2px;
+    top: -2px;
+}
+.checkbox__wrap__input:checked + label:after {
+    content: "✔";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    font-size: 24px;
+    left: 4px;
+    bottom: 16px;
+    pointer-events: none;
+}
