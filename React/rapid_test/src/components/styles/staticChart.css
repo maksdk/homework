@@ -1,0 +1,33 @@
+.staticChart {
+	color: #fff;
+	text-align: center;
+	border: 2px solid #51586ad9;
+	border-radius: 3px;
+    margin-bottom: 25px;
+}
+.staticChart__header {
+	display: flex;
+	padding: 20px;
+    background-color: #51586A;  
+}
+.staticChart__title {
+	padding-top: 10px;
+    background-color: #51586A;
+}
+.staticChart__select__coin,
+.staticChart__select__fiat,
+.staticChart__header__period {
+	color: #fff;
+	width: 100%;
+	height: 30px;
+	margin-right: 10px;
+	background-color: #83a0a6a8;
+     border: none;
+    border-radius: 3px;
+}
+.staticChart__header__period {
+	margin-right: 0;
+}
+.staticChart__select:first-letter {
+	text-transform: uppercase;
+}

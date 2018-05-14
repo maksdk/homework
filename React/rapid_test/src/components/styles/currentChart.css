@@ -1,0 +1,11 @@
+.currentChart {
+	color: #fff;
+	text-align: center;
+	border: 2px solid #51586ad9;
+	border-radius: 3px;
+    margin-bottom: 25px;
+}
+.currentChart__title {
+	padding: 20px;
+    background-color: #51586A;
+}

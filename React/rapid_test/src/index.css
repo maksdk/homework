@@ -1,0 +1,9 @@
+body {
+	background-color: #edf4f6;
+}
+h3 {
+	margin: 0;
+}
+input, select, option {
+	outline: none;
+}
