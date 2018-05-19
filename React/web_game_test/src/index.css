@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.matrix {
+	display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 450px;
+  height: 525px;
+  margin: auto;
+  border: 1px solid #44444445;
+}
+.matrix__cell {
+  box-sizing: border-box;
+  display: inline-block;
+	width: 75px;
+	height: 75px;
+  border:2px solid #44444445;
+  background-color: #f8f8f8;
+  outline: none;
+}
+.matrix__cell:hover {
+  border:2px solid red;
+}
+.spade, .heart, .club, .diamond {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.spade{
+  background-image: url(static/img/spade.png);
+}
+.heart{
+  background-image: url(static/img/heart.png);
+}
+.club{
+  background-image: url(static/img/club.png);
+}
+.diamond{
+  background-image: url(static/img/diamond.png);
+}
+.activeCell {
+  background-color: #9fc2c975;
+  background-image:none
+}
+
