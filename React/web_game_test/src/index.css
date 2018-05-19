@@ -47,7 +47,6 @@ body {
   background-image: url(static/img/diamond.png);
 }
 .activeCell {
-  background-color: #9fc2c975;
   background-image:none
 }
 
