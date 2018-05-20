@@ -38,8 +38,8 @@ class App extends Component {
       }  
    }
    resetSelectedCell(matrix) {
-      matrix.map( row => (
-         row.map( cell => (
+      matrix.forEach( row => (
+         row.forEach( cell => (
             cell.isSelected = false
          ))
       ))
