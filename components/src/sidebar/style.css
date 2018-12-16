@@ -1,0 +1,34 @@
+.sidebar{
+	position: fixed;
+    background: #999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.sidebar_left{
+	position: fixed;
+	width: 300px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    bottom: 0;
+    padding: 10px;
+    transition: 0.5s;
+    transform: translateX(-100%);
+}
+.sidebar_left_visible{
+	transform: translateX(0);
+}
+.sidebar_closeBtn{
+	position: absolute;
+    top: 0;
+    right: -35px;
+    padding: 10px;
+    background: #eee;
+    cursor: pointer;
+}
+.sidebar_item{
+	padding: 20px;
+}
